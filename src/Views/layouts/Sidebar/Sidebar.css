@@ -1,0 +1,77 @@
+.navSidebar {
+    width: 350px;
+    z-index: 4;
+    background-color: #000;
+}
+
+.navMain {
+    padding-top: 24px;
+    user-select: none;
+}
+
+.logo a {
+    margin-bottom: 18px;
+    padding: 0 24px;
+}
+
+.navDashboard li a span {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: #A7A7A7;
+}
+
+.navDashboard li a {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 16px;
+    height: 40px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navList {
+    margin-top: 24px;
+}
+
+.navListContainer div button {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 16px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+}
+
+.navCookie {
+    max-width: 32px 0;
+    padding: 0 24px;
+    text-align: start;
+}
+
+.navCookie a {
+    color: #b3b3b3;
+    padding-right: 16px;
+}
+
+
+.navBottom {
+    margin-bottom: 32px;
+    padding: 0 24px;
+}
+
+.navLanguage button {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 500px;
+    border: 1px solid #727272;
+    color: #fff;
+    padding: 3px 15px 3px 32px;
+}

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&family=Roboto:wght@300;400;700&display=swap');
 
 :root {
     --primary-color-base: #1ed760;
@@ -13,13 +14,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Roboto', sans-serif;
 }
 
 html {
     font-size: 62.5%;
     line-height: 1.6rem;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
 }
 
@@ -28,8 +30,20 @@ body {
 }
 
 p {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-size: 15px;
     color: #A7A7A7;
+}
+
+ul {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
 }
