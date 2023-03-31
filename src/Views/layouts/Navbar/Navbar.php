@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../../css/Global.css">
     <title>Document</title>
 </head>
-<body>
+<body> -->
     <nav class="navbarLayout">
         <div>
             <header class="navbarHeader">
@@ -45,5 +45,5 @@
             </header>
         </div>
     </nav>
-</body>
-</html>
+<!-- </body>
+</html> -->

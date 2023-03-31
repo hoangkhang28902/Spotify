@@ -1,47 +1,47 @@
-const buildPalette = (colorsList) => {
-	const paletteContainer = document.getElementById("palette");
-	const complementaryContainer = document.getElementById("complementary");
-	// reset the HTML in case you load various images
-	paletteContainer.innerHTML = "";
-	complementaryContainer.innerHTML = "";
+// const buildPalette = (colorsList) => {
+// 	// const paletteContainer = document.getElementById("palette");
+// 	// const complementaryContainer = document.getElementById("complementary");
+// 	// reset the HTML in case you load various images
+// 	// paletteContainer.innerHTML = "";
+// 	// complementaryContainer.innerHTML = "";
   
-	const orderedByColor = orderByLuminance(colorsList);
-	const hslColors = convertRGBtoHSL(orderedByColor);
+// 	const orderedByColor = orderByLuminance(colorsList);
+// 	const hslColors = convertRGBtoHSL(orderedByColor);
   
-	for (let i = 0; i < orderedByColor.length; i++) {
-	  const hexColor = rgbToHex(orderedByColor[i]);
+// 	for (let i = 0; i < orderedByColor.length; i++) {
+// 	  const hexColor = rgbToHex(orderedByColor[i]);
   
-	  const hexColorComplementary = hslToHex(hslColors[i]);
+// 	  const hexColorComplementary = hslToHex(hslColors[i]);
   
-	  if (i > 0) {
-		const difference = calculateColorDifference(
-		  orderedByColor[i],
-		  orderedByColor[i - 1]
-		);
+// 	  if (i > 0) {
+// 		const difference = calculateColorDifference(
+// 		  orderedByColor[i],
+// 		  orderedByColor[i - 1]
+// 		);
   
-		// if the distance is less than 120 we ommit that color
-		if (difference < 120) {
-		  continue;
-		}
-	  }
+// 		// if the distance is less than 120 we ommit that color
+// 		if (difference < 120) {
+// 		  continue;
+// 		}
+// 	  }
   
-	  // create the div and text elements for both colors & append it to the document
-	  const colorElement = document.createElement("div");
-	  colorElement.style.backgroundColor = hexColor;
-	  colorElement.appendChild(document.createTextNode(hexColor));
-	  paletteContainer.appendChild(colorElement);
-	  // true when hsl color is not black/white/grey
-	  if (hslColors[i].h) {
-		const complementaryElement = document.createElement("div");
-		complementaryElement.style.backgroundColor = `hsl(${hslColors[i].h},${hslColors[i].s}%,${hslColors[i].l}%)`;
+// 	  // create the div and text elements for both colors & append it to the document
+// 	  const colorElement = document.createElement("div");
+// 	  colorElement.style.backgroundColor = hexColor;
+// 	  colorElement.appendChild(document.createTextNode(hexColor));
+// 	  paletteContainer.appendChild(colorElement);
+// 	  // true when hsl color is not black/white/grey
+// 	  if (hslColors[i].h) {
+// 		const complementaryElement = document.createElement("div");
+// 		complementaryElement.style.backgroundColor = `hsl(${hslColors[i].h},${hslColors[i].s}%,${hslColors[i].l}%)`;
   
-		complementaryElement.appendChild(
-		  document.createTextNode(hexColorComplementary)
-		);
-		complementaryContainer.appendChild(complementaryElement);
-	  }
-	}
-  };
+// 		complementaryElement.appendChild(
+// 		  document.createTextNode(hexColorComplementary)
+// 		);
+// 		complementaryContainer.appendChild(complementaryElement);
+// 	  }
+// 	}
+//   };
   
   //  Convert each pixel value ( number ) to hexadecimal ( string ) with base 16
   const rgbToHex = (pixel) => {
@@ -282,43 +282,30 @@ const buildPalette = (colorsList) => {
   };
   
   const main = () => {
-	const imgFile = document.getElementById("imgfile");
-	const image = new Image();
-	const file = imgFile.files[0];
-	const fileReader = new FileReader();
-  
-	// Whenever file & image is loaded procced to extract the information from the image
-	fileReader.onload = () => {
-	  image.onload = () => {
-		// Set the canvas size to be the same as of the uploaded image
+		const img = document.getElementById("thumbailImg")
 		const canvas = document.getElementById("canvas");
-		canvas.width = image.width;
-		canvas.height = image.height;
+		// img.crossOrigin = "Anonymous";
 		const ctx = canvas.getContext("2d");
-		ctx.drawImage(image, 0, 0);
-  
-		/**
-		 * getImageData returns an array full of RGBA values
-		 * each pixel consists of four values: the red value of the colour, the green, the blue and the alpha
-		 * (transparency). For array value consistency reasons,
-		 * the alpha is not from 0 to 1 like it is in the RGBA of CSS, but from 0 to 255.
-		 */
+		canvas.width = img.width;
+		canvas.height = img.height;
+		ctx.clearRect(0, 0, ctx.width, ctx.height);
+		ctx.drawImage(img, 0, 0, img.width , img.height);
+	
 		const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
   
 		// Convert the image data to RGB values so its much simpler
 		const rgbArray = buildRgb(imageData.data);
-  
+		console.log('rgbArray: ', rgbArray);
 		/**
 		 * Color quantization
 		 * A process that reduces the number of colors used in an image
 		 * while trying to visually maintin the original image as much as possible
 		 */
 		const quantColors = quantization(rgbArray, 0);
-  
-		// Create the HTML structure to show the color palette
-		buildPalette(quantColors);
-	  };
-	  image.src = fileReader.result;
-	};
-	fileReader.readAsDataURL(file);
+		console.log(quantColors);
+		const backgroundColor = document.getElementById("thumbailColor");
+		backgroundColor.style.backgroundColor = 'rgb(' + quantColors[13].r + ', '  + quantColors[13].g + ', ' + quantColors[13].b + ')';
+
   };
+
+main()
