@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #141414;
+}
+h1 {
+    color: #FFFFFF;
+    size: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 50px;
+    margin-left: 25px;
+}
+.container{
+
+}
+/* car newplay */
+.card-newplay {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    margin: 20px; 
+    max-width: 1500px;
+    }
+    .card-newplay > *{
+        margin: 10px;
+    }
+/* car showtest */
+.card-showtest {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; 
+    align-items: center;
+    margin: 20px; 
+    max-width: 1500px;
+    }
+    .card-showtest > *{
+        margin: 10px;
+    }
+/* class hãy thử cách khác */
+.haythucachkhac {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; 
+    align-items: center;
+    margin: 20px; 
+    max-width: 1500px;
+    }
+    .haythucachkhac > *{
+        margin: 10px;
+    }
+/* class bảng xếp hạng nối bật */
+.bangxephangnoibat {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; 
+    align-items: center;
+    margin: 20px; 
+    max-width: 1500px;
+    }    
+    .bangxephangnoibat > *{
+        margin: 10px;
+    }

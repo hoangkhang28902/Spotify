@@ -1,0 +1,219 @@
+/* Playing */
+
+input[type="range"] {
+    width: 100%;
+}
+
+.nowPlaying {
+    width: 100%;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+/* checked */
+#checkStop {
+    display: none;
+}
+
+input[type="checkbox"]:checked + label #checkPlaying {
+    display: none;
+}
+
+input[type="checkbox"]:checked + label #checkStop {
+    display: inline-block;
+}
+
+.nowPlayingBar {
+    background-color: #181818;
+    border-top: 1px solid #282828;
+    display: flex;
+    min-width: 620px;
+}
+
+.nowPlayingContainer {
+    height: 90px;
+    padding: 0 16px;
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.leftPlayingBar {
+    min-width: 180px;
+    width: 30%;
+}
+
+.leftPlayingContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.leftPlayingImage {
+    position: relative;
+}
+
+.leftPlayingImage a {
+    border: none;
+}
+
+.leftPlayingImage a img {
+    width: 56px;
+    height: 56px;
+}
+
+.nameSongAndArtist {
+    margin: 0 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+.nameSong {
+    font-weight: 600;
+    font-size: 1.125rem;
+}
+
+.nameArtist {
+    color: #b3b3b3;
+}
+
+.reactOfSong {
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    background-color: transparent;
+    border: none;
+}
+
+.nameSongAndArtist a {
+
+}
+
+.centerPlayingBar {
+    max-width: 722px;
+    width: 40%;
+}
+
+.centerPlayingContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.topCenterPlaying {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+    gap: 16px;
+}
+
+.playingControlLeft, .playingControlRight {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    gap: 8px;
+}
+
+.buttonNowPlaying {
+    display: flex;
+    justify-content: center;
+    height: 32px;
+    width: 32px;
+    align-items: center;
+    background: transparent;
+    border: none;
+    color: hsla(0,0%,100%,.7);
+}
+
+.buttonRun {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 32px;
+    border-radius: 32px;
+    background-color: #fff;
+}
+
+.fas {
+    color: black;
+}
+
+
+.buttonRun label {
+    display: flex;
+}
+
+.buttonRun:hover {
+    transform: scale(1.06);
+}
+
+.bottomCenterPlaying {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.startPlaying, .endPlaying {
+    color: #a7a7a7;
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+
+.progressBar {
+    /* display: flex;
+    height: 4px;
+    border-radius: 10px; */
+    width: 100%;
+    /* background-color: #ccc4; */
+}
+
+/* .progress{
+    position: relative;
+    height: 100%;
+    width: 30%;
+    border-radius: 10px;
+    background-color: #999;
+} */
+
+.progressBar:hover .progress{
+    background-color: #2d5;
+}
+.progressBar:hover .progress::after{
+    content: "";
+    position: absolute;
+    --size: 1em;
+    width: var(--size);
+    height: var(--size);
+    right: 0;
+    border-radius: 50%;
+    background-color: #ddd;
+    transform: translate(50%, calc(2px - 50%));
+}
+
+
+.rightPlayingBar {
+    display: flex;
+    justify-content: flex-end;
+    min-width: 180px;
+    width: 30%;
+}
+
+.rightPlayingContainer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.volumn {
+    display: flex;
+    flex: 1 1 250px;
+    align-items: center;
+    margin-right: 4px;
+    gap: 8px;
+}

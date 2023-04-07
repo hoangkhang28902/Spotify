@@ -19,8 +19,18 @@ audio.addEventListener("timeupdate", () => {
 //   });
 
 playBtn.addEventListener("click", () => {
-  audio.paused ? audio.play() : audio.pause();
+  // audio.paused ? audio.play() : audio.pause();
   // playBtn.textContent = audio.paused ? "▶️" : "⏸️";
+  console.log(playBtn.querySelector("i.fas"));
+  if (audio.paused) {
+    audio.play();
+    playBtn.querySelector("i.fas").classList.remove("fa-play");
+    playBtn.querySelector("i.fas").classList.add("fa-pause");
+  } else {
+    audio.pause();
+    playBtn.querySelector("i.fas").classList.add("fa-play");
+    playBtn.querySelector("i.fas").classList.remove("fa-pause");
+  }
 })
 
 progressEl.addEventListener("change", () => {
