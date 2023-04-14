@@ -6,12 +6,11 @@ $(document).on('click', 'a.nav-link', function(e) {
     history.pushState(null, '', pageURL);
     $.ajax({
         type: "GET",
-        url: "Home.php",
+        url: "page_content.php",
         data: { page: pageURL },
         dataType: "html",
         success: function(data) {
-            // $("#contentMainHome").html(data);
-            console.log(data);
+            $("#contentMainHome").html(data);
         }
     })
 })

@@ -155,7 +155,7 @@
                     </div>
 
                       <!-- ******************************       1 Hàng item của spotify  *****************************************-->
-                    <div class="Trending_abum" style="margin-left: 1.5em;margin-right: 1.5em;display: flex;">
+                    <div class="Trending_abum">
 
                    
                       <!-- ******************************       1 Item của spotify  *****************************************-->

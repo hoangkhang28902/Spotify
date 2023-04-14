@@ -6,6 +6,9 @@ input[type="range"] {
 
 .nowPlaying {
     width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
 }
 
 input[type="checkbox"] {

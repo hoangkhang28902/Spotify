@@ -9,7 +9,7 @@ class UserController extends Controller {
     {
         $user = $this->UserModel->getUsers();
 
-        $this->view('Admin/index', [
+        $this->view('page/User', [
             'user' => $user
         ]);
     }

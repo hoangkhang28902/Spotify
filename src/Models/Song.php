@@ -1,8 +1,8 @@
 <?php 
 
-require_once '../core/Database.php';
+require_once './src/core/Database.php';
 
-class User {
+class Song {
 
     private $db;
 
@@ -10,28 +10,23 @@ class User {
         $this->db = new Database();
     }
 
-    // Get All Users
-    public function getUsers()
+    // Get All Songs
+    public function getSongs()
     {
-        $sql = "SELECT * FROM User";
+        $sql = "SELECT * FROM Song";
         $result = $this->db->select($sql);
         return $result;
     }
 
-    // Get User By Id
+    // Get Song By Id
     public function getUserById($id)
     {
-        $sql = "SELECT * FROM User WHERE id = '$id'";
+        $sql = "SELECT * FROM Song WHERE id = '$id'";
         $result = $this->db->execute($sql);
     }
 
     // CRUD OPERATIONS
     public function create(array $data)
-    {
-
-    }
-
-    public function read(int $id)
     {
 
     }
@@ -45,10 +40,4 @@ class User {
     {
 
     }
-}
-
-$user = new User();
-$rs = $user->getUsers();
-foreach ($rs as $v) {
-    print $v['Username'];
 }

@@ -9,6 +9,7 @@
     <title>Document</title>
 </head>
 <body> -->
+    <?php if (empty($_GET['page'])) { ?>
     <nav class="navbarLayout">
         <div>
             <header class="navbarHeader">
@@ -34,16 +35,17 @@
                         <li><div class="lineNavbar"></div></li>
                     </ul>
                     <ul>
-                        <li>
-                            <div class="login">
-                                <button class="buttonNavbar buttonLogup">Log up</button>
-                                <div><button class="buttonLogin"><span>Login</span></button></div>
-                            </div>
-                        </li>
+                        <div class="login">
+                            <button class="buttonNavbar buttonLogup">Log up</button>
+                        </div>
+                        <div>
+                            <button class="buttonLogin"><span>Login</span></button>
+                        </div>
                     </ul>
                 </div>
             </header>
         </div>
     </nav>
+    <?php } ?>
 <!-- </body>
 </html> -->

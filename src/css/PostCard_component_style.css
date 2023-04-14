@@ -15,7 +15,6 @@ body
 }
 .home_container
 {
-    overflow-y: auto !important;
     background-color: #000 !important;
     width: 100% !important;
     /* width: 159.5em; */

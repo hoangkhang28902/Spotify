@@ -11,7 +11,6 @@ html
 }
 .home_container
 {
-    /* width: 159.5em; */
     width: 100%;
     height: 64em;
     margin: 0;
@@ -310,9 +309,18 @@ svg
 
 .Trending_abum
 {
-   
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    display: flex;
+    justify-content: space-evenly;
     width: 100%;
     height: 26em;
+}
+
+@media only screen and (max-width: 950px) {
+    .Trending_abum {
+        flex-wrap: wrap;
+    }
 }
 .Title_amblu__TopAmbum
 {

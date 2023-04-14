@@ -1,7 +1,7 @@
 <?php 
 
 class Route {
-    protected $controller = 'UserController';
+    protected $controller = 'HomeController';
     protected $action = 'index';
     protected $params = [];
 
@@ -10,14 +10,14 @@ class Route {
 
         // Nếu user nhập controller tồn tại thì
         if (isset($url[0])) {
-            if (file_exists('../Controllers/' .$url[0]. '.php')) {
+            if (file_exists('./src/Controllers/' .$url[0]. '.php')) {
                 // gán controller đó
                 $this->controller = $url[0];
             }
             unset($url[0]);
         }
         // Mặc định đang ở trang Home
-        require_once '../Controllers/' .$this->controller. '.php';
+        require_once './src/Controllers/' .$this->controller. '.php';
 
         $this->controller = new $this->controller;
 

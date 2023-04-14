@@ -9,6 +9,10 @@
     <title>Document</title>
 </head>
 <body> -->
+    <?php if (empty($_GET['page'])) { ?>
+    <audio id="audio" >
+        <source src="" type="audio/ogg" />
+    </audio>
     <div class="nowPlaying">
         <footer class="nowPlayingBar">
             <div class="nowPlayingContainer">
@@ -126,6 +130,6 @@
             </div>
         </footer>
     </div>
-    <!-- <script src="./Playing.js"></script>
-</body>
+    <?php } ?>
+<!-- </body>
 </html> -->

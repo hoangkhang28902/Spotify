@@ -22,8 +22,10 @@ h1 {
     justify-content: flex-start; 
     align-items: center;
     margin: 20px; 
+    flex-wrap: wrap;
     max-width: 1500px;
     }
+    
     .card-newplay > *{
         margin: 10px;
     }

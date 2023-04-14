@@ -4,14 +4,14 @@
 class Controller {
     public function model($model)
     {
-        require_once '../Models/' .$model. '.php';
+        require_once './src/Models/' .$model. '.php';
         return new $model;
     }
 
     public function view($view, $data = [])
     {
-        if (file_exists('../Views/' .$view. '.php')) {
-            require_once '../Views/' .$view . '.php';
+        if (file_exists('./src/Views/' .$view. '.php')) {
+            require_once './src/Views/' .$view . '.php';
         } else {
             die('not view');
         }

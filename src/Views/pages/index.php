@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +18,7 @@
     <!-- Top podcast -->
     <!-- <link rel="stylesheet" href="style_podscast_showall.css">
     <link rel="stylesheet" href="testCss.css"> -->
-    <link rel="stylesheet" href="../css/Global.css">
+    <link rel="stylesheet" href="../../css/Global.css">
     <link rel="stylesheet" href="../../css/Playing.css">
     <link rel="stylesheet" href="../../css/Home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
@@ -26,31 +28,32 @@
 <body>
     <div id="mainHome">
         <div id="containerMainHome">
+
+            <!-- >>>>> Sidebar <<<<< -->
             <div class="sideBarHome">
-                <?php include_once APPROOT. '\Views\layouts\Sidebar.php' ?>
+                <?php include_once "../layouts/Sidebar.php" ?>
             </div>
+
             <div class="containercontentMainHome">
+
+                <!-- >>>>> Navbar <<<<< -->
                 <div class="navBarHome">
-                    <?php include_once APPROOT. '\Views\layouts\Navbar.php' ?>
+                    <?php include_once "../layouts/Navbar.php" ?>
                 </div>
+
+                <!-- >>>>> Content <<<<< -->
                 <div id="contentMainHome" class="contentMainHome">
-                    <div class="container">
-                    <h1>Recently played</h1>   
-                        <div class="card-newplay">
-                            <?php include_once "../components/Card.php";
-                                $arrayArt2 = array('JVKE');
-                            ?>
-                            <?php if (!empty($data['song'])):
-                                foreach ($data['song'] as $song) : ?>
-                                    <?php echo Card($song['SongName'], $arrayArt2, 'https://i.scdn.co/image/ab67616d00001e029a087af6a3bf8fa7d5db50e2'); ?>
-                            <?php endforeach; endif; ?>
-                        </div>
-                    </div>
-                    <!-- End div -->
+                    <?php
+                        require_once '../../core/Route.php';
+                        require_once '../../core/Controller.php';
+                        require_once '../../core/Database.php';
+                        
+                        $init = new Route();
+                    ?>
                 </div>
             </div>
         </div>
-        <!-- Listener -->
+        <?php include_once "../Listener/Playing.php" ?> 
     </div>
     <script src="../../js/Playing.js"></script>
     <script src="../../js/Sidebar.js"></script>
