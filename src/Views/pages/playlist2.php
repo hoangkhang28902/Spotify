@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/style2.css">
-    <link rel="stylesheet" href="../../css/testCss.css">
+   
     <link rel="shortcut icon" href="./img/Spotify_icon.svg.png" type="image/x-icon">
 
     <title>Spotify</title>
@@ -16,67 +16,18 @@
 
 <body> -->
    
-    <div class="home_container row">
+    
 
      <!-- ******************************       Phần Menu Left  *****************************************-->
-       
+        
 
       <!-- ******************************       Phần Body chứa nội dung của spotify  *****************************************-->
 
 
-        <div class="playlist_container col-sm-10 ">
+        <div class="playlist_container">
 
               <!-- ******************************       Phần Option của spotify  *****************************************-->
-            <div class="playlist_option">
-
-                 <!-- ******************************       Phần Btn Back_Next của spotify  *****************************************-->
-                <div class="btn_back_next">
-                    <button class="playlist_option__btn_back"><svg role="img" height="16" width="16" aria-hidden="true"
-                            class="" viewBox="0 0 16 16" data-encore-id="icon">
-                            <path
-                                d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z">
-                            </path>
-                        </svg></button>
-                  <a href="./podscast.html">  <button class="playlist_option__btn_back"><svg role="img" height="16" width="16" aria-hidden="true"
-                            class="" viewBox="0 0 16 16" data-encore-id="icon">
-                            <path
-                                d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z">
-                            </path>
-                        </svg></button></a>
-                </div>
-
-                 <!-- ******************************       Phần Option menu của spotify  *****************************************-->
-                <div class="playlist_option_menu">
-                    <ul class="playlist_option__List_Menu">
-                        <li class="playlist_option__Item_Menu option_current"><a
-                                class="playlist_option__Item_Menu__Link " href="playlist2.html">Playlists</a></li>
-                        <li class="playlist_option__Item_Menu"><a class="playlist_option__Item_Menu__Link"
-                                href="podscast.html">Podcasts</a></li>
-                        <li class="playlist_option__Item_Menu"><a class="playlist_option__Item_Menu__Link"
-                                href="artists2.html">Artists</a></li>
-                        <li class="playlist_option__Item_Menu "><a class="playlist_option__Item_Menu__Link"
-                                href="albums2.html">Albums</a></li>
-                    </ul>
-                </div>
-
-                  <!-- ******************************       Phần user của spotify  *****************************************-->
-                <div class="playlist_option__user">
-                    <button class="playlist_option__user_btn">
-                        <img class="playlist_option__user_img"
-                            src="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=935788870129556&amp;height=300&amp;width=300&amp;ext=1682139408&amp;hash=AeRjPs31imnE_490HGk"
-                            alt="Hoàng Khang">
-                        <span class="playlist_option__user_name">Hoàng Khang</span>
-                        <svg class="playlist_option__user_icon" role="img" height="16" width="16" aria-hidden="true"
-                            class="Svg-sc-ytk21e-0 gQUQL eAXFT6yvz37fvS1lmt6k" viewBox="0 0 16 16"
-                            data-encore-id="icon">
-                            <path d="m14 6-6 6-6-6h12z"></path>
-                        </svg>
-                    </button>
-
-
-                </div>
-                
-            </div>
+            
 
                     <!-- ******************************       Phần option_menu user của spotify  *****************************************-->
              <div id="context-menu">
@@ -150,12 +101,12 @@
             </div>
         </div>
 
-    </div>
+  
 
 
 <!-- ******************************       Phần Play Music  *****************************************-->
 
-
+   
 
 <!-- ******************************JS show menu user******************************  -->
 

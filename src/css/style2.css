@@ -12,21 +12,25 @@ html
 .home_container
 {
     width: 100%;
-    height: 64em;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+   
 }
 .navbar
 {
+    
+    
     width: 21em;
 }
 .playlist_container
-{
-    width: 100%;
-    height: 100%;
+{   
+   
     background-color: #121212;
     margin: 0;
     padding: 0;
+    width: 100%;
+    overflow-x: hidden;
 }
 .playlist_option
 {
@@ -38,7 +42,8 @@ html
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%; 
+    height: 71em; 
+    width: 100%;
   }
 .playlist_content__icon
 {   
@@ -59,13 +64,13 @@ html
 .playlist_content_intro_text
 
 {
-    width: auto !important;
     color: white;
     font-size: 1.4em;
     font-weight: 600;
 }
 .playlist_content__button
 {  
+   
     display: flex;
     justify-content: center;  
     color:black;
@@ -84,7 +89,6 @@ html
 }
 .playlist_content_intro_text,
 .playlist_content__button {
-    width: 158px;
   margin-top: 2.5em; 
 }
 .playlist_content__button:hover
@@ -97,10 +101,7 @@ html
    
     width: 100%;
     height: 7em;
-    background-image: url("./img/ss2.jpg");
-    background-size: cover; /* điều chỉnh kích thước ảnh theo chiều rộng và chiều cao của phần tử */
-    background-repeat: no-repeat; /* không lặp lại hình ảnh */
-    background-position: center; /* canh giữa hình ảnh */
+    
    
 }
 
@@ -309,18 +310,9 @@ svg
 
 .Trending_abum
 {
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-    display: flex;
-    justify-content: space-evenly;
+   
     width: 100%;
     height: 26em;
-}
-
-@media only screen and (max-width: 950px) {
-    .Trending_abum {
-        flex-wrap: wrap;
-    }
 }
 .Title_amblu__TopAmbum
 {

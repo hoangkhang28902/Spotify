@@ -13,15 +13,33 @@
 
 <body> -->
     <div class="container">
-    <h1>Recently played</h1>   
+    <h1>Song</h1>   
+        <!-- Phần Song -->
         <div class="card-newplay">
-            <?php include_once "./src/Views/components/Card.php";
+           <?php include_once "./src/Views/components/Card.php";
                 $arrayArt2 = array('JVKE');
             ?>
             <?php if (!empty($data['song'])):
                 foreach ($data['song'] as $song) : ?>
-                    <?php echo Card($song['SongName'], $arrayArt2, 'data:image/png;base64,'.base64_encode($song['SongImage']), $song['SongAudio']); ?>
+                    <?php echo Card($song['SongID'], $song['SongName'], $arrayArt2, 'data:image/png;base64,'.base64_encode($song['SongImage']), $song['SongAudio']); ?>
+            <?php endforeach; endif; ?>   
+             <!-- Phần artist -->
+           
+
+            <!-- Phần album -->
+           
+
+            <!-- Phần Playlist -->
+   
+            <!-- Phần podcast -->
+            <?php include_once "./src/Views/components/Card.php";
+                $arrayArt2 = array('JVKE');
+            ?>
+            <?php if (!empty($data['podcast'])):
+                foreach ($data['podcast'] as $podcast) : ?>
+                    <?php echo Card($podcast['PodcastID'], $podcast['PodcastName'], $arrayArt2, 'data:image/png;base64,'.base64_encode($podcast['PodcastImage']), $podcast['PodcastAuthor']); ?>
             <?php endforeach; endif; ?>
+
         <?php 
             // $arrayArt1 = array('Relax and indulge with beautiful piano pieces');
             // $arrayArt2 = array('JVKE');
@@ -33,8 +51,15 @@
         ?>
         </div>
 
-        <h1><a href="">Try something else</a></h1>
+        <h1><a href="">Artist</a></h1>
         <div class="card-showtest">
+        <?php include_once "./src/Views/components/Card.php";
+                $arrayArt2 = array('JVKE');
+            ?>
+            <?php if (!empty($data['artist'])):
+                foreach ($data['artist'] as $artist) : ?>
+                    <?php echo Card($artist['ArtistID'], $artist['ArtistName'], $arrayArt2, 'data:image/png;base64,'.base64_encode($artist['ArtistImage']), $artist['ArtistDob']); ?>
+            <?php endforeach; endif; ?>
         <?php 
             // $arrayArt1 = array('Web5ngay');
             // $arrayArt2 = array('HieuNguyen');
@@ -60,8 +85,15 @@
         ?>
         </div>
 
-            <h1><a href="">Shows to try</a></h1>
+            <h1><a href="">Album</a></h1>
             <div class="haythucachkhac">
+            <?php include_once "./src/Views/components/Card.php";
+                $arrayArt2 = array('JVKE');
+            ?>
+            <?php if (!empty($data['album'])):
+                foreach ($data['album'] as $album) : ?>
+                    <?php echo Card($album['AlbumID'], $album['AlbumName'], $arrayArt2, 'data:image/png;base64,'.base64_encode($album['AlbumImage']), $album['AmountSong']); ?>
+            <?php endforeach; endif; ?>
                 <?php 
             // $arrayArt1 = array('Những gì mà bạn đang nghe. Ảnh bìa: thuy,MIN');
             // $arrayArt2 = array('Đông tới Tây, đây là những ca khúc thịnh hành nhất ở Việt Nam. Ảnh bìa: tlinh');
@@ -89,8 +121,43 @@
 
         ?>
             </div>
-            <h1><a href="">Featured Charts</a></h1>
+            <h1><a href="">Playlist</a></h1>
             <div class="bangxephangnoibat">
+            <?php include_once "./src/Views/components/Card.php";
+                $arrayArt2 = array('JVKE');
+            ?>
+            <?php if (!empty($data['playlist'])):
+                foreach ($data['playlist'] as $playlist) : ?>
+                    <?php echo Card($playlist['PlaylistID'], $playlist['PlaylistName'], $arrayArt2, 'data:image/png;base64,'.base64_encode($playlist['PlaylistImage']), $playlist['AmountSong']); ?>
+            <?php endforeach; endif; ?>
+                <?php 
+            // $arrayArt1 = array('Your weekly update of the most played tracks right now - Global.');
+            // $arrayArt2 = array('Your weekly update of the most played tracks right now - Vietnam.');
+            // $arrayArt3 = array('Your daily update of the most played tracks right now - Global.');
+            // $arrayArt4 = array('Your daily update of the most played tracks right now - Vietnam.');
+            // $arrayArt5 = array('Your daily update of the most viral tracks right now - Global.');
+            // $arrayArt6 = array('Your daily update of the most viral tracks right now - Vietnam.');
+            // include_once "../components/Card.php";
+            // echo Card('Top Songs - Global', $arrayArt1, 'https://charts-images.scdn.co/assets_generated/locale_vi/regional/weekly/region_global_default.jpg');
+            // echo Card('Top Songs - VietNam', $arrayArt2, 'https://charts-images.scdn.co/assets_generated/locale_vi/regional/weekly/region_vn_default.jpg');
+            // echo Card('Top Songs - Global', $arrayArt3, 'https://charts-images.scdn.co/assets/locale_en/regional/daily/region_global_default.jpg');
+            // echo Card('Top 50 - VietNam', $arrayArt4, 'https://charts-images.scdn.co/assets/locale_en/regional/daily/region_vn_default.jpg');
+            // echo Card('Viral - Global', $arrayArt5, 'https://charts-images.scdn.co/assets/locale_en/viral/daily/region_global_default.jpg');
+            // echo Card('Viral 50 - VietNam', $arrayArt6, 'https://charts-images.scdn.co/assets/locale_en/viral/daily/region_vn_default.jpg');   
+        ?>
+            </div>
+
+            <h1><a href="">Podcast</a></h1>
+            <div class="bangxephangnoibat">
+            <?php include_once "./src/Views/components/Card.php";
+                $arrayArt2 = array('JVKE');
+            ?>
+            <?php if (!empty($data['podcast'])):
+                foreach ($data['podcast'] as $podcast) : ?>
+                    <?php echo Card($podcast['PodcastID'], $podcast['PodcastName'], $arrayArt2, 'data:image/png;base64,'.base64_encode($podcast['PodcastImage']), $podcast['PodcastAuthor']); ?>
+            <?php endforeach; endif; ?>
+
+
                 <?php 
             // $arrayArt1 = array('Your weekly update of the most played tracks right now - Global.');
             // $arrayArt2 = array('Your weekly update of the most played tracks right now - Vietnam.');

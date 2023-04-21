@@ -20,8 +20,6 @@
     <link rel="stylesheet" href="<?php echo URLROOT ?>/css/Playing.css">
     <link rel="stylesheet" href="<?php echo URLROOT ?>/css/Home.css">
 
-    <link rel="stylesheet" href="<?php echo URLROOT ?>/css/songlist.scss">   
-
     <!-- Search -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -40,7 +38,7 @@
 
                 <!-- >>>>> Navbar <<<<< -->
                 <div class="navBarHome">
-                    <?php include_once "./src/Views/layouts/Navbar.php" ?>
+                    <?php include_once "./src/Views/layouts/Navbar_Postcast_showall.php" ?>
                 </div>
 
                 <!-- >>>>> Content <<<<< -->
@@ -51,11 +49,8 @@
         </div>
         <?php include_once "./src/Views/Listener/Playing.php" ?> 
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <script src="<?php echo URLROOT ?>/js/Playlist.js"></script>  
-    <script src="<?php echo URLROOT ?>/js/Sidebar.js"></script>
-    <script src="<?php echo URLROOT ?>/utils/ColorIdentify.js"></script>
-
+    <!-- <script src="../src/js/Playing.js"></script> -->
+    <script src="../src/js/Sidebar.js"></script>
 </body>
 </html>
 

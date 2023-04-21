@@ -1,6 +1,6 @@
 <?php 
 
-class SearchController extends Controller {
+class Search extends Controller {
  
     public function index()
     {

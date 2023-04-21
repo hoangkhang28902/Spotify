@@ -1,7 +1,7 @@
 <?php 
 
 class Route {
-    protected $controller = 'HomeController';
+    protected $controller = 'Home';
     protected $action = 'index';
     protected $params = [];
 

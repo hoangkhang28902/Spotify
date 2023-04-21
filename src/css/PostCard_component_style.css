@@ -12,12 +12,11 @@ html
 body
 {
     overflow-x: hidden;
+    background-color: #121212;
 }
 .home_container
 {
-    background-color: #000 !important;
-    width: 100% !important;
-    /* width: 159.5em; */
+    width: 159.5em;
     height: 64em;
     margin: 0;
     padding: 0;
@@ -34,10 +33,10 @@ body
 }
 .playlist_container
 {
-    width: 100% !important;
     background-color: #121212;
     margin: 0;
     padding: 0;
+    overflow-y: auto;
    
 }
 .playlist_option
@@ -113,8 +112,6 @@ body
     background-position: center; /* canh giữa hình ảnh */
    
 }
-
-
 
 .playlist_option {
    display: flex;
@@ -425,12 +422,12 @@ svg
 {   
     
     height: 31em;
+    
 }
 .poscard_component_container
 {
     height: 33em;
     width:100%;
- 
     position: relative;
     top: -0.5em; 
    
@@ -504,7 +501,6 @@ svg
 }
 .decription_Upnext_content_button
 {
-   margin-top: 20px !important;
    height: 30%;
    width: 100%
 }

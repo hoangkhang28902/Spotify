@@ -2,12 +2,19 @@
 
 require_once './src/core/Database.php';
 
-class Song {
+class SongModel {
 
     private $db;
 
     public function __construct() {
         $this->db = new Database();
+    }
+
+    function getSong($id)
+    {
+        $sql = "SELECT * FROM Song, Album, Artist, SongArtist WHERE (Song.SongID = $id) && (Song.AlbumID = Album.AlbumID) && (Song.SongID = SongArtist.SongID && SongArtist.ArtistID = Artist.ArtistID)";
+        $result = $this->db->select($sql);
+        return $result;
     }
 
     // Get All Songs
@@ -19,10 +26,11 @@ class Song {
     }
 
     // Get Song By Id
-    public function getUserById($id)
+    public function getSongById($id)
     {
-        $sql = "SELECT * FROM Song WHERE id = '$id'";
-        $result = $this->db->execute($sql);
+        $sql = "SELECT * FROM Song WHERE SongID = '$id'";
+        $result = $this->db->select($sql);
+        return $result;
     }
 
     // CRUD OPERATIONS

@@ -16,9 +16,9 @@ function SongItem($num, $image, $name, $singer, $album, $date, $time)
                 <img src="<?php echo $image ?>" width="40" height="40" alt="Image" />
             </div>
             <div class="item2"><a class="link" href="#"><?php echo $name ?></a></div>
-            <div class="item3 opacity-50"><a class="link" href="#"><?php echo $singer ?></a></div>
+            <div class="item3 opacity-50"><a class="link link-custom" href="#"><?php echo $singer ?></a></div>
         </div>
-        <div class="col-sm-3 opacity-50"><a class="link" href="#"><?php echo $album ?></a></div>
+        <div class="col-sm-3 opacity-50"><a class="link link-custom" href="#"><?php echo $album ?></a></div>
         <div class="col-sm-2 opacity-50"><?php echo $date ?></div>
         <div class="col-sm-2 d-flex justify-content-center">
             <span data-bs-toggle="tooltip" data-bs-placement="top" title="Save to Your Library" class="play-icon">
@@ -37,14 +37,13 @@ function SongItem($num, $image, $name, $singer, $album, $date, $time)
                         </svg>
                     </span>
                 </button>
-                <div class="dropdown-menu text-bg-dark" aria-labelledby="triggerId">
+<div class="dropdown-menu text-bg-dark" aria-labelledby="triggerId">
                     <a class="dropdown-item text-white dropdown-hover p-2 ps-3" href="#">Add to queue</a>
                     <a class="dropdown-item text-white dropdown-hover p-2 ps-3" href="#">Go to song radio</a>
                     <a class="dropdown-item text-white dropdown-hover p-2 ps-3" href="#">Go to artist</a>
                     <a class="dropdown-item text-white dropdown-hover p-2 ps-3" href="#">Go to album</a>
                     <a class="dropdown-item text-white dropdown-hover p-2 ps-3" href="#">Show credits</a>
-                    <a class="dropdown-item text-white dropdown-hover p-2 ps-3" href="#">Save to your Liked
-                        Songs</a>
+                    <a class="dropdown-item text-white dropdown-hover p-2 ps-3" href="#">Save to your Liked Songs</a>
                     <a class="dropdown-item text-white dropdown-hover p-2 ps-3" href="#">Add to playlist</a>
                     <a class="dropdown-item text-white dropdown-hover p-2 ps-3" href="#">Share</a>
                     <a class="dropdown-item text-white dropdown-hover p-2 ps-3" href="#">Open in Desktop app</a>
@@ -52,5 +51,4 @@ function SongItem($num, $image, $name, $singer, $album, $date, $time)
             </div>
         </div>
     </div>
-
 <?php } ?>

@@ -1,13 +1,20 @@
 <?php 
 
-require_once '../core/Database.php';
+require_once './src/core/Database.php';
 
-class User {
+class UserModel {
 
     private $db;
 
     public function __construct() {
         $this->db = new Database();
+    }
+
+    function getUserByUsername($username)
+    {
+        $sql = "SELECT * FROM User WHERE Username = '$username'";
+        $result = $this->db->select($sql);
+        return $result;
     }
 
     // Get All Users
@@ -21,8 +28,9 @@ class User {
     // Get User By Id
     public function getUserById($id)
     {
-        $sql = "SELECT * FROM User WHERE id = '$id'";
-        $result = $this->db->execute($sql);
+        $sql = "SELECT * FROM User WHERE UserID = '$id'";
+        $result = $this->db->select($sql);
+        return $result;
     }
 
     // CRUD OPERATIONS
@@ -41,14 +49,21 @@ class User {
 
     }
 
+    // Update Username
+    public function updateUsername($userId, $newUsername) {
+        $sql = "UPDATE User SET Username = '$newUsername' WHERE UserID = '$userId'";
+        $this->db->execute($sql);
+    }
+
     public function delete(int $id)
     {
 
     }
+    
 }
 
-$user = new User();
-$rs = $user->getUsers();
-foreach ($rs as $v) {
-    print $v['Username'];
-}
+// $user = new User();
+// $rs = $user->getUsers();
+// foreach ($rs as $v) {
+//     print $v['Username'];
+// }

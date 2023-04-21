@@ -9,14 +9,16 @@ html
     width: 100%;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+body {
+    overflow-x: hidden;
+}
 
 .home_container
 {
     width: 100%;
-    /* width: 159.5em; */
-    height: 64em;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 .navbar
 {
@@ -28,14 +30,14 @@ html
     width: 21em;
 }
 .playlist_container
-{
-    width: 100%;
+{   
+   
     background-color: #121212;
     margin: 0;
     padding: 0;
-    /* overflow-x: hidden;
-    overflow-y: auto; */
-   
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 .playlist_option
 {
@@ -47,7 +49,8 @@ html
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%; 
+    height: 80em; 
+    width: 100%;
   }
 .playlist_content__icon
 {   
@@ -303,11 +306,9 @@ svg
 }
 .propose_ambum
 {
-    /* overflow: hidden; */
     width: 100%;
     height: 30em;
-    /* overflow-y: auto; */
-  
+    margin-left: 2em;
     
 }
 
@@ -319,7 +320,8 @@ svg
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1em;
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 .rotate {
     transform: rotate(180deg);
@@ -341,9 +343,10 @@ svg
 .Title_amblu__ShowAll
 {
     text-decoration: none;
-    font-size: 1.2em;
+    font-size: 1.3em;
     color: white;
     font-weight: 500;
+    margin-right: 1em;
     
 } 
 
@@ -352,7 +355,10 @@ svg
     color: white;
     text-decoration: underline;
 }
-
+.CardLibrary_container
+{
+    text-decoration: none;
+}
 .CardLibrary_container:hover
 {
     background-color: #282828 !important;
@@ -404,4 +410,61 @@ svg
 .playlist_option__Upgrade_btn_link:hover
 {
   color: white;
+}
+.CardLibrary_container
+{
+    background-color: #181818;
+    width: 22em;
+    height: 28em;
+    margin-top: 0.3em;
+    padding:1.6em;
+    border-radius: 0.4em;
+    margin-right: 2em;
+   
+}
+.CardLibrary_img
+{
+    width: 100%;
+    height: 18em;
+    border-radius: 0.4em;
+}
+.CardLibrary_img img
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 0.4em;
+}
+.CardLibrary_content
+{
+    width: 100%;
+    height: 5.5em;
+    margin-top: 2.5em;
+}
+.CardLibrary_title
+{
+    font-size: 1.5em;
+    color: white;
+    font-weight: 700; 
+}
+.CardLibrary_description
+{
+    font-size: 1.3em;
+    color: #aaaaaa;
+    font-weight: 500;
+}
+.Trending_abum
+{
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    display: flex;
+    margin-bottom: 4em;
+}
+.link_btn_img
+{
+    text-decoration: none;
+}
+.CardLibrary_title
+{
+    margin-top: 0 ; 
+    margin-left: 0;
 }

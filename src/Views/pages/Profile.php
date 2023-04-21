@@ -5,11 +5,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile</title>
-  <link rel="stylesheet" href="../../css/Profile.css">
-  <link rel="stylesheet" href="../../css/Profilemenu.css">
-  <link rel="stylesheet" href="../../css/Global.css">
-  <link rel="stylesheet" href="../../css/Home.css">
-  <link rel="stylesheet" href="../../css/Profile-details.css">
+ <link rel="stylesheet" href="<?php echo URLROOT ?>/css/Profile.css">
+  <link rel="stylesheet" href="<?php echo URLROOT ?>/css/Profilemenu.css">
+  <link rel="stylesheet" href="<?php echo URLROOT ?>/css/Global.css">
+  <link rel="stylesheet" href="<?php echo URLROOT ?>/css/Home.css">
+  <link rel="stylesheet" href="<?php echo URLROOT ?>/css/Profile-details.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
@@ -54,15 +54,16 @@
         <span dir="auto" class="profile-name-container" draggable="false" data-testid="entityTitle">
           <button class="edit-details-btn" title="Edit details">
             <span class="edit-details-icon">
-              <h1 dir="auto" data-encore-id="type" class="profile-name" style="margin: 0.08em 0px 0.12em; visibility: visible; width: 100%; font-size: 6rem;" onclick="showForm()">
-                Tran Dat
-              </h1>
+            <h1 dir="auto" data-encore-id="type" class="profile-name" style="margin: 0.08em 0px 0.12em; visibility: visible; width: 100%; font-size: 6rem;">
+    <?php echo $data['username']; ?>
+</h1>
+
             </span>
           </button>
         </span>
       <!-- hiển thị form -->
       <div id="myForm" style="display:none">
-        <form action="">
+        <form action="" method="post">
           <div class="container">
             <div class="Profile-Title">
               <h2>Profile details</h2>
@@ -82,7 +83,7 @@
                   
                   <div class="edit-image-button" >   
                       <!-- remove photo -->
-                  <div class="remove-image-button"  >
+                  <div class="remove-image-button">
                     <button >Remove photo</button>
                   </div>                
                     <button data-testid="edit-image-button" class="choose-photo-btn" aria-haspopup="true" type="button">
@@ -101,9 +102,10 @@
               </div>
            
             <div class="name-details">
-              <input type="text" value="Tran Dat"><br>
-              <button onclick="Luu()" class="Save-profile">Save</button>
+                <input type="text" name = "newusername1" value="<?php echo $data['username']; ?>">
+                <button type="submit" class="Save-profile" onclick="reloadPage()">Save</button>
             </div>
+
             <div class="footer">
               <p>By proceeding, you agree to give Spotify access to the image you choose to upload. Please make sure you have the right to upload the image.</p>
             </div>
@@ -119,6 +121,8 @@
         </div>
       </div>
     </div>
+ 
+    
     <!-- phần dialog -->
     <div class="dialog-wrapper">
       <div class="scrollbar-wrapper">
@@ -155,8 +159,8 @@
             
         <?php 
             $arrayArt1 = array('Relax and indulge with beautiful piano pieces');
-            include_once "../components/Card.php";
-            echo Card('Peaceful Piano', $arrayArt1, 'https://www.pianoramix.com/assets/media/298-peaceful-piano-spotify-300x300r.jpeg');
+            include_once __DIR__ . "/../components/Card.php";
+            echo Card('', 'Peaceful Piano', $arrayArt1, 'https://www.pianoramix.com/assets/media/298-peaceful-piano-spotify-300x300r.jpeg',1);
     
         ?>
         </div>
@@ -175,21 +179,21 @@
           <div draggable="true" class="draggable-item">
             <?php 
             $arrayArt2 = array('Relax and indulge with beautiful piano pieces');
-            include_once "../components/Card.php";
-            echo Card('Peaceful Piano', $arrayArt2, 'https://mosaic.scdn.co/300/ab67616d00001e024f4ec2c2a865569bd4a067a4ab67616d00001e025cde862db0ec9bb1e1566dd7ab67616d00001e028b302a279cfab9f1a28d2d35ab67656300005f1f69e2e8afc7d70c589ac5ef2b');
+            include_once __DIR__ . "/../components/Card.php";
+            echo Card('', 'Peaceful Piano', $arrayArt2, 'https://mosaic.scdn.co/300/ab67616d00001e024f4ec2c2a865569bd4a067a4ab67616d00001e025cde862db0ec9bb1e1566dd7ab67616d00001e028b302a279cfab9f1a28d2d35ab67656300005f1f69e2e8afc7d70c589ac5ef2b',2);
             $arrayArt3 = array('Relax and indulge with beautiful piano pieces');
-            include_once "../components/Card.php";
-            echo Card('Peaceful Piano', $arrayArt3, 'https://tse2.mm.bing.net/th?id=OIP.4Sutm40ZX409SuhKlsxKMQHaHa&pid=Api&P=0');
+            include_once __DIR__ . "/../components/Card.php";
+            echo Card('', 'Peaceful Piano', $arrayArt3, 'https://tse2.mm.bing.net/th?id=OIP.4Sutm40ZX409SuhKlsxKMQHaHa&pid=Api&P=0',3);
             $arrayArt4 = array('Relax and indulge with beautiful piano pieces');
-            include_once "../components/Card.php";
-            echo Card('Peaceful Piano', $arrayArt4, 'https://tse2.mm.bing.net/th?id=OIP.4Sutm40ZX409SuhKlsxKMQHaHa&pid=Api&P=0');  
+            include_once __DIR__ . "/../components/Card.php";
+            echo Card('', 'Peaceful Piano', $arrayArt4, 'https://tse2.mm.bing.net/th?id=OIP.4Sutm40ZX409SuhKlsxKMQHaHa&pid=Api&P=0',4);  
             ?>
           </div>
         </div>
       </div>   
     </div>
   </div>
-  <script src="../../js/Profile.js"></script>
+  <script src="<?php echo URLROOT ?>/js/Profile.js"></script>
   <!-- <script src="../../js/Profile-details.js"></script> -->
 </body>
 </html>

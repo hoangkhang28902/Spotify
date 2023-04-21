@@ -7,7 +7,7 @@ define('DB_NAME', 'spotify');
 
 define('APPROOT', dirname(dirname(__FILE__))); 
 define('URLROOT','http://localhost:8080/Spotify/src');
-
+define('PAGEROOT', 'http://localhost:8080/Spotify')
 ?>
 
 
