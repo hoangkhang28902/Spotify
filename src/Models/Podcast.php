@@ -18,14 +18,6 @@ class PodcastModel{
         return $result;
     }
 
-    // Get All Songs
-    // public function getPodcast()
-    // {
-    //     $sql = "SELECT * FROM podcast";
-    //     $result = $this->db->select($sql);
-    //     return $result;
-    // }
-
     // Get Song By Id
     public function getPodcastById($id)
     {

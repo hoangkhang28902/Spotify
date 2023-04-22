@@ -102,8 +102,8 @@
 
      <div class="propose_ambum">
         <div class="Title_amblu">
-            <a class="Title_amblu__TopAmbum" href="http://localhost:8080/spotify/HomeTopAlbum">Top podcasts</a>
-            <a class="Title_amblu__ShowAll" href="http://localhost:8080/spotify/HomeTopAlbum">Show all</a>
+            <a class="Title_amblu__TopAmbum" href="http://localhost:8080/spotify/topAlbum">Top podcasts</a>
+            <a class="Title_amblu__ShowAll" href="http://localhost:8080/spotify/topAlbum">Show all</a>
         </div>
 
           <!-- ******************************       1 Hàng item của spotify  *****************************************-->
@@ -111,7 +111,7 @@
 
        
           <!-- ******************************       1 Item của spotify  *****************************************-->
-      <a href="http://localhost:8080/spotify/HomePostCard_component" class="link_btn_img"><div class="CardLibrary_container">
+      <a href="http://localhost:8080/spotify/Podcastcomponent" class="link_btn_img"><div class="CardLibrary_container">
             <div class="CardLibrary_img">
                 <img src="https://i.scdn.co/image/ab67656300005f1fce11c81cfc4b6e1c258f9987" alt="">
             </div>

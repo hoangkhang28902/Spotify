@@ -36,13 +36,13 @@
                 <div class="playlist_option_menu">
                     <ul class="playlist_option__List_Menu">
                         <li class="playlist_option__Item_Menu"><a
-                                class="playlist_option__Item_Menu__Link " href="http://localhost:8080/spotify/HomePlaylist">Playlists</a></li>
+                                class="playlist_option__Item_Menu__Link " href="http://localhost:8080/spotify/Library">Playlists</a></li>
                         <li class="playlist_option__Item_Menu"><a class="playlist_option__Item_Menu__Link"
-                                href="http://localhost:8080/spotify/HomePodCast">Podcasts</a></li>
+                                href="http://localhost:8080/spotify/Library/podcast">Podcasts</a></li>
                         <li class="playlist_option__Item_Menu"><a class="playlist_option__Item_Menu__Link"
-                                href="http://localhost:8080/spotify/HomeArtist">Artists</a></li>
+                                href="http://localhost:8080/spotify/Library/artist">Artists</a></li>
                         <li class="playlist_option__Item_Menu "><a class="playlist_option__Item_Menu__Link"
-                                href="http://localhost:8080/spotify/HomeAlbum">Albums</a></li>
+                                href="http://localhost:8080/spotify/Library/album">Albums</a></li>
                     </ul>
                 </div>
                   <!-- ******************************       Phần user của spotify  *****************************************-->
