@@ -21,7 +21,7 @@
 }
 
 html {
-    font-size: 62.5%;
+    font-size: 80%;
     line-height: 1.6rem;
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
@@ -516,13 +516,16 @@ a {
     flex-direction: column;
 }
 #containerMainHome {
-    height: 100%;
+    width: 100%;
+    height: calc(100% - 90px);
     display: flex;
 }
 
 .containercontentMainHome {
-    width: calc(100% - 300px);
+    width: calc(100% - 240px);
+    height: 100%;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
 }
 

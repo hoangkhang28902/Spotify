@@ -23,14 +23,11 @@ if (!empty($data['listsong'])) :
     }
 endif;
 ?>
-<div class="container-fluid p-0 lead playlist-custom">
+<div id="containerSong" class="container-fluid p-0 lead playlist-custom">
     <div class="sticky-top bg-custom">
         <div class="p-4">
             <button type="button" class="btn rounded-pill me-4 p-3 shadow" style="background-color: rgb(31, 183, 67)">
-                <svg role="img" height="28" width="28" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" fill="black">
-                    <path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z">
-                    </path>
-                </svg>
+                <img width="28px" height="28px" onclick="PlayingMusic()" id="playingLargeIcon" src="<?php echo URLROOT ?>/assets/icons/play_small.svg" >
             </button>
             <button type="button" class="bg-transparent border-0 me-4">
                 <span data-bs-toggle="tooltip" data-bs-placement="top" title="Save to Your Library">
@@ -86,7 +83,7 @@ endif;
         if (!empty($data['listsong'])) :
             $num = 1;
             foreach ($data['listsong'] as $song) :
-                echo SongItem($num++, 'data:image/png;base64,' . base64_encode($song['SongImage']), $song['SongName'], $song['ArtistName'], $song['AlbumName'], $song['SongDate'], $song['SongLength']);
+                echo SongItem($num++, 'data:image/png;base64,' . base64_encode($song['SongImage']), $song['SongName'], $song['ArtistName'], $song['AlbumName'], $song['SongDate'], $song['SongLength'], $song['SongAudio']);
             endforeach;
         endif;
         ?>

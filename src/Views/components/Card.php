@@ -1,6 +1,6 @@
 <?php 
     function Card($ID, $NameOfArtist, $Artist = array(), $Thumbail, $Music) { ?>
-        <div class="card" onclick="PlayingMusic('<?php echo $ID ?>')">
+        <div class="card" onclick="NavPage('<?php echo $ID ?>')">
             <div class="cardContainer">
                 <div class="cardThumbail">
                     <div class="cardImage">
@@ -38,66 +38,8 @@
     <?php } ?>
 
     <script>
-        function PlayingMusic(id) {
-
+        function NavPage(id) {
+            // NOTE --> Navigation to detail Home.
             window.location.href = './Home/song/' + id;
-
-            // console.log('click audio');
-            // const audio = document.getElementById("audio");
-            // const playBtn = document.getElementsByClassName("buttonRun")[0];
-            // const progressEl = document.querySelector('input[type="range"]');
-            // let mouseDownOnSlider = false;
-
-            // audio.pause();
-            // audio.src = audioMusic;
-            // audio.load();
-            // audio.play();
-
-            // if (audio.paused) {
-            //     audio.play();
-            //     playBtn.querySelector("i.fas").classList.remove("fa-pause");
-            //     playBtn.querySelector("i.fas").classList.add("fa-play");
-            // } else {
-            //     playBtn.querySelector("i.fas").classList.add("fa-pause");
-            //     playBtn.querySelector("i.fas").classList.remove("fa-play");
-            // }
-
-
-            // audio.addEventListener("loadeddata", () => {
-            //     progressEl.value = 0;
-            // });
-
-            // audio.addEventListener("timeupdate", () => {
-            //     if (!mouseDownOnSlider) {
-            //     progressEl.value = audio.currentTime / audio.duration * 100;
-            //     }
-            // });
-
-            // //   audio.addEventListener("ended", () => {
-            // //     playBtn.textContent = "▶️";
-            // //   });
-
-            // playBtn.addEventListener("click", () => {
-            //     if (audio.paused) {
-            //         audio.play();
-            //         playBtn.querySelector("i.fas").classList.remove("fa-play");
-            //         playBtn.querySelector("i.fas").classList.add("fa-pause");
-            //     } else {
-            //         audio.pause();
-            //         playBtn.querySelector("i.fas").classList.add("fa-play");
-            //         playBtn.querySelector("i.fas").classList.remove("fa-pause");
-            //     }
-            // })
-
-            // progressEl.addEventListener("change", () => {
-            // const pct = progressEl.value / 100;
-            // audio.currentTime = (audio.duration || 0) * pct;
-            // });
-            // progressEl.addEventListener("mousedown", () => {
-            // mouseDownOnSlider = true;
-            // });
-            // progressEl.addEventListener("mouseup", () => {
-            // mouseDownOnSlider = false;
-            // });
         }
     </script>

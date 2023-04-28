@@ -30,7 +30,6 @@
 <body>
     <div id="mainHome">
         <div id="containerMainHome">
-
             <!-- >>>>> Sidebar <<<<< -->
             <div class="sideBarHome">
                 <?php include_once "./src/Views/layouts/Sidebar.php" ?>
@@ -55,7 +54,8 @@
     <script src="<?php echo URLROOT ?>/js/Playlist.js"></script>  
     <script src="<?php echo URLROOT ?>/js/Sidebar.js"></script>
     <script src="<?php echo URLROOT ?>/utils/ColorIdentify.js"></script>
-
+    <script src="<?php echo URLROOT ?>/js/Playing.js"></script>
+    
 </body>
 </html>
 

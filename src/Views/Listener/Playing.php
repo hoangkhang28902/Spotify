@@ -54,55 +54,44 @@
                                         </path>
                                     </svg>
                                 </button>
-                                <button class="buttonNowPlaying">
+                                <button onclick="previousSong()" class="buttonNowPlaying">
                                     <svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 gQUQL">
                                         <path fill="rgba(255, 255, 255, 0.698)" d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7h1.6z">
                                         </path>
                                     </svg>
                                 </button>
                             </div>
-                            <button class="buttonNowPlaying buttonRun">
-                                <!-- <input type="checkbox" id="toggle">
-                                <label for="toggle">
-                                    <svg id="checkStop" role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 gQUQL">
-                                        <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z">
-                                        </path>
-                                    </svg>
-                                    <svg id="checkPlaying" role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 gQUQL">
-                                        <path d="M2.7 1a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7H2.7zm8 0a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-2.6z">
-                                        </path>
-                                    </svg>
-                                </label> -->
-                                <i class="fas fa-play"></i>
+                            <button class="buttonNowPlaying buttonRun" id="runSong">
+                                <img src="<?php echo URLROOT ?>/assets/icons/play_black.svg" id="playingSong" >
                             </button>
                             <div class="playingControlRight">
-                                <button class="buttonNowPlaying">
+                                <button onclick="nextSong()" class="buttonNowPlaying" id="nextSong">
                                     <svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 gQUQL">
                                         <path fill="rgba(255, 255, 255, 0.698)" d="M12.7 1a.7.7 0 0 0-.7.7v5.15L2.05 1.107A.7.7 0 0 0 1 1.712v12.575a.7.7 0 0 0 1.05.607L12 9.149V14.3a.7.7 0 0 0 .7.7h1.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-1.6z">
                                         </path>
                                     </svg>
                                 </button>
-                                <button class="buttonNowPlaying">
+                                <button onclick="loopSong()" class="buttonNowPlaying" id="loopSong">
                                     <svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 gQUQL">
                                         <path fill="rgba(255, 255, 255, 0.698)" d="M0 4.75A3.75 3.75 0 0 1 3.75 1h8.5A3.75 3.75 0 0 1 16 4.75v5a3.75 3.75 0 0 1-3.75 3.75H9.81l1.018 1.018a.75.75 0 1 1-1.06 1.06L6.939 12.75l2.829-2.828a.75.75 0 1 1 1.06 1.06L9.811 12h2.439a2.25 2.25 0 0 0 2.25-2.25v-5a2.25 2.25 0 0 0-2.25-2.25h-8.5A2.25 2.25 0 0 0 1.5 4.75v5A2.25 2.25 0 0 0 3.75 12H5v1.5H3.75A3.75 3.75 0 0 1 0 9.75v-5z">
                                         </path>
                                     </svg>
+                                    <div class="enableButton" >Enable repeat</div>
                                 </button>
                             </div>
                         </div>
                         <div class="bottomCenterPlaying">
-                            <div class="startPlaying">0:00</div>
+                            <div id="startPlaying">00:00</div>
                             <div class="progressBar">
-                                <!-- <div class="progress"></div> -->
-                                <input type="range" value="0" min="0" max="100" step="1">
+                                <input id="sliderRange" type="range" value="0" min="0" max="100" step="1">
                             </div>
-                            <div class="endPlaying">2:00</div>
+                            <div id="endPlaying">00:00</div>
                         </div>
                     </div>
                 </div>
                 <div class="rightPlayingBar">
                     <div class="rightPlayingContainer">
-                        <button class="buttonNowPlaying">
+                        <button onclick="Lyrics()" class="buttonNowPlaying" id="lyricButton">
                             <svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 gQUQL">
                                 <path fill="rgba(255, 255, 255, 0.698)" d="M13.426 2.574a2.831 2.831 0 0 0-4.797 1.55l3.247 3.247a2.831 2.831 0 0 0 1.55-4.797zM10.5 8.118l-2.619-2.62A63303.13 63303.13 0 0 0 4.74 9.075L2.065 12.12a1.287 1.287 0 0 0 1.816 1.816l3.06-2.688 3.56-3.129zM7.12 4.094a4.331 4.331 0 1 1 4.786 4.786l-3.974 3.493-3.06 2.689a2.787 2.787 0 0 1-3.933-3.933l2.676-3.045 3.505-3.99z">
                                 </path>
@@ -122,7 +111,7 @@
                                 <svg role="presentation" height="16" width="16" aria-hidden="true" aria-label="Volume high" id="volume-icon" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 gQUQL"><path fill="rgba(255, 255, 255, 0.698)" d="M9.741.85a.75.75 0 0 1 .375.65v13a.75.75 0 0 1-1.125.65l-6.925-4a3.642 3.642 0 0 1-1.33-4.967 3.639 3.639 0 0 1 1.33-1.332l6.925-4a.75.75 0 0 1 .75 0zm-6.924 5.3a2.139 2.139 0 0 0 0 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 4.29V5.56a2.75 2.75 0 0 1 0 4.88z"></path><path fill="rgba(255, 255, 255, 0.698)" d="M11.5 13.614a5.752 5.752 0 0 0 0-11.228v1.55a4.252 4.252 0 0 1 0 8.127v1.55z"></path></svg>
                             </button>
                             <div class="progressBar">
-                                <div class="progress"></div>
+                                <input id="sliderVolume" type="range" value="99" min="1" max="99" onchange="setVolume()">
                             </div>
                         </div>
                     </div>

@@ -14,7 +14,7 @@ class Home extends Controller {
         $song = $this->SongModel->getSongs();
         $artist = $this->ArtistsModel->getArtist();
         $album = $this->AlbumModel->getAlbum();
-        $playlist = $this->PlaylistModel->getPlaylist();
+        $playlist = $this->PlaylistModel->getPlaylists();
         $podcast = $this->PodcastModel->getPodcast();
         
         $this->view('Listener/index', [
@@ -34,7 +34,8 @@ class Home extends Controller {
 
         $this->view('Listener/index', [
             'song' => $song,
-            'Page' => 'Playlist',
+            'Page' => 'SongList',
+            'type' => 'Song'
         ]);
     }
 
