@@ -14,7 +14,7 @@ class PodcastModel{
     public function getPodcast()
     {
         $sql = "SELECT * FROM podcast";
-        $result = $this->db->select($sql);
+        $result = mysqli_query($this->db->conn, $sql);
         return $result;
     }
 
@@ -26,19 +26,86 @@ class PodcastModel{
         return $result;
     }
 
-    // CRUD OPERATIONS
-    public function create(array $data)
-    {
+ // CRUD OPERATIONS
+ public function create(array $data)
+ {
+     $PodcastName = $data['PodcastName'];
+     $PodcastAuthor = $data['PodcastAuthor'];
+     $PodcastDescription = $data['PodcastDescription'];
+     $PodcastImage = $data['PodcastImage'];
+ 
+     $sql = "INSERT INTO podcast (PodcastName, PodcastAuthor, PodcastDescription, PodcastImage) 
+             VALUES ('$PodcastName', '$PodcastAuthor', '$PodcastDescription', '$PodcastImage')";
+     $result = $this->db->execute($sql);
+     return $result;
+ }
 
+ public function edit($id){
+     $sql = "SELECT * FROM podcast WHERE PodcastID = $id";
+     $result = mysqli_query($this->db->conn, $sql);
+     return $result;
+ }
+ 
+
+ public function update(int $id, array $data)
+ {
+         $PodcastName = $data['PodcastName'];
+         $PodcastAuthor = $data['PodcastAuthor'];
+         $PodcastDescription = $data['PodcastDescription'];
+         $PodcastImage = $data['PodcastImage'];
+
+     $sql = "UPDATE `podcast` SET `PodcastName`='$PodcastName',`PodcastAuthor`='$PodcastAuthor',`PodcastDescription`='$PodcastDescription',`PodcastImage`='$PodcastImage' WHERE PodcastID=$id";
+     $result = false;
+     if(mysqli_query($this->db->conn, $sql)){
+         $result = true;
+     }
+     return json_encode($result);
+ }
+
+ public function delete($id)
+ {
+     $sql = "DELETE FROM `podcast` WHERE PodcastID = $id";
+     $result = false;
+     if(mysqli_query($this->db->conn, $sql)){
+         $result = true;
+     }
+     return json_encode($result);
+ }
+
+ public function getPodcastsLimit($offsetPodcast, $limitPodcast){
+    $sql = "SELECT * FROM podcast ORDER BY PodcastID DESC LIMIT $offsetPodcast, $limitPodcast";
+    $result = mysqli_query($this->db->conn, $sql);
+    return $result;
+}
+function search($name)
+{
+    if (trim($name) != '') {
+        $sql = "SELECT * FROM `podcast` WHERE `PodcastName` LIKE '%" . $name . "%' ";
+        $result = $this->db->select($sql);
+        if ($result) {
+            foreach ($result as $key => $val) {
+                $result[$key]['PodcastImage'] = base64_encode($val['PodcastImage']);
+            }
+        }
+        return $result;
+    } else {
+        $sql = "SELECT * FROM `podcast`";
+        $result = $this->db->select($sql);
+        if ($result) {
+            foreach ($result as $key => $val) {
+                $result[$key]['PodcastImage'] = base64_encode($val['PodcastImage']);
+            }
+        }
+        return $result;
+    }
+}
+
+    // getCount()
+    public function getCount()
+    {
+        $sql = "SELECT COUNT(*) AS total FROM podcast";
+        $result = $this->db->select($sql);
+        return $result[0]['total'];
     }
 
-    public function update(int $id, array $data)
-    {
-
-    }
-
-    public function delete(int $id)
-    {
-
-    }
 }

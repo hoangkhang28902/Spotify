@@ -14,7 +14,7 @@ class AlbumModel
     public function getAlbum()
     {
         $sql = "SELECT * FROM album";
-        $result = $this->db->select($sql);
+        $result = mysqli_query($this->db->conn, $sql);
         return $result;
     }
     
@@ -40,4 +40,61 @@ class AlbumModel
         $result = $this->db->execute($sql);
         return $result;
     }
+    public function edit($id){
+        $sql = "SELECT * FROM album WHERE AlbumID = $id";
+        $result = mysqli_query($this->db->conn, $sql);
+        return $result;
+    }
+    
+    public function create(array $data)
+    {
+        $AlbumName = $data['AlbumName'];
+        $ReleaseDate = $data['ReleaseDate'];
+        $AmountSong = $data['AmountSong'];
+        $AlbumLength = $data['AlbumLength'];
+        $AlbumImage = $data['AlbumImage'];
+        
+        $sql = "INSERT INTO album (AlbumName, ReleaseDate, AmountSong, AlbumLength,AlbumImage) 
+                VALUES ('$AlbumName', '$ReleaseDate', '$AmountSong', '$AlbumLength','$AlbumImage')";
+        $result = $this->db->execute($sql);
+        return $result;
+    }
+    
+
+    public function update(int $id, array $data)
+    {
+        $AlbumName = $data['AlbumName'];
+        $ReleaseDate = $data['ReleaseDate'];
+        $AmountSong = $data['AmountSong'];
+        $AlbumLength = $data['AlbumLength'];
+        $AlbumImage = $data['AlbumImage'];
+    $sql = "UPDATE `album` SET `AlbumName`='$AlbumName',`ReleaseDate`='$ReleaseDate',`AmountSong`='$AmountSong',`AlbumLength`='$AlbumLength',`AlbumImage`='$AlbumImage' WHERE AlbumID=$id";
+    
+    $result = false;
+    if(mysqli_query($this->db->conn, $sql)){
+        $result = true;
+    }
+    return json_encode($result);
+    }
+
+    public function delete(int $id)
+    {
+        $sql = "DELETE FROM album WHERE AlbumID='$id'";
+        $result = $this->db->execute($sql);
+        return $result;
+    }
+    // Phân trang
+    public function getAlbumsLimit($offsetAlbum, $limitAlbum){
+        $sql = "SELECT * FROM album ORDER BY AlbumID DESC LIMIT $offsetAlbum, $limitAlbum";
+        $result = mysqli_query($this->db->conn, $sql);
+        return $result;
+    }
+
+    public function getCount()
+    {
+        $sql = "SELECT COUNT(*) AS total FROM album";
+        $result = $this->db->select($sql);
+        return $result[0]['total'];
+    }
+
 }

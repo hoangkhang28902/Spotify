@@ -14,7 +14,7 @@ class PlaylistModel
     public function getPlaylists()
     {
         $sql = "SELECT * FROM playlist";
-        $result = $this->db->select($sql);
+        $result = mysqli_query($this->db->conn, $sql);
         return $result;
     }
     
@@ -25,4 +25,74 @@ class PlaylistModel
         $result = $this->db->select($sql);
         return $result;
     }
+    
+        // CRUD OPERATIONS
+        public function create(array $data)
+        {
+            $PlaylistName = $data['PlaylistName'];
+            $PlaylistDescription = $data['PlaylistDescription'];
+            $AmountLike = $data['AmountLike'];
+            $AmountSong = $data['AmountSong'];
+            $PlaylistLength = $data['PlaylistLength'];
+            $CreateDate = $data['CreateDate'];
+            $PlaylistImage = $data['PlaylistImage'];
+            
+            $sql = "INSERT INTO playlist (PlaylistName, PlaylistDescription, AmountLike, AmountSong,PlaylistLength,CreateDate,PlaylistImage) 
+                    VALUES ('$PlaylistName', '$PlaylistDescription', '$AmountLike', '$AmountSong', '$PlaylistLength', '$CreateDate', '$PlaylistImage')";
+            $result = $this->db->execute($sql);
+            return $result;
+        }
+        public function edit($id){
+            $sql = "SELECT * FROM playlist WHERE PlaylistID = $id";
+            $result = mysqli_query($this->db->conn, $sql);
+            return $result;
+        }
+    
+    
+        public function update(int $id, array $data)
+        {
+            $PlaylistName = $data['PlaylistName'];
+            $PlaylistDescription = $data['PlaylistDescription'];
+            $AmountLike = $data['AmountLike'];
+            $AmountSong = $data['AmountSong'];
+            $PlaylistLength = $data['PlaylistLength'];
+            $CreateDate = $data['CreateDate'];
+            $PlaylistImage = $data['PlaylistImage'];
+        
+            $sql = "UPDATE `playlist` 
+                SET 
+                    `PlaylistName`='$PlaylistName',
+                    `PlaylistDescription`='$PlaylistDescription',
+                    `AmountLike`='$AmountLike',
+                    `AmountSong`='$AmountSong',
+                    `PlaylistLength`='$PlaylistLength',
+                    `CreateDate`='$CreateDate',
+                    `PlaylistImage`='$PlaylistImage'
+                WHERE PlaylistID=$id";
+            $result = false;
+            if(mysqli_query($this->db->conn, $sql)){
+                $result = true;
+            }
+            return json_encode($result);
+        }
+    
+        public function delete(int $id)
+        {
+            {
+                $sql = "DELETE FROM `playlist` WHERE PlaylistID = $id";
+                $result = false;
+                if(mysqli_query($this->db->conn, $sql)){
+                    $result = true;
+                }
+                return json_encode($result);
+            }
+        }
+        // Phân trang
+    public function getPlaylistsLimit($offsetPlaylist, $limitPlaylist)
+    {
+        $sql = "SELECT * FROM playlist ORDER BY PlaylistID DESC LIMIT $offsetPlaylist, $limitPlaylist";
+        $result = mysqli_query($this->db->conn, $sql);
+        return $result;
+    }
+    
 }
