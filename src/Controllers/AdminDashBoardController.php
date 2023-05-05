@@ -1,6 +1,6 @@
 <?php 
 
-class AdminController extends Controller {
+class AdminDashBoardController extends Controller {
     
     public function __construct() {
         $this->PodcastModel = $this->model('Podcast');
@@ -25,9 +25,12 @@ class AdminController extends Controller {
     }
 
     public function index()
-    {
+    {   
+       
+
         $this->view('Listener/indexAdmin', [
-            'Page' => 'Statistical'
+          
+            'Page' => 'AdminDashBoard'
         ]);
         $this->change_num_postcad(); 
         $this->change_num_song(); 

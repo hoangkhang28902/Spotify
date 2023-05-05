@@ -12,8 +12,8 @@ class Home extends Controller {
     public function index()
     {
         $song = $this->SongModel->getSongs();
-        $artist = $this->ArtistsModel->getArtist();
-        $album = $this->AlbumModel->getAlbum();
+        $artist = $this->ArtistsModel->getArtists();
+        $album = $this->AlbumModel->getAlbums();
         $playlist = $this->PlaylistModel->getPlaylists();
         $podcast = $this->PodcastModel->getPodcast();
         

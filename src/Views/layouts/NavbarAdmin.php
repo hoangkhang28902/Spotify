@@ -2,7 +2,7 @@
 <div class="navigation">    
             <ul>
                 <li>
-                    <a href="#">
+                    <a href="">
                         <span class="icon"><i class="logoAdmin fa fa-brands fa-spotify fa-2xl" style="color: #1ed760;"></i></span>
                         <span class="title">
                             <h2>Spotify</h2>
@@ -10,7 +10,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="http://localhost:8080/Spotify/AdminDashBoardController/index">
                         <span class="icon"><i class="fa fa-line-chart" aria-hidden="true"></i></span>
                         <span class="title">Dashboard</span>
                     </a>

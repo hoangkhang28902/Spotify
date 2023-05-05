@@ -10851,6 +10851,7 @@ body {
 
 #layoutSidenav {
   display: flex;
+  flex-direction: column;
 }
 #layoutSidenav #layoutSidenav_nav {
   flex-basis: 225px;

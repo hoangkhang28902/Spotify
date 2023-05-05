@@ -38,6 +38,19 @@
         <div class="main">
             <?php include_once "./src/Views/layouts/TopbarAdmin.php" ?>
             <?php require_once './src/Views/pages/' .$data['Page']. '.php' ?>
+
+                        <?php
+            require_once './src/Models/Song.php';
+            require_once './src/Controllers/AdminController.php';
+
+            $song = new SongModel();
+            $dataTableLikeSong = $song->GetDataTableSongLike();
+
+            $controller = new AdminController();
+            $controller->ShowdateTableSongLike($dataTableLikeSong);
+            ?>
+
+
         </div>
     </div>
     <script>

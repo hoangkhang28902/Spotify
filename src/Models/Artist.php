@@ -11,18 +11,19 @@ class ArtistModel
     }
 
     // Get All Songs
-    public function getArtist()
+    public function getArtists()
     {
         $sql = "SELECT * FROM artist";
         $result = mysqli_query($this->db->conn, $sql);
         return $result;
     }
-    // function getArtist($id)
-    // {
-    //     $sql = "SELECT * FROM Song, Artist, Album, SongArtist WHERE (Artist.ArtistID = $id) && (Song.SongID = SongArtist.SongID && SongArtist.ArtistID = Artist.ArtistID)  && (Song.AlbumID = Album.AlbumID)";
-    //     $result = $this->db->select($sql);
-    //     return $result;
-    // }
+
+    function getArtist($id)
+    {
+        $sql = "SELECT * FROM Song, Artist, Album, SongArtist WHERE (Artist.ArtistID = $id) && (Song.SongID = SongArtist.SongID && SongArtist.ArtistID = Artist.ArtistID)  && (Song.AlbumID = Album.AlbumID)";
+        $result = $this->db->select($sql);
+        return $result;
+    }
     // CRUD
 
     public function create(array $data)

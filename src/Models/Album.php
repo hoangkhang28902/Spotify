@@ -11,7 +11,7 @@ class AlbumModel
     }
 
     // Get All Songs
-    public function getAlbum()
+    public function getAlbums()
     {
         $sql = "SELECT * FROM album";
         $result = mysqli_query($this->db->conn, $sql);
@@ -19,12 +19,13 @@ class AlbumModel
     }
     
 
-    // function getAlbum($id)
-    // {
-    //     $sql = "SELECT * FROM Song, Album, Artist, SongArtist WHERE (Song.AlbumID = $id && Song.AlbumID = Album.AlbumID) && (Song.SongID = SongArtist.SongID && SongArtist.ArtistID = Artist.ArtistID)";
-    //     $result = $this->db->select($sql);
-    //     return $result;
-    // }
+    function getAlbum($id)
+    {
+        $sql = "SELECT * FROM Song, Album WHERE (Album.AlbumID = $id && Song.AlbumID = Album.AlbumID)";
+        // $sql = "SELECT * FROM Song, Album, Artist, SongArtist WHERE (Song.AlbumID = $id && Song.AlbumID = Album.AlbumID) && (Song.SongID = SongArtist.SongID && SongArtist.ArtistID = Artist.ArtistID)";
+        $result = $this->db->select($sql);
+        return $result;
+    }
 
     function getArtist($id)
     {
