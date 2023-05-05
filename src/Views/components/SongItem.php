@@ -1,12 +1,12 @@
 <?php
-function SongItem($num, $image, $name, $singer, $album, $date, $time, $audio)
+function SongItem($num, $image, $name, $singer, $album, $date, $time, $audio, $lyric)
 { ?>
     <div id="itemSong" class="row g2 py-2 align-items-center rounded">
         <div class="col-sm-1">
             <div class="num opacity-75"><?php echo $num ?></div>
             <div class="play-icon">
                 <audio id="audio" crossOrigin="anonymous"></audio>
-                <img width="16px" height="16px" class="playing-icon" onclick="PlayingMusic(event, '<?php echo $audio ?>')" src="<?php echo URLROOT ?>/assets/icons/play_small.svg" >
+                <img width="16px" height="16px" class="playing-icon" onclick="PlayingMusic(event, '<?php echo $audio ?>', '<?php echo $lyric ?>')" src="<?php echo URLROOT ?>/assets/icons/play_small.svg" >
             </div>
         </div>
         <div class="col-sm-4 d-grid grid-content">

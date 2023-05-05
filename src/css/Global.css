@@ -287,7 +287,7 @@ a {
     top: 0;
     left: 0;
     width: 240px;
-    z-index: 1;
+    z-index: 2;
     background-color: #000;
     /* height: 90vh; */
     height: 100%;
@@ -431,7 +431,7 @@ a {
 }
 
 .navbarLayout {
-    z-index: 1;
+    z-index: 3;
     width: 100%;
     position: fixed;
     top: 0;
@@ -529,3 +529,44 @@ a {
     overflow-y: scroll;
 }
 
+/* Lyrics */
+.lyricSong {
+    position: fixed;
+    top: 0;
+    left: 200;
+    z-index: 2;
+    overflow-y: scroll;
+    width: 84.4%;
+    height: calc(100% - 90px);
+}
+
+#contentLyrics {
+    margin: 0 288px;
+    margin-top: 128px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+#contentLyrics h2 {
+    opacity: 0.25;
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.5em;
+    cursor: pointer;
+}
+
+#contentLyrics .current {
+    font-size: 3rem;
+    opacity: 1;
+    font-weight: 700;
+    line-height: 1.5em;
+    cursor: pointer;
+}
+
+#contentLyrics .current + h2 {
+    font-size: 2.5rem;
+    opacity: 0.5;
+    font-weight: 700;
+    line-height: 1.5em;
+    cursor: pointer;
+}

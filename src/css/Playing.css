@@ -25,7 +25,7 @@ input[type="range"]::-webkit-slider-thumb {
     width: 100%;
     position: fixed;
     bottom: 0;
-    z-index: 2;
+    z-index: 5;
 }
 
 input[type="checkbox"] {
@@ -193,25 +193,23 @@ input[type="checkbox"]:checked + label #checkStop {
 
 #loopSong {
     position: relative;
-    transition: all .5s;
 }
 
-#loopSong:hover > .enableButton {
-    display: block;
+#loopSong svg path {
+    /* fill: #2d5; */
 }
 
-.enableButton {
-    width: 100px;
-    height: 30px;
-    display: none;
-    position: absolute;
-    top: -30px;
+/* #loopSong::after {
+    background-color: #2d5;
+    border-radius: 50%;
+    bottom: 0;
+    content: "";
+    height: 4px;
     left: 50%;
+    position: absolute;
     transform: translateX(-50%);
-    background-color: #181818;
-    font-size: 13px;
-    color: #fff;
-}
+    width: 4px;
+} */
 
 .progressBar:hover .progress{
     background-color: #2d5;

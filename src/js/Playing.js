@@ -1,83 +1,127 @@
-const audio = document.getElementById('audio');
-const songIndex = document.getElementsByClassName('num');
-// const itemSong = document.getElementsByClassName('itemSong');
-const playingSong = document.getElementById('playingSong');
-const playButton = document.querySelectorAll('.playing-icon');
-const currentTime = document.getElementById('startPlaying');
-const totalDuration = document.getElementById('endPlaying');
+const audio = document.getElementById("audio");
+const songIndex = document.getElementsByClassName("num");
+const playingSong = document.getElementById("playingSong");
+const playButton = document.querySelectorAll(".playing-icon");
+const currentTime = document.getElementById("startPlaying");
+const totalDuration = document.getElementById("endPlaying");
 const progressEl = document.querySelector('input[type="range"]');
-const playLagreButton = document.getElementById('playingLargeIcon');
-const volumeSlider = document.getElementById('sliderVolume');
-const lyricButton = document.getElementById('lyricButton');
-const containerSong = document.getElementById('containerSong');
+const playLagreButton = document.getElementById("playingLargeIcon");
+const volumeSlider = document.getElementById("sliderVolume");
+const lyricButton = document.getElementById("lyricButton");
+const containerSong = document.getElementById("containerSong");
+const backgroundColorLyric = document.getElementById("thumbailColor");
+
+var timeList = [];
+var countTimer = 0;
+var time;
+
+// Lyrics
+const containerLyric = document.querySelector(".lyricSong");
+var contentLyric = document.querySelector("#contentLyrics");
+
+// Set Background Lyric
+containerLyric.style.backgroundColor =
+  window.getComputedStyle(backgroundColorLyric).backgroundColor;
+
+lyricButton.addEventListener("click", function () {
+  if (containerLyric.style.display === "none") {
+    containerLyric.style.display = "block";
+  } else {
+    containerLyric.style.display = "none";
+  }
+});
+
+function processing(lyric) {
+  $.getJSON(lyric, function (data) {
+    let htmlLyrics = "";
+    timeList = [];
+
+    for (let i = 0; i < data.lyrics.length; i++) {
+      timeList.push(data.lyrics[i].time);
+      htmlLyrics += "<h2>" + data.lyrics[i].line + "</h2>";
+    }
+
+    contentLyric.innerHTML = htmlLyrics;
+  });
+}
 
 let playItemButton;
 let index = songIndex.textContent;
 
-playingSong.addEventListener('click', function (event) {
+playingSong.addEventListener("click", function (event) {
   PlayButton(playItemButton);
-})
+});
 
 function PlayButton(playItemButton) {
   if (audio.paused) {
     audio.play();
 
-    playingSong.src = "http://localhost:8080/Spotify/src/assets/icons/pause_black.svg";
-    playLagreButton.src = "http://localhost:8080/Spotify/src/assets/icons/pause_small.svg";
-    playItemButton.src = "https://open.spotifycdn.com/cdn/images/equaliser-animated-green.f5eb96f2.gif";
+    playingSong.src =
+      "http://localhost:8080/Spotify/src/assets/icons/pause_black.svg";
+    playLagreButton.src =
+      "http://localhost:8080/Spotify/src/assets/icons/pause_small.svg";
+    playItemButton.src =
+      "https://open.spotifycdn.com/cdn/images/equaliser-animated-green.f5eb96f2.gif";
 
-    playItemButton.onmouseover = function() {
-      playItemButton.src = "http://localhost:8080/Spotify/src/assets/icons/pause_small.svg";
-    }
+    playItemButton.onmouseover = function () {
+      playItemButton.src =
+        "http://localhost:8080/Spotify/src/assets/icons/pause_small.svg";
+    };
     // playItemButton.onmousedown = function() {
     //   playItemButton.src = "https://open.spotifycdn.com/cdn/images/equaliser-animated-green.f5eb96f2.gif";
     // }
   } else {
     audio.pause();
 
-    playingSong.src = "http://localhost:8080/Spotify/src/assets/icons/play_black.svg";
-    playLagreButton.src = "http://localhost:8080/Spotify/src/assets/icons/play_small.svg";
+    playingSong.src =
+      "http://localhost:8080/Spotify/src/assets/icons/play_black.svg";
+    playLagreButton.src =
+      "http://localhost:8080/Spotify/src/assets/icons/play_small.svg";
     // itemSong.classList.remove("selected");
-    playItemButton.src = "http://localhost:8080/Spotify/src/assets/icons/play_small.svg";
+    playItemButton.src =
+      "http://localhost:8080/Spotify/src/assets/icons/play_small.svg";
 
-    playItemButton.onmouseover = function() {
-      playItemButton.src = "http://localhost:8080/Spotify/src/assets/icons/play_small.svg";
-    }
-  } 
+    playItemButton.onmouseover = function () {
+      playItemButton.src =
+        "http://localhost:8080/Spotify/src/assets/icons/play_small.svg";
+    };
+  }
 }
 
 function Lyrics() {
   containerSong.style.overflow = "hidden";
 }
 
-
-function PlayingMusic(event, audioSongMusic) {
-
+function PlayingMusic(event, audioSongMusic, lyric) {
   playItemButton = event.target;
 
   let mouseDownOnSlider = false;
 
-  if (audio.src != audioSongMusic)   audio.src = audioSongMusic;
-  
-  setInterval(setUpdate, 1000);
-  
-  // itemSong.classList.add("selected");
+  if (audio.src != audioSongMusic) {
+    audio.src = audioSongMusic;
+    processing(lyric);
+    // Current lyric
+    // $("#contentLyrics h2:nth-child(1)").addClass("current");
+  }
 
-  PlayButton(playItemButton);
+  setInterval(setUpdate, 1000);
+
+  PlayButton(playItemButton); 
 
   audio.addEventListener("loadeddata", () => {
-      progressEl.value = 0;
+    progressEl.value = 0;
   });
 
   audio.addEventListener("timeupdate", () => {
-      if (!mouseDownOnSlider) {
-      progressEl.value = audio.currentTime / audio.duration * 100;
-      }
+    if (!mouseDownOnSlider) {
+      progressEl.value = (audio.currentTime / audio.duration) * 100;
+    }
   });
 
-    audio.addEventListener("ended", () => {
-      playItemButton.src = "http://localhost:8080/Spotify/src/assets/icons/play_small.svg";
-    });
+  audio.addEventListener("ended", () => {
+    playItemButton.src =
+      "http://localhost:8080/Spotify/src/assets/icons/play_small.svg";
+  });
 
   progressEl.addEventListener("change", () => {
     const pct = progressEl.value / 100;
@@ -91,10 +135,12 @@ function PlayingMusic(event, audioSongMusic) {
   });
 }
 
+// NOTE --> Set Volume
 function setVolume() {
   audio.volume = volumeSlider.value / 100;
 }
 
+// NOTE --> Next Song
 function nextSong() {
   let next;
 
@@ -108,7 +154,6 @@ function nextSong() {
   next.click();
 
   console.log(next);
-
 }
 
 function previousSong() {
@@ -127,10 +172,15 @@ function previousSong() {
 }
 
 function loopSong() {
+
   if (audio.loop) {
     audio.loop = false;
+    $("#loopSong").find("svg path").css("fill", "")
+    console.log('not loop');
   } else {
     audio.loop = true;
+    $("#loopSong").find("svg path").css("fill", "#2d5")
+    console.log('loop');
   }
 }
 
@@ -145,17 +195,98 @@ function setUpdate() {
     let durationMinutes = Math.floor(audio.duration / 60);
     let durationSeconds = Math.floor(audio.duration - durationMinutes * 60);
 
-    if (currentSeconds < 10) {currentSeconds = "0" + currentSeconds; }
-    if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
-    if (currentMinutes < 10) {currentMinutes = "0" + currentMinutes; }
-    if (durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
+    if (currentSeconds < 10) {
+      currentSeconds = "0" + currentSeconds;
+    }
+    if (durationSeconds < 10) {
+      durationSeconds = "0" + durationSeconds;
+    }
+    if (currentMinutes < 10) {
+      currentMinutes = "0" + currentMinutes;
+    }
+    if (durationMinutes < 10) {
+      durationMinutes = "0" + durationMinutes;
+    }
 
     currentTime.textContent = currentMinutes + ":" + currentSeconds;
     totalDuration.textContent = durationMinutes + ":" + durationSeconds;
   }
+    time = audio.currentTime * 1000;
+      // Update time
+      safeKill = 0;
+      while (true) {
+        safeKill += 1;
+        if (safeKill >= 100) break;
+
+        console.log('time ', time);
+
+        if (countTimer == 0) {
+          if (time < timeList[countTimer]) {
+            previous();
+            break;
+          }
+        }
+        if (countTimer == timeList.length && time <= timeList[countTimer - 1]) {
+          countTimer--;
+          previous();
+        }
+        if (time >= timeList[countTimer]) {
+          if (countTimer <= timeList.length) {
+              countTimer++;
+          }
+          next();
+        } else if (time < timeList[countTimer - 1]) {
+          countTimer--;
+          previous();
+        } else {
+          if (!audio.paused && !audio.ended) {
+            centerize();
+          }
+          break;
+        }
+      }  
 }
 
 function nextQueue() {
   songIndex++;
-
 }
+
+// NOTE --> Next Lyric
+function next() {
+  var current = $(".lyricSong .current");
+  if (current.length == 0) {
+    $("#contentLyrics h2:nth-child(1)").addClass("current");
+    return;
+  }
+  current.removeClass("current");
+  current.next().addClass("current");
+}
+
+// NOTE --> Previous Lyric
+function previous() {
+  var current = $(".lyricSong .current");
+  if (current.length == 0) {
+    return;
+  }
+  var first = $("#contentLyrics h2:nth-child(1)");
+  current.removeClass("current");
+  if (current === first) {
+    return;
+  }
+  current.prev().addClass("current");
+}
+
+function centerize() {
+    // if (audio.pause) return;
+
+    if ($(".current").length == 0) return;
+    var a = $(".current").height();
+    var c = $(".lyricSong").height();
+    var d = $(".current").offset().top - $(".current").parent().offset().top;
+    var e = d + a / 2 - (c * 1) / 4;
+    console.log('e ', e);
+    $(".lyricSong").animate(
+      { scrollTop: e + "px" },
+      { easing: "swing", duration: 500 }
+    );
+  }

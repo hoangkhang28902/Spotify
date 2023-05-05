@@ -23,6 +23,9 @@ if (!empty($data['listsong'])) :
     }
 endif;
 ?>
+
+<?php include_once "./src/Views/Listener/Lyrics.php" ?> 
+
 <div id="containerSong" class="container-fluid p-0 lead playlist-custom">
     <div class="sticky-top bg-custom">
         <div class="p-4">
@@ -83,7 +86,7 @@ endif;
         if (!empty($data['listsong'])) :
             $num = 1;
             foreach ($data['listsong'] as $song) :
-                echo SongItem($num++, 'data:image/png;base64,' . base64_encode($song['SongImage']), $song['SongName'], $song['ArtistName'], $song['AlbumName'], $song['SongDate'], $song['SongLength'], $song['SongAudio']);
+                echo SongItem($num++, 'data:image/png;base64,' . base64_encode($song['SongImage']), $song['SongName'], $song['ArtistName'], $song['AlbumName'], $song['SongDate'], $song['SongLength'], $song['SongAudio'], $song['SongLyric']);
             endforeach;
         endif;
         ?>
