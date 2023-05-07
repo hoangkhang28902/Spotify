@@ -35,54 +35,53 @@ class UserModel
         return $result;
     }
 
-// CRUD OPERATIONS
-public function create(array $data)
-{
-    $Username = $data['Username'];
-    $UserFname = $data['UserFname'];
-    $UserLname = $data['UserLname'];
-    $Password = $data['Password'];
-    $Email = $data['Email'];
-    $Birthday = $data['Birthday'];
-    $Address = $data['Address'];
-    $City = $data['City'];
-    $State = $data['State'];
-    $ZipCode = $data['ZipCode'];
-    $UserImage = $data['UserImage'];
+    // CRUD OPERATIONS
+    public function create(array $data)
+    {
+        $Username = $data['Username'];
+        $UserFname = $data['UserFname'];
+        $UserLname = $data['UserLname'];
+        $Password = $data['Password'];
+        $Email = $data['Email'];
+        $Birthday = $data['Birthday'];
+        $Address = $data['Address'];
+        $City = $data['City'];
+        $State = $data['State'];
+        $ZipCode = $data['ZipCode'];
+        $UserImage = $data['UserImage'];
 
-    $sql = "INSERT INTO user (Username, UserFname, UserLname, Password ,Email,Birthday,Address,City,State,ZipCode,UserImage) 
+        $sql = "INSERT INTO user (Username, UserFname, UserLname, Password ,Email,Birthday,Address,City,State,ZipCode,UserImage) 
             VALUES ('$Username', '$UserFname', '$UserLname', '$Password', '$Email', '$Birthday', '$Address','$City','$State','$ZipCode','$UserImage')";
-    $result = $this->db->execute($sql);
-    return $result;
-}
+        $result = $this->db->execute($sql);
+        return $result;
+    }
 
-public function read(int $id)
-{
+    public function read(int $id)
+    {
+    }
+    public function edit($id)
+    {
+        $sql = "SELECT * FROM user WHERE UserID = $id";
+        $result = mysqli_query($this->db->conn, $sql);
+        return $result;
+    }
 
 
-}
-public function edit($id){
-    $sql = "SELECT * FROM user WHERE UserID = $id";
-    $result = mysqli_query($this->db->conn, $sql);
-    return $result;
-}
+    public function update(int $id, array $data)
+    {
+        $Username = $data['Username'];
+        $UserFname = $data['UserFname'];
+        $UserLname = $data['UserLname'];
+        $Password = $data['Password'];
+        $Email = $data['Email'];
+        $Birthday = $data['Birthday'];
+        $Address = $data['Address'];
+        $City = $data['City'];
+        $State = $data['State'];
+        $ZipCode = $data['ZipCode'];
+        $UserImage = $data['UserImage'];
 
-
-   public function update(int $id, array $data)
-{
-    $Username = $data['Username'];
-    $UserFname = $data['UserFname'];
-    $UserLname = $data['UserLname'];
-    $Password = $data['Password'];
-    $Email = $data['Email'];
-    $Birthday = $data['Birthday'];
-    $Address = $data['Address'];
-    $City = $data['City'];
-    $State = $data['State'];
-    $ZipCode = $data['ZipCode'];
-    $UserImage = $data['UserImage'];
-
-    $sql = "UPDATE `user` 
+        $sql = "UPDATE `user` 
         SET 
             `Username`='$Username',
             `UserFname`='$UserFname',
@@ -96,26 +95,25 @@ public function edit($id){
             `ZipCode`='$ZipCode',
             `UserImage`='$UserImage'
         WHERE UserID=$id";
-    $result = false;
-    if(mysqli_query($this->db->conn, $sql)){
-        $result = true;
-    }
-    return json_encode($result);
-}
-
-
-
-public function delete(int $id)
-{
-    {
-        $sql = "DELETE FROM `user` WHERE UserID = $id";
         $result = false;
-        if(mysqli_query($this->db->conn, $sql)){
+        if (mysqli_query($this->db->conn, $sql)) {
             $result = true;
         }
         return json_encode($result);
     }
-}
+
+
+
+    public function delete(int $id)
+    { {
+            $sql = "DELETE FROM `user` WHERE UserID = $id";
+            $result = false;
+            if (mysqli_query($this->db->conn, $sql)) {
+                $result = true;
+            }
+            return json_encode($result);
+        }
+    }
     // Update Username
     public function updateUsername($userId, $newUsername)
     {
