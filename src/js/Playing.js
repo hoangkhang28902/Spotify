@@ -10,6 +10,24 @@ const volumeSlider = document.getElementById("sliderVolume");
 const lyricButton = document.getElementById("lyricButton");
 const containerSong = document.getElementById("containerSong");
 const backgroundColorLyric = document.getElementById("thumbailColor");
+const nameSongPlaying = document.getElementsByClassName("nameSong");
+const nameArtistPlaying = document.getElementsByClassName("nameArtist");
+const imagePlayings = document.getElementById("imagePlaying")
+
+const intervalLyric = setInterval(() => {
+  var lyricToAudio = document.querySelectorAll("#contentLyrics h2");
+
+  if (lyricToAudio.length > 0) {
+    lyricToAudio.forEach((el, index) => {
+      el.addEventListener('click', (event) => {
+        progressEl.value = timeList[index] / 1000;
+        audio.currentTime = timeList[index] / 1000;
+      })
+    })
+    clearInterval(intervalLyric);
+  }
+})
+
 
 var timeList = [];
 var countTimer = 0;
@@ -23,6 +41,7 @@ var contentLyric = document.querySelector("#contentLyrics");
 containerLyric.style.backgroundColor =
   window.getComputedStyle(backgroundColorLyric).backgroundColor;
 
+// Enable and Disable Lyric button
 lyricButton.addEventListener("click", function () {
   if (containerLyric.style.display === "none") {
     containerLyric.style.display = "block";
@@ -92,16 +111,18 @@ function Lyrics() {
   containerSong.style.overflow = "hidden";
 }
 
-function PlayingMusic(event, audioSongMusic, lyric) {
+function PlayingMusic(event, audioSongMusic, lyric, nameSong, nameArtist, imagePlaying) {
   playItemButton = event.target;
 
   let mouseDownOnSlider = false;
 
   if (audio.src != audioSongMusic) {
     audio.src = audioSongMusic;
+    nameSongPlaying[0].innerHTML = nameSong;
+    nameArtistPlaying[0].innerHTML = nameArtist
+    imagePlayings.src = imagePlaying
     processing(lyric);
-    // Current lyric
-    // $("#contentLyrics h2:nth-child(1)").addClass("current");
+
   }
 
   setInterval(setUpdate, 1000);
@@ -121,6 +142,7 @@ function PlayingMusic(event, audioSongMusic, lyric) {
   audio.addEventListener("ended", () => {
     playItemButton.src =
       "http://localhost:8080/Spotify/src/assets/icons/play_small.svg";
+    nextSong();
   });
 
   progressEl.addEventListener("change", () => {
@@ -176,11 +198,13 @@ function loopSong() {
   if (audio.loop) {
     audio.loop = false;
     $("#loopSong").find("svg path").css("fill", "")
-    console.log('not loop');
+
+    console.log('Function Loop Song is DISABLE');
   } else {
     audio.loop = true;
     $("#loopSong").find("svg path").css("fill", "#2d5")
-    console.log('loop');
+    
+    console.log('Function Loop Song is ENABLE');
   }
 }
 
@@ -247,6 +271,7 @@ function setUpdate() {
       }  
 }
 
+// NOTE --> Next Queue
 function nextQueue() {
   songIndex++;
 }

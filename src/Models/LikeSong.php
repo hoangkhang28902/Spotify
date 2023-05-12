@@ -16,4 +16,5 @@ class LikeSongModel
         $result = $this->db->select($sql);
         return $result;
     }
+
 }

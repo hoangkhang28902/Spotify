@@ -21,7 +21,7 @@
             ?>
             <?php if (!empty($data['song'])):
                 foreach ($data['song'] as $song) : ?>
-                    <?php echo Card($song['SongID'], $song['SongName'], $arrayArt2, 'data:image/png;base64,'.base64_encode($song['SongImage']), $song['SongAudio']); ?>
+                    <?php echo Card($song['SongID'], $song['SongName'], $arrayArt2, 'data:image/png;base64,'.base64_encode($song['SongImage']), $song['SongAudio'], 'Song'); ?>
             <?php endforeach; endif; ?>   
              <!-- Phần artist -->
            
@@ -37,7 +37,7 @@
             ?>
             <?php if (!empty($data['podcast'])):
                 foreach ($data['podcast'] as $podcast) : ?>
-                    <?php echo Card($podcast['PodcastID'], $podcast['PodcastName'], $arrayArt2, 'data:image/png;base64,'.base64_encode($podcast['PodcastImage']), $podcast['PodcastAuthor']); ?>
+                    <?php echo Card($podcast['PodcastID'], $podcast['PodcastName'], $arrayArt2, 'data:image/png;base64,'.base64_encode($podcast['PodcastImage']), $podcast['PodcastAuthor'], 'Podcast'); ?>
             <?php endforeach; endif; ?>
 
         <?php 
@@ -58,7 +58,7 @@
             ?>
             <?php if (!empty($data['artist'])):
                 foreach ($data['artist'] as $artist) : ?>
-                    <?php echo Card($artist['ArtistID'], $artist['ArtistName'], $arrayArt2, 'data:image/png;base64,'.base64_encode($artist['ArtistImage']), $artist['ArtistDob']); ?>
+                    <?php echo Card($artist['ArtistID'], $artist['ArtistName'], $arrayArt2, 'data:image/png;base64,'.base64_encode($artist['ArtistImage']), $artist['ArtistDob'], 'Artist'); ?>
             <?php endforeach; endif; ?>
         <?php 
             // $arrayArt1 = array('Web5ngay');
@@ -92,7 +92,7 @@
             ?>
             <?php if (!empty($data['album'])):
                 foreach ($data['album'] as $album) : ?>
-                    <?php echo Card($album['AlbumID'], $album['AlbumName'], $arrayArt2, 'data:image/png;base64,'.base64_encode($album['AlbumImage']), $album['AmountSong']); ?>
+                    <?php echo Card($album['AlbumID'], $album['AlbumName'], $arrayArt2, 'data:image/png;base64,'.base64_encode($album['AlbumImage']), $album['AmountSong'], 'Album'); ?>
             <?php endforeach; endif; ?>
                 <?php 
             // $arrayArt1 = array('Những gì mà bạn đang nghe. Ảnh bìa: thuy,MIN');
@@ -128,7 +128,7 @@
             ?>
             <?php if (!empty($data['playlist'])):
                 foreach ($data['playlist'] as $playlist) : ?>
-                    <?php echo Card($playlist['PlaylistID'], $playlist['PlaylistName'], $arrayArt2, 'data:image/png;base64,'.base64_encode($playlist['PlaylistImage']), $playlist['AmountSong']); ?>
+                    <?php echo Card($playlist['PlaylistID'], $playlist['PlaylistName'], $arrayArt2, 'data:image/png;base64,'.base64_encode($playlist['PlaylistImage']), $playlist['AmountSong'], 'Playlist'); ?>
             <?php endforeach; endif; ?>
                 <?php 
             // $arrayArt1 = array('Your weekly update of the most played tracks right now - Global.');
@@ -154,7 +154,7 @@
             ?>
             <?php if (!empty($data['podcast'])):
                 foreach ($data['podcast'] as $podcast) : ?>
-                    <?php echo Card($podcast['PodcastID'], $podcast['PodcastName'], $arrayArt2, 'data:image/png;base64,'.base64_encode($podcast['PodcastImage']), $podcast['PodcastAuthor']); ?>
+                    <?php echo Card($podcast['PodcastID'], $podcast['PodcastName'], $arrayArt2, 'data:image/png;base64,'.base64_encode($podcast['PodcastImage']), $podcast['PodcastAuthor'], 'Podcast'); ?>
             <?php endforeach; endif; ?>
 
 

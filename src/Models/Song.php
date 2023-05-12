@@ -49,6 +49,14 @@ class SongModel
         return $result;
     }
 
+    public function likeSong($songId, $userId)
+    {
+        // TODO
+        $sql = "SELECT * FROM likesong WHERE likesong.UserId = '$userId'";
+        $result = $this->db->select($sql);
+        return $result;
+    }
+
     // CRUD OPERATIONS
     public function create(array $data)
     {

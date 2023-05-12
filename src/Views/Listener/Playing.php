@@ -19,7 +19,7 @@
                 <div class="leftPlayingBar">
                     <div class="leftPlayingContainer">
                         <div class="leftPlayingImage">
-                            <a href="/"><img src="https://i.scdn.co/image/ab67616d000048515888c34015bebbf123957f6d" alt=""></a>
+                            <a href="/"><img id="imagePlaying" src="https://i.scdn.co/image/ab67616d000048515888c34015bebbf123957f6d" alt=""></a>
                             <!-- <button>
                                 <svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 gQUQL">
                                     <path d="M.47 11.03a.75.75 0 0 0 1.06 0L8 4.56l6.47 6.47a.75.75 0 1 0 1.06-1.06L8 2.44.47 9.97a.75.75 0 0 0 0 1.06z">
@@ -28,8 +28,8 @@
                             </button> -->
                         </div>
                         <div class="nameSongAndArtist">
-                            <a href="/" class="nameSong">Chung ta cua hien tai</a>
-                            <a href="/" class="nameArtist">Son Tung M-TP</a>
+                            <a href="/" class="nameSong">Chúng ta của hiện tại</a>
+                            <a href="/" class="nameArtist">Sơn Tùng M-TP</a>
                         </div>
                         <button class="reactOfSong">
                             <svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 gQUQL">

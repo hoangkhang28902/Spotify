@@ -1,6 +1,6 @@
 <?php 
-    function Card($ID, $NameOfArtist, $Artist = array(), $Thumbail, $Music) { ?>
-        <div class="card" onclick="NavPage('<?php echo $ID ?>')">
+    function Card($ID, $NameOfArtist, $Artist = array(), $Thumbail, $Music, $Page) { ?>
+        <div class="card" onclick="NavPage('<?php echo $ID ?>', '<?php echo $Page ?>')">
             <div class="cardContainer">
                 <div class="cardThumbail">
                     <div class="cardImage">
@@ -36,10 +36,9 @@
             </div>
         </div>
     <?php } ?>
-
     <script>
-        function NavPage(id) {
+        function NavPage(id, page) {
             // NOTE --> Navigation to detail Home.
-            window.location.href = './Home/song/' + id;
+            window.location.href = './' + page + '/show/' + id;
         }
     </script>

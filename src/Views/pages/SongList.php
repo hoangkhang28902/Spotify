@@ -86,7 +86,20 @@ endif;
         if (!empty($data['listsong'])) :
             $num = 1;
             foreach ($data['listsong'] as $song) :
-                echo SongItem($num++, 'data:image/png;base64,' . base64_encode($song['SongImage']), $song['SongName'], $song['ArtistName'], $song['AlbumName'], $song['SongDate'], $song['SongLength'], $song['SongAudio'], $song['SongLyric']);
+                echo SongItem(
+                    $song['SongID'], 
+                    $num++, 
+                    'data:image/png;base64,' . base64_encode($song['SongImage']), 
+                    $song['SongName'], 
+                    $song['ArtistName'], 
+                    $song['AlbumName'], 
+                    $song['SongDate'], 
+                    $song['SongLength'], 
+                    $song['SongAudio'], 
+                    $song['SongLyric'],
+                    $data['like'],
+                    $data['reactLike']
+                );
             endforeach;
         endif;
         ?>
