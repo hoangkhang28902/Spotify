@@ -25,7 +25,13 @@ class PlaylistModel
         $result = $this->db->select($sql);
         return $result;
     }
-    
+
+    public function getPlaylistById($id)
+    {
+        $sql = "SELECT * FROM Playlist WHERE PlaylistID = '$id'";
+        $result = $this->db->select($sql);
+        return $result;
+    }
         // CRUD OPERATIONS
         public function create(array $data)
         {
@@ -49,32 +55,44 @@ class PlaylistModel
         }
     
     
-        public function update(int $id, array $data)
-        {
-            $PlaylistName = $data['PlaylistName'];
-            $PlaylistDescription = $data['PlaylistDescription'];
-            $AmountLike = $data['AmountLike'];
-            $AmountSong = $data['AmountSong'];
-            $PlaylistLength = $data['PlaylistLength'];
-            $CreateDate = $data['CreateDate'];
-            $PlaylistImage = $data['PlaylistImage'];
-        
+
+    public function update(int $id, array $data)
+    {
+        $PlaylistName = $data['PlaylistName'];
+        $PlaylistDescription = $data['PlaylistDescription'];
+        $AmountLike = $data['AmountLike'];
+        $AmountSong = $data['AmountSong'];
+        $PlaylistLength = $data['PlaylistLength'];
+        $CreateDate = $data['CreateDate'];
+        $PlaylistImage = $data['PlaylistImage'];
+        if ($data['PlaylistImage'] != 'None'){
             $sql = "UPDATE `playlist` 
-                SET 
-                    `PlaylistName`='$PlaylistName',
-                    `PlaylistDescription`='$PlaylistDescription',
-                    `AmountLike`='$AmountLike',
-                    `AmountSong`='$AmountSong',
-                    `PlaylistLength`='$PlaylistLength',
-                    `CreateDate`='$CreateDate',
-                    `PlaylistImage`='$PlaylistImage'
-                WHERE PlaylistID=$id";
-            $result = false;
-            if(mysqli_query($this->db->conn, $sql)){
-                $result = true;
-            }
-            return json_encode($result);
+            SET 
+                `PlaylistName`='$PlaylistName',
+                `PlaylistDescription`='$PlaylistDescription',
+                `AmountLike`='$AmountLike',
+                `AmountSong`='$AmountSong',
+                `PlaylistLength`='$PlaylistLength',
+                `CreateDate`='$CreateDate',
+                `PlaylistImage`='$PlaylistImage'
+            WHERE PlaylistID=$id";
+        } else {
+            $sql = "UPDATE `playlist` 
+            SET 
+                `PlaylistName`='$PlaylistName',
+                `PlaylistDescription`='$PlaylistDescription',
+                `AmountLike`='$AmountLike',
+                `AmountSong`='$AmountSong',
+                `PlaylistLength`='$PlaylistLength',
+                `CreateDate`='$CreateDate'
+            WHERE PlaylistID=$id";
         }
+        $result = false;
+        if (mysqli_query($this->db->conn, $sql)) {
+            $result = true;
+        }
+        return json_encode($result);
+    }
     
         public function delete(int $id)
         {
@@ -93,6 +111,36 @@ class PlaylistModel
         $sql = "SELECT * FROM playlist ORDER BY PlaylistID DESC LIMIT $offsetPlaylist, $limitPlaylist";
         $result = mysqli_query($this->db->conn, $sql);
         return $result;
+    }
+    // Tìm kiếm
+    function search($name)
+    {
+        $sql = "SELECT * FROM playlist where PlaylistName LIKE '%".$name."%' ";
+        $result = $this->db->select($sql);
+        if ($result) {
+            foreach($result as $key => $val) {
+                $result[$key]['PlaylistImage'] = base64_encode($val['PlaylistImage']);
+            }
+        }
+        return $result;
+    }
+    function getAll()
+    {
+        $sql = "SELECT * FROM playlist";
+        $result = $this->db->select($sql);
+        if ($result) {
+            foreach($result as $key => $val) {
+                $result[$key]['PlaylistImage'] = base64_encode($val['PlaylistImage']);
+            }
+        }
+        return $result;
+    }
+    function listIdSong($idPlayList){
+        $listId = count($idPlayList) > 0 ? implode(",", $idPlayList) : '';
+        $sql = "SELECT * FROM playlistsong where  PlaylistID  IN($listId)";
+        $result = $this->db->select($sql);
+        return $result;
+
     }
     
 }

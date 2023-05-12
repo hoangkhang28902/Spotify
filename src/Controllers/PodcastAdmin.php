@@ -54,12 +54,13 @@ class PodcastAdmin extends Controller {
     public function update($id){
         $result_mess = false;
         if (isset($_POST["submit"])){
-             
+            $image = !empty($_FILES["PodcastImage"]["tmp_name"]) ? addslashes(file_get_contents($_FILES["PodcastImage"]["tmp_name"])) : 'None';
+
                 $data = [
                     'PodcastName' => $_POST["PodcastName"],
                     'PodcastAuthor' => $_POST["PodcastAuthor"],
                     'PodcastDescription' => $_POST["PodcastDescription"],
-                    'PodcastImage' => addslashes(file_get_contents($_FILES["PodcastImage"]["tmp_name"])), 
+                    'PodcastImage' => $image,
                 ];
                 $kq = $this->PodcastModel->update($id, $data);
                 $this->view("Listener/indexAdmin",[

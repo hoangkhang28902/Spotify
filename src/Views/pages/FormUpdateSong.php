@@ -5,12 +5,12 @@
 	<title>Admin Interface</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
-<base href="http://localhost:8080/Spotify/SongAdmin/">
+<base href="http://localhost:81/Spotify-main/SongAdmin/">
 <body>
 	<div class="container mt-5">
 		<div class="row">
-			<div class="col-md-6">
-			<a href="index" class="btn btn-success" style = "margin-bottom:20px;" >Quay về</a>
+			<div class="col-md-6" style="margin-left: 300px;">
+			<a href="index" class="btn btn-success" style="margin-bottom:20px; margin-left:200px; position:absolute; margin-top:593px; left: -4%;" >Quay về</a>
 			<?php 
 				while($song = mysqli_fetch_array($data["edit"])){ ?>
 						<form action="update/<?php echo $song["SongID"];?>" method="post" enctype="multipart/form-data">
@@ -36,7 +36,7 @@
 									</div>
 									<div class="form-group">
 										<label for="SongImage">Song Image</label>
-										<input type="file" name="SongImage" class="form-control-file" ><img src="data:image/jpeg;base64,<?php echo base64_encode($song['SongImage']); ?>" alt="song Image" width="120px">
+										<input type="file" name="SongImage" class="form-control-file" >
 
 									</div>
                                     <div class="form-group">
@@ -52,20 +52,23 @@
 			
 			?>
 				<?php
-					if(isset($data["result"])){
-						if($data["result"] == "true") { ?>
-							<h3 class="alert alert-success">
-								<?php echo "Sửa thành công"?>
-							</h3>
-						<?php
-						}
-						else{?>
-							<h3 class="alert alert-warning">
-								<?php echo "Sửa thất bại"?>
-							</h3>
-						<?php
-						}
+				if (isset($data["result"])) {
+					if ($data["result"] == "true") {
+				?>
+						<script>
+							alert("Sửa thành công");
+							window.location.replace("http://localhost:81/Spotify-main/SongAdmin");
+						</script>
+					<?php
+					} else {
+					?>
+						<script>
+							alert("Sửa thất bại");
+							window.location.replace("http://localhost:81/Spotify-main/SongAdmin");
+						</script>
+				<?php
 					}
+				}
 				?>
 
 			</div>

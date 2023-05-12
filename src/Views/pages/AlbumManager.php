@@ -6,12 +6,12 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo URLROOT ?>/css/PodcastManager.css">
 </head>
-<base href="http://localhost:8080/Spotify/AlbumAdmin/">
+<base href="http://localhost:81/Spotify-main/AlbumAdmin/">
 <body>
 	<div class="container mt-5">
 		<h1 class="mb-4">Album Management</h1>
 		<table class="table">
-			<a href="view_insert" class="btn btn-warning" style="margin-bottom:20px;">Thêm mới </a>
+			<a href="view_insert" class="btn btn-warning" style="margin-bottom:20px;">Insert </a>
 
 			<thead>
 				<tr>

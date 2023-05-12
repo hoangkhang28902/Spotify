@@ -53,8 +53,11 @@ class PodcastModel{
          $PodcastAuthor = $data['PodcastAuthor'];
          $PodcastDescription = $data['PodcastDescription'];
          $PodcastImage = $data['PodcastImage'];
-
-     $sql = "UPDATE `podcast` SET `PodcastName`='$PodcastName',`PodcastAuthor`='$PodcastAuthor',`PodcastDescription`='$PodcastDescription',`PodcastImage`='$PodcastImage' WHERE PodcastID=$id";
+         if ($data['PodcastImage'] != 'None'){
+            $sql = "UPDATE `podcast` SET `PodcastName`='$PodcastName',`PodcastAuthor`='$PodcastAuthor',`PodcastDescription`='$PodcastDescription',`PodcastImage`='$PodcastImage' WHERE PodcastID=$id";
+        } else {
+            $sql = "UPDATE `podcast` SET `PodcastName`='$PodcastName',`PodcastAuthor`='$PodcastAuthor',`PodcastDescription`='$PodcastDescription' WHERE PodcastID=$id";
+        }
      $result = false;
      if(mysqli_query($this->db->conn, $sql)){
          $result = true;
@@ -77,27 +80,27 @@ class PodcastModel{
     $result = mysqli_query($this->db->conn, $sql);
     return $result;
 }
-function search($name)
+public function search($name)
 {
-    if (trim($name) != '') {
-        $sql = "SELECT * FROM `podcast` WHERE `PodcastName` LIKE '%" . $name . "%' ";
-        $result = $this->db->select($sql);
-        if ($result) {
-            foreach ($result as $key => $val) {
-                $result[$key]['PodcastImage'] = base64_encode($val['PodcastImage']);
-            }
+    $sql = "SELECT * FROM podcast where PodcastName LIKE '%".$name."%' ";
+    $result = $this->db->select($sql);
+    if ($result) {
+        foreach($result as $key => $val) {
+            $result[$key]['PodcastImage'] = base64_encode($val['PodcastImage']);
         }
-        return $result;
-    } else {
-        $sql = "SELECT * FROM `podcast`";
-        $result = $this->db->select($sql);
-        if ($result) {
-            foreach ($result as $key => $val) {
-                $result[$key]['PodcastImage'] = base64_encode($val['PodcastImage']);
-            }
-        }
-        return $result;
     }
+    return $result;
+}
+public function getAll()
+{
+    $sql = "SELECT * FROM podcast";
+    $result = $this->db->select($sql);
+    if ($result) {
+        foreach($result as $key => $val) {
+            $result[$key]['PodcastImage'] = base64_encode($val['PodcastImage']);
+        }
+    }
+    return $result;
 }
 
     // getCount()

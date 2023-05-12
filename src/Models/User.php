@@ -68,7 +68,8 @@ public function edit($id){
 }
 
 
-   public function update(int $id, array $data)
+
+public function update(int $id, array $data)
 {
     $Username = $data['Username'];
     $UserFname = $data['UserFname'];
@@ -81,8 +82,8 @@ public function edit($id){
     $State = $data['State'];
     $ZipCode = $data['ZipCode'];
     $UserImage = $data['UserImage'];
-
-    $sql = "UPDATE `user` 
+    if ($data['UserImage'] != 'None'){
+        $sql = "UPDATE `user` 
         SET 
             `Username`='$Username',
             `UserFname`='$UserFname',
@@ -96,6 +97,21 @@ public function edit($id){
             `ZipCode`='$ZipCode',
             `UserImage`='$UserImage'
         WHERE UserID=$id";
+    } else {
+        $sql = "UPDATE `user` 
+        SET 
+            `Username`='$Username',
+            `UserFname`='$UserFname',
+            `UserLname`='$UserLname',
+            `Password`='$Password',
+            `Email`='$Email',
+            `Birthday`='$Birthday',
+            `Address`='$Address',
+            `City`='$City',
+            `State`='$State',
+            `ZipCode`='$ZipCode'
+        WHERE UserID=$id";
+    }
     $result = false;
     if(mysqli_query($this->db->conn, $sql)){
         $result = true;

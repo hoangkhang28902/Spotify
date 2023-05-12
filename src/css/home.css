@@ -17,12 +17,30 @@ h1 {
     margin-top: 84px;
     margin-bottom: 110px;
 }
+.showAll {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #124bad;
+  margin-left: 1003px;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.showAll:hover {
+  background-color: #169e3d;
+}
+
 /* car newplay */
 .card-newplay {
     display: flex;
     justify-content: flex-start; 
     align-items: center;
-    margin: 20px; 
+    margin-left: 20px; 
     flex-wrap: wrap;
     max-width: 1500px;
     }
@@ -30,13 +48,16 @@ h1 {
     .card-newplay > *{
         margin: 10px;
     }
+
+
+    
 /* car showtest */
 .card-showtest {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start; 
     align-items: center;
-    margin: 20px; 
+    margin-left: 20px; 
     max-width: 1500px;
     }
     .card-showtest > *{
@@ -48,7 +69,7 @@ h1 {
     flex-wrap: wrap;
     justify-content: flex-start; 
     align-items: center;
-    margin: 20px; 
+    margin-left: 20px; 
     max-width: 1500px;
     }
     .haythucachkhac > *{
@@ -60,7 +81,7 @@ h1 {
     flex-wrap: wrap;
     justify-content: flex-start; 
     align-items: center;
-    margin: 20px; 
+    margin-left: 20px; 
     max-width: 1500px;
     }    
     .bangxephangnoibat > *{

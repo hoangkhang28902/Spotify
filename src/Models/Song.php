@@ -82,17 +82,29 @@ class SongModel
         $SongLyric = $data['SongLyric'];
         $SongImage = $data['SongImage'];
         $SongAudio = $data['SongAudio'];
+        if ($data['SongImage'] != 'None'){
+            $sql = "UPDATE `song` 
+            SET 
+                `SongName`='$SongName',
+                `AlbumID`='$AlbumID',
+                `SongDate`='$SongDate',
+                `SongLength`='$SongLength',
+                `SongLyric`='$SongLyric',
+                `SongImage`='$SongImage',
+                `SongAudio`='$SongAudio'
+            WHERE SongID=$id";
+        } else {
+            $sql = "UPDATE `song` 
+            SET 
+                `SongName`='$SongName',
+                `AlbumID`='$AlbumID',
+                `SongDate`='$SongDate',
+                `SongLength`='$SongLength',
+                `SongLyric`='$SongLyric',
+                `SongAudio`='$SongAudio'
+            WHERE SongID=$id";
+        }
 
-        $sql = "UPDATE `song` 
-           SET 
-               `SongName`='$SongName',
-               `AlbumID`='$AlbumID',
-               `SongDate`='$SongDate',
-               `SongLength`='$SongLength',
-               `SongLyric`='$SongLyric',
-               `SongImage`='$SongImage',
-               `SongAudio`='$SongAudio'
-           WHERE SongID=$id";
         $result = false;
         if (mysqli_query($this->db->conn, $sql)) {
             $result = true;
@@ -119,31 +131,37 @@ class SongModel
         $result = mysqli_query($this->db->conn, $sql);
         return $result;
     }
-
-    function search($name)
-    {
-        if (trim($name) != '') {
-            $sql = "SELECT * FROM `song` INNER JOIN album On album.AlbumID = song.AlbumID where album.AlbumName like '%" . $name . "%' or song.SongName  like '%" . $name . "%' ";
+    // tìm kiếm
+    function search($name){
+        if(trim($name) != ''){
+            $sql = "SELECT * FROM `song` INNER JOIN album On album.AlbumID = song.AlbumID where album.AlbumName like '%".$name."%' or song.SongName  like '%".$name."%' ";
             $result = $this->db->select($sql);
             if ($result) {
-                foreach ($result as $key => $val) {
-                    $result[$key]['SongImage'] = base64_encode($val['SongImage']);
-                    $result[$key]['AlbumImage'] = base64_encode($val['AlbumImage']);
-                }
-            }
-            return $result;
-        } else {
-            $sql = "SELECT * FROM `song` INNER JOIN album On album.AlbumID = song.AlbumID ";
-            $result = $this->db->select($sql);
-            if ($result) {
-                foreach ($result as $key => $val) {
+                foreach($result as $key => $val) {
                     $result[$key]['SongImage'] = base64_encode($val['SongImage']);
                     $result[$key]['AlbumImage'] = base64_encode($val['AlbumImage']);
                 }
             }
             return $result;
         }
-    }
+        else{
+            $sql = "SELECT * FROM `song` INNER JOIN album On album.AlbumID = song.AlbumID ";
+            $result = $this->db->select($sql);
+            if ($result) {
+                foreach($result as $key => $val) {
+                    $result[$key]['SongImage'] = base64_encode($val['SongImage']);
+                    $result[$key]['AlbumImage'] = base64_encode($val['AlbumImage']);
+                }
+            }
+            return $result;
+        }
+   }
+   function getList($listId){
+    $listId = count($listId) > 0 ? implode(",", $listId) : '';
+    $sql = "SELECT * FROM Song WHERE SongID IN($listId)";
+    $result = $this->db->select($sql);
+    return $result;
+   }
 
          // getCount() của tất cả các table thống kê
          public function getCount()

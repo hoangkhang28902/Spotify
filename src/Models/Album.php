@@ -69,7 +69,12 @@ class AlbumModel
         $AmountSong = $data['AmountSong'];
         $AlbumLength = $data['AlbumLength'];
         $AlbumImage = $data['AlbumImage'];
-    $sql = "UPDATE `album` SET `AlbumName`='$AlbumName',`ReleaseDate`='$ReleaseDate',`AmountSong`='$AmountSong',`AlbumLength`='$AlbumLength',`AlbumImage`='$AlbumImage' WHERE AlbumID=$id";
+        if ($data['AlbumImage'] != 'None'){
+            $sql = "UPDATE `album` SET `AlbumName`='$AlbumName',`ReleaseDate`='$ReleaseDate',`AmountSong`='$AmountSong',`AlbumLength`='$AlbumLength',`AlbumImage`='$AlbumImage' WHERE AlbumID=$id";
+        } else {
+            $sql = "UPDATE `album` SET `AlbumName`='$AlbumName',`ReleaseDate`='$ReleaseDate',`AmountSong`='$AmountSong',`AlbumLength`='$AlbumLength' WHERE AlbumID=$id";
+        }
+    
     
     $result = false;
     if(mysqli_query($this->db->conn, $sql)){
@@ -96,6 +101,29 @@ class AlbumModel
         $sql = "SELECT COUNT(*) AS total FROM album";
         $result = $this->db->select($sql);
         return $result[0]['total'];
+    }
+
+    function search($name)
+    {
+        $sql = "SELECT * FROM album where AlbumName LIKE '%".$name."%' ";
+        $result = $this->db->select($sql);
+        if ($result) {
+            foreach($result as $key => $val) {
+                $result[$key]['AlbumImage'] = base64_encode($val['AlbumImage']);
+            }
+        }
+        return $result;
+    }
+    function getAll()
+    {
+        $sql = "SELECT * FROM album";
+        $result = $this->db->select($sql);
+        if ($result) {
+            foreach($result as $key => $val) {
+                $result[$key]['AlbumImage'] = base64_encode($val['AlbumImage']);
+            }
+        }
+        return $result;
     }
 
 }
