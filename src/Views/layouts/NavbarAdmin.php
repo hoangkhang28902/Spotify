@@ -10,50 +10,50 @@
                     </a>
                 </li>
                 <li>
-                    <a href="http://localhost:81/Spotify/AdminDashBoardController/index">
+                    <a href="h<?php echo PAGEROOT ?>/AdminDashBoardController/index">
                         <span class="icon"><i class="fa fa-line-chart" aria-hidden="true"></i></span>
                         <span class="title">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="http://localhost:81/Spotify/SongAdmin/index" id="input-product">
+                    <a href="<?php echo PAGEROOT ?>/SongAdmin/index" id="input-product">
                         <span class="icon"><i class="fa fa-music" aria-hidden="true"></i></span>
                         <span class="title">Song</span>
                     </a>
                 </li>
                 <li>
-                    <a href="http://localhost:81/Spotify/AlbumAdmin/index" >
+                    <a href="<?php echo PAGEROOT ?>/AlbumAdmin/index" >
                         <span class="icon"><i class="fa fa-headphones" aria-hidden="true"></i></span>
                         <span class="title">Album</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="http://localhost:81/Spotify/PodcastAdmin/index">
+                    <a href="<?php echo PAGEROOT ?>/PodcastAdmin/index">
                         <span class="icon"><i class="fa fa-podcast" aria-hidden="true"></i></span>
                         <span class="title">Podcast</span>
                     </a>
                 </li>
                    <li>
-                    <a href="http://localhost:81/Spotify/ArtistAdmin/index">
+                    <a href="<?php echo PAGEROOT ?>/ArtistAdmin/index">
                         <span class="icon"><i class="fa fa-podcast" aria-hidden="true"></i></span>
                         <span class="title">Artist</span>
                     </a>
                 </li>
                 <li>
-                    <a href="http://localhost:81/Spotify/UserAdmin/index">
+                    <a href="<?php echo PAGEROOT ?>/UserAdmin/index">
                         <span class="icon"><i class="fa fa-users" aria-hidden="true"></i></span>
                         <span class="title">User</span>
                     </a>
                 </li>
                 <li>
-                    <a href="http://localhost:81/Spotify/PlaylistAdmin/index">
+                    <a href="<?php echo PAGEROOT ?>/PlaylistAdmin/index">
                         <span class="icon"><i class="fa fa-list" aria-hidden="true"></i></span>
                         <span class="title">Playlist</span>
                     </a>
                 </li>
                      <li>
-                    <a href="http://localhost:81/Spotify/AdminController/index">
+                    <a href="<?php echo PAGEROOT ?>/AdminController/index">
                         <span class="icon"><i class="fa fa-line-chart" aria-hidden="true"></i></span>
                         <span class="title">Statistic</span>
                     </a>

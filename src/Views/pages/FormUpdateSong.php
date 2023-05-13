@@ -5,7 +5,7 @@
 	<title>Admin Interface</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
-<base href="http://localhost:81/Spotify-main/SongAdmin/">
+<base href="<?php echo PAGEROOT ?>/SongAdmin/">
 <body>
 	<div class="container mt-5">
 		<div class="row">
@@ -57,14 +57,14 @@
 				?>
 						<script>
 							alert("Sửa thành công");
-							window.location.replace("http://localhost:81/Spotify-main/SongAdmin");
+							window.location.replace("<?php echo PAGEROOT ?>/SongAdmin");
 						</script>
 					<?php
 					} else {
 					?>
 						<script>
 							alert("Sửa thất bại");
-							window.location.replace("http://localhost:81/Spotify-main/SongAdmin");
+							window.location.replace("<?php echo PAGEROOT ?>/SongAdmin");
 						</script>
 				<?php
 					}

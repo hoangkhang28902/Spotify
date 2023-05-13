@@ -11,7 +11,7 @@
 <div class="containerSearch">
         <?php if($data['data'] && $data['data'] != NULL){?>
             <?php foreach($data['data'] as $key => $val){?>
-                <a href="<?echo  PAGEROOT?>/category/index/<?= $val['CategoryID'] ?>">
+                <a href="<?=  PAGEROOT?>/category/index/<?= $val['CategoryID'] ?>">
                     <div class="cardSearch" style="background-color: rgb(115, 88, 255);">
                         <div class="cardSearch-header">
                             <span class="cardSearch-title"><?= $val['CategoryName'] ?></span>
@@ -28,16 +28,16 @@
             
     </div>
     <div class="playlist">
-        <div class="containerSearch" ></div>
+        <div class="containerSearch" style=""></div>
     </div>
     <div class="album">
-        <div class="containerSearch" ></div>
+        <div class="containerSearch" style=""></div>
     </div>
     <div class="podcast">
-        <div class="containerSearch" ></div>
+        <div class="containerSearch" style=""></div>
     </div>
     <div class="artist">
-        <div class="containerSearch" ></div>
+        <div class="containerSearch" style=""></div>
     </div>
 <script>
     function debounce(func, timeout = 500){
@@ -51,7 +51,7 @@
         function saveInput(__this){
             const values = __this.value
             $.ajax({
-                url: "<?echo  PAGEROOT?>/home/searchSong",
+                url: "<?=  PAGEROOT?>/home/searchSong",
                 method:"post",
                 data: {name: values},
                 dataType:'json',
@@ -65,7 +65,7 @@
                         const album = response.data.album;
                         if(songs !== null){
                             songs.map((v) => {
-                            html += `<a href="<?echo  PAGEROOT?>/Home/song/`+v.SongID+`">
+                            html += `<a href="<?=  PAGEROOT?>/Home/song/`+v.SongID+`">
                                         <div class="card">
                                             <div class="cardContainer">
                                                 <div class="cardThumbail">
@@ -86,7 +86,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="cardSongs">
-                                                    <a href="<?echo  PAGEROOT?>/Home/song/`+v.SongID+`">`+v.SongName+`</a>
+                                                    <a href="<?=  PAGEROOT?>/Home/song/`+v.SongID+`">`+v.SongName+`</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -99,7 +99,7 @@
                         htmls_artist += '<h3 style="color:white; display: block; width: 100%; text-transform: uppercase ">artist</h3>';
                         if(artist !== null){
                             artist.map((v) => {
-                                htmls_artist += `<a href="<?echo  PAGEROOT?>/Home/artist/`+v.ArtistID +`">
+                                htmls_artist += `<a href="<?=  PAGEROOT?>/Home/artist/`+v.ArtistID +`">
                                         <div class="card">
                                             <div class="cardContainer">
                                                 <div class="cardThumbail">
@@ -120,7 +120,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="cardSongs">
-                                                    <a href="<?echo  PAGEROOT?>/Home/artist/`+v.ArtistID +`">`+v.ArtistName+`</a>
+                                                    <a href="<?=  PAGEROOT?>/Home/artist/`+v.ArtistID +`">`+v.ArtistName+`</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -136,7 +136,7 @@
                         htmls_album += '<h3 style="color:white; display: block; width: 100%; text-transform: uppercase ">album</h3>';
                         if(album !== null){
                             album.map((v) => {
-                                htmls_album += `<a href="<?echo  PAGEROOT?>/Home/album/`+v.AlbumID  +`">
+                                htmls_album += `<a href="<?=  PAGEROOT?>/Home/album/`+v.AlbumID  +`">
                                         <div class="card">
                                             <div class="cardContainer">
                                                 <div class="cardThumbail">
@@ -157,7 +157,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="cardSongs">
-                                                    <a href="<?echo  PAGEROOT?>/Home/album/`+v.AlbumID +`">`+v.AlbumName+`</a>
+                                                    <a href="<?=  PAGEROOT?>/Home/album/`+v.AlbumID +`">`+v.AlbumName+`</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -173,7 +173,7 @@
                         htmls_podcast += '<h3 style="color:white; display: block; width: 100%; text-transform: uppercase ">podcast</h3>';
                         if(podcast !== null){
                             podcast.map((v) => {
-                                htmls_podcast += `<a href="<?echo  PAGEROOT?>/Home/podcast/`+v.PodcastID   +`">
+                                htmls_podcast += `<a href="<?=  PAGEROOT?>/Home/podcast/`+v.PodcastID   +`">
                                         <div class="card">
                                             <div class="cardContainer">
                                                 <div class="cardThumbail">
@@ -194,7 +194,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="cardSongs">
-                                                    <a href="<?echo  PAGEROOT?>/Home/podcast/`+v.PodcastID +`">`+v.PodcastName+`</a>
+                                                    <a href="<?=  PAGEROOT?>/Home/podcast/`+v.PodcastID +`">`+v.PodcastName+`</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -210,7 +210,7 @@
                         htmls_playlist += '<h3 style="color:white; display: block; width: 100%; text-transform: uppercase ">playlist</h3>';
                         if(playlist !== null){
                             playlist.map((v) => {
-                                htmls_playlist += `<a href="<?echo  PAGEROOT?>/Home/playlist/`+v.PlaylistID    +`">
+                                htmls_playlist += `<a href="<?=  PAGEROOT?>/Home/playlist/`+v.PlaylistID    +`">
                                         <div class="card">
                                             <div class="cardContainer">
                                                 <div class="cardThumbail">
@@ -231,7 +231,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="cardSongs">
-                                                    <a href="<?echo  PAGEROOT?>/Home/playlist/`+v.PlaylistID  +`">`+v.PlaylistName+`</a>
+                                                    <a href="<?=  PAGEROOT?>/Home/playlist/`+v.PlaylistID  +`">`+v.PlaylistName+`</a>
                                                 </div>
                                             </div>
                                         </div>

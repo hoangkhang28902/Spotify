@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo URLROOT ?>/css/PodcastManager.css">
 </head>
-<base href="http://localhost:81/Spotify-main/ArtistAdmin/">
+<base href="<?php echo PAGEROOT ?>/ArtistAdmin/">
 <body>
 	<div class="container mt-5">
 		<h1 class="mb-4">Artist Management</h1>

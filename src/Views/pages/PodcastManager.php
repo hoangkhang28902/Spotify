@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo URLROOT ?>/css/PodcastManager.css">
 </head>
-<base href="http://localhost:81/Spotify-main/PodcastAdmin/">
+<base href="<?php echo PAGEROOT ?>/PodcastAdmin/">
 
 <body>
 	<div class="container mt-5">

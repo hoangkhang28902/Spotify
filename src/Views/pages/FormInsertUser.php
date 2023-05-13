@@ -68,14 +68,14 @@
 				?>
 						<script>
 							alert("Thêm thành công");
-							window.location.replace("http://localhost:81/Spotify-main/UserAdmin");
+							window.location.replace("<?php echo PAGEROOT ?>/UserAdmin");
 						</script>
 					<?php
 					} else {
 					?>
 						<script>
 							alert("Thêm thất bại");
-							window.location.replace("http://localhost:81/Spotify-main/UserAdmin");
+							window.location.replace("<?php echo PAGEROOT ?>/UserAdmin");
 						</script>
 				<?php
 					}

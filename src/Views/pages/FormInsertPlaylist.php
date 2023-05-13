@@ -52,14 +52,14 @@
 				?>
 						<script>
 							alert("Thêm thành công");
-							window.location.replace("http://localhost:81/Spotify-main/PlaylistAdmin");
+							window.location.replace("<?php echo PAGEROOT ?>/PlaylistAdmin");
 						</script>
 					<?php
 					} else {
 					?>
 						<script>
 							alert("Thêm thất bại");
-							window.location.replace("http://localhost:81/Spotify-main/PlaylistAdmin");
+							window.location.replace("<?php echo PAGEROOT ?>/PlaylistAdmin");
 						</script>
 				<?php
 					}

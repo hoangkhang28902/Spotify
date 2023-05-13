@@ -42,14 +42,14 @@
 				?>
 						<script>
 							alert("Thêm thành công");
-							window.location.replace("http://localhost:81/Spotify-main/AlbumAdmin");
+							window.location.replace("<?php echo PAGEROOT ?>/AlbumAdmin");
 						</script>
 					<?php
 					} else {
 					?>
 						<script>
 							alert("Thêm thất bại");
-							window.location.replace("http://localhost:81/Spotify-main/AlbumAdmin");
+							window.location.replace("<?php echo PAGEROOT ?>/AlbumAdmin");
 						</script>
 				<?php
 					}

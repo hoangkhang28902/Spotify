@@ -6,8 +6,8 @@ define('DB_PASS', '');
 define('DB_NAME', 'spotify');
 
 define('APPROOT', dirname(dirname(__FILE__))); 
-define('URLROOT','http://localhost/Spotify/src');
-define('PAGEROOT', 'http://localhost/Spotify')
+define('URLROOT','http://localhost:81/Spotify/src');
+define('PAGEROOT', 'http://localhost:81/Spotify')
 ?>
 
 

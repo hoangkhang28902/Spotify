@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo URLROOT ?>/css/Manager.css">
 </head>
-<base href="http://localhost:81/Spotify-main/PlaylistAdmin/">
+<base href="<?php echo PAGEROOT ?>/PlaylistAdmin/">
 
 <body>
 	<div class="container mt-5">

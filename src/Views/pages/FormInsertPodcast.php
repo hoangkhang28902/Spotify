@@ -38,14 +38,14 @@
 				?>
 						<script>
 							alert("Thêm thành công");
-							window.location.replace("http://localhost:81/Spotify-main/PodcastAdminAdmin");
+							window.location.replace("<?php echo PAGEROOT ?>/PodcastAdminAdmin");
 						</script>
 					<?php
 					} else {
 					?>
 						<script>
 							alert("Thêm thất bại");
-							window.location.replace("http://localhost:81/Spotify-main/PodcastAdmin");
+							window.location.replace("<?php echo PAGEROOT ?>/PodcastAdmin");
 						</script>
 				<?php
 					}
