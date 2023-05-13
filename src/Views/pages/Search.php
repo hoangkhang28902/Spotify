@@ -8,591 +8,245 @@
     <link rel="stylesheet" href="../../css/Search.css">
 </head>
 <body> -->
-    <div class="containerSearch">
-        <a href="">
-            <div class="cardSearch" style="background-color: rgb(225, 51, 0);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Podcast</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/567158eb895ad26718a814345af0fc43ee785ec5" alt="" aria-hidden="false" draggable="false" loading="lazy">   
-                </div>
-            </div>
-          </a>
-        <a href="">
-            <div class="cardSearch" style="background-color: rgb(115, 88, 255);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Live Events</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://concerts.spotifycdn.com/images/live-events_category-image.jpg" alt="" aria-hidden="false" draggable="false" loading="lazy">   
-                </div>
-            </div>
-          </a>
-        
-          <a href="">
-            <div class="cardSearch" style="background-color: rgb(30, 50, 100);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Made For You</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://t.scdn.co/images/ea364e99656e46a096ea1df50f581efe" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-          </a>
-        
-           <a href="">
-            <div class="cardSearch" style="background-color: rgb(232, 17, 91);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">New releases</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67706f000000027ea4d505212b9de1f72c5112" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-           </a>
-        
-          <a href="">
-            <div class="cardSearch" style="background-color: rgb(96, 129, 8);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Vietnamese Music</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005caf55dfb53724670e4db6cee444" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-          </a>
-        
-           <a href="">
-            <div class="cardSearch" style="background-color: rgb(20, 138, 8);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Pop</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005cafa862ab80dd85682b37c4e768" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-           </a>
-    
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(20, 138, 8);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">K-Pop</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005caf013ee3c983e6f60bf28bad5a" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(188, 89, 0);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Hip-Hop</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005caf7e11c8413dc33c00740579c1" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(141, 103, 171);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Charts</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://charts-images.scdn.co/assets/locale_en/regional/weekly/region_global_default.jpg" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(255, 0, 144);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Fresh Finds</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005cafcc1499bbb8565f490858c2bc" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(5, 105, 82);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">EQUAL</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005caf9ed6e364e8839210dc4dbff7" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(13, 15, 236);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">GLOW</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005caf50cfe3fbd3a9fb8810da45ea" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(119, 119, 119);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">RADAR</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005cafdb2aa9c7caea42f900721497" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(141, 103, 171);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Discover</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://t.scdn.co/images/d0fb2ab104dc4846bdc56d72b0b0d785.jpeg" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(80, 55, 80);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Karaoke</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005caf8eb00a9a2c00093ccde516c6" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(225, 17, 140);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Mood</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005caf271f9d895003c5f5561c1354" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(223, 20, 41);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Rock</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005cafae7e69beb88f16969641b53e" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(225, 17, 140);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Latin</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005cafa59f90c077c9f618fd0dde30" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(216, 64, 0);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Dance/Electronic</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005cafdfdaac1cf9574a196ca25196" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(233, 20, 41);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Indie</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="hhttps://i.scdn.co/image/ab67fb8200005cafa1a252e3a815b65778d8c2aa" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(119, 119, 119);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Workout</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67706f000000029249b35f23fb596b6f006a15" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(216, 64, 0);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Country</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005cafc0d2222b4c6441930e1a386e" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(220, 20, 140);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">R&B</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005cafbe6a6e705e1a71117c2d0c2c" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(216, 64, 0);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Chill</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005caf47e942f5bea637f4f4760170" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(30, 50, 100);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Sleep</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67706f00000002b70e0223f544b1faa2e95ed0" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(83, 122, 141);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Party</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005cafcbf80f8ea695536eace4fd2c" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(81, 121, 161);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">At Home</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005cafe914a07d20cec7a65e2e5dad" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(186, 93, 7);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Decades</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005caff005a355830c374754d32868" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(230, 30, 50);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Love</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005cafb03c6f8e7efca2ae36f41b31" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(233, 20, 41);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Metal</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005cafefa737b67ec51ec989f5a51d" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(119, 119, 119);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Jazz</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005cafe289743024639ea8f202364d" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(176, 40, 151);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Trending</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005caf1867113f5218598847550acd" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(125, 75, 50);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Classical</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005caf12809992dfc5b318892ea07b" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(188, 89, 0);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Folk & Acoustic</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005cafcc70a3c2e4c71398708bdc4a" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(80, 55, 80);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Focus</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67706f00000002e4eadd417a05b2546e866934" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(220, 20, 140);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Soul</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005cafd82e2c83fe100a89e9cbb2a2" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(141, 103, 171);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Kids & Family</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005caf8a04560a209b3f32165ea8a2" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(232, 17, 91);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Gaming</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005caf26dd3719e8824756914ae61f" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(228, 29, 99);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Anime</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67706f00000002c19c5f13f8b3ff2d73ff00bc" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(175, 40, 150);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">TV & Movies</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005cafb4c4523336133ec3c7fd1744" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(13, 114, 234);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Disney</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005caf89f004e1bf07dca45ce9c64c" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(235, 30, 50);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Netflix</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005caf0b0c71c920d6a745461ada69" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(83, 122, 161);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Instrumental</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67706f000000028ed1a5002b96c2ea882541b2" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(165, 103, 82);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Wellness</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005caf8dec632effd9735fa8aba06e" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(30, 50, 100);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Punk</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005cafb2cdd7a95b0a5444aa15cfb5" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(71, 125, 149);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Ambient</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005cafa6ee95dc83af715115f40522" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(176, 98, 57);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Blues</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005caff22ac5cab318d550b593ffac" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(186, 93, 7);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Cooking & Dining</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005cafe53d71d0920a4f1f441d803c" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(233,20,41) ;">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Alternative</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005cafda178a834e4f87371e9fa543" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(13, 114, 237);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Travel</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005caf4b36a2c31432ace68d90c4f2" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(13, 115, 236);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Caribbean</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005caf8ba1febbb4f77336b6f9aace" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(216, 64, 0);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Afro</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005caf04faccb4f5e1828600921f37" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(140, 25, 50);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Songwriters</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005cafb973ab1288f74f333e7e2e22" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(230, 30, 50);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Funk & Disco</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005cafbb0e4ea229824157eee7467d" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(20, 138, 8);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">League of Legends</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005caf2b1ff59a971dd399dea96009" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(119, 119, 119);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Spotify Singles</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005caf14030380532b34badbf0a229" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(39, 133, 106);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Summer</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://i.scdn.co/image/ab67fb8200005caf097a46192e6bb67e52cdff60" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
-         <a href="">
-            <div class="cardSearch" style="background-color: rgb(232, 17, 91);">
-                <div class="cardSearch-header">
-                    <span class="cardSearch-title">Tastemakers</span>
-                </div>
-                <div class="cardSearch-body">
-                    <img src="https://t.scdn.co/images/37732285a0ff4e24987cdf5c45bdf31f.png" alt="" aria-hidden="false" draggable="false" loading="lazy">
-                </div>
-            </div>
-         </a>
+<div class="containerSearch">
+        <?php if($data['data'] && $data['data'] != NULL){?>
+            <?php foreach($data['data'] as $key => $val){?>
+                <a href="<?echo  PAGEROOT?>/category/index/<?= $val['CategoryID'] ?>">
+                    <div class="cardSearch" style="background-color: rgb(115, 88, 255);">
+                        <div class="cardSearch-header">
+                            <span class="cardSearch-title"><?= $val['CategoryName'] ?></span>
+                        </div>
+                        <div class="cardSearch-body">
+                            <img src="data:image/png;base64, <?= base64_encode($val['CategoryImage']) ?>" alt="" aria-hidden="false" draggable="false" loading="lazy">   
+                        </div>
+                    </div>
+                </a>
+            <?php } ?>
+        <?php } ?>
+    </div>
+    <div class="song">
             
-        </div>
+    </div>
+    <div class="playlist">
+        <div class="containerSearch" ></div>
+    </div>
+    <div class="album">
+        <div class="containerSearch" ></div>
+    </div>
+    <div class="podcast">
+        <div class="containerSearch" ></div>
+    </div>
+    <div class="artist">
+        <div class="containerSearch" ></div>
+    </div>
+<script>
+    function debounce(func, timeout = 500){
+        let timer;
+        return (...args) => {
+            clearTimeout(timer);
+            timer = setTimeout(() => { func.apply(this, args); }, timeout);
+        };
+    }
+    
+        function saveInput(__this){
+            const values = __this.value
+            $.ajax({
+                url: "<?echo  PAGEROOT?>/home/searchSong",
+                method:"post",
+                data: {name: values},
+                dataType:'json',
+                success:function(response){
+                    if(response.status === 200){
+                        let html = '';
+                        const songs = response.data.song;
+                        const artist = response.data.artist;
+                        const playlist = response.data.playlist;
+                        const podcast = response.data.podcast;
+                        const album = response.data.album;
+                        if(songs !== null){
+                            songs.map((v) => {
+                            html += `<a href="<?echo  PAGEROOT?>/Home/song/`+v.SongID+`">
+                                        <div class="card">
+                                            <div class="cardContainer">
+                                                <div class="cardThumbail">
+                                                    <div class="cardImage">
+                                                        <img src="data:image/png;base64,`+decodeURIComponent(v.SongImage)+`" alt="">
+                                                        <div class="cardPlay">
+                                                            <button>
+                                                                <span class="iconButtonCard">
+                                                                    <span class="innerButtonCard">
+                                                                        <svg role="img" height="24" width="24" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw">
+                                                                            <path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z">
+                                                                            </path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="cardSongs">
+                                                    <a href="<?echo  PAGEROOT?>/Home/song/`+v.SongID+`">`+v.SongName+`</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>`
+                        });
+                        }
+                      
+                        document.querySelector('.containerSearch').innerHTML = html;
+                        let htmls_artist = '';
+                        htmls_artist += '<h3 style="color:white; display: block; width: 100%; text-transform: uppercase ">artist</h3>';
+                        if(artist !== null){
+                            artist.map((v) => {
+                                htmls_artist += `<a href="<?echo  PAGEROOT?>/Home/artist/`+v.ArtistID +`">
+                                        <div class="card">
+                                            <div class="cardContainer">
+                                                <div class="cardThumbail">
+                                                    <div class="cardImage">
+                                                        <img src="data:image/png;base64,`+decodeURIComponent(v.ArtistImage)+`" alt="">
+                                                        <div class="cardPlay">
+                                                            <button>
+                                                                <span class="iconButtonCard">
+                                                                    <span class="innerButtonCard">
+                                                                        <svg role="img" height="24" width="24" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw">
+                                                                            <path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z">
+                                                                            </path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="cardSongs">
+                                                    <a href="<?echo  PAGEROOT?>/Home/artist/`+v.ArtistID +`">`+v.ArtistName+`</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>`
+                            });
+                            document.querySelector('.artist >.containerSearch').innerHTML = htmls_artist;
+                        }
+                        else{
+                            document.querySelector('.artist>.containerSearch').innerHTML = '';
+                        }
+                        // =====
+                        let htmls_album = '';
+                        htmls_album += '<h3 style="color:white; display: block; width: 100%; text-transform: uppercase ">album</h3>';
+                        if(album !== null){
+                            album.map((v) => {
+                                htmls_album += `<a href="<?echo  PAGEROOT?>/Home/album/`+v.AlbumID  +`">
+                                        <div class="card">
+                                            <div class="cardContainer">
+                                                <div class="cardThumbail">
+                                                    <div class="cardImage">
+                                                        <img src="data:image/png;base64,`+decodeURIComponent(v.AlbumImage)+`" alt="">
+                                                        <div class="cardPlay">
+                                                            <button>
+                                                                <span class="iconButtonCard">
+                                                                    <span class="innerButtonCard">
+                                                                        <svg role="img" height="24" width="24" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw">
+                                                                            <path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z">
+                                                                            </path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="cardSongs">
+                                                    <a href="<?echo  PAGEROOT?>/Home/album/`+v.AlbumID +`">`+v.AlbumName+`</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>`
+                            });
+                            document.querySelector('.album >.containerSearch').innerHTML = htmls_album;
+                        }
+                        else{
+                            document.querySelector('.album>.containerSearch').innerHTML = '';
+                        }
+                        // =====
+                        let htmls_podcast = '';
+                        htmls_podcast += '<h3 style="color:white; display: block; width: 100%; text-transform: uppercase ">podcast</h3>';
+                        if(podcast !== null){
+                            podcast.map((v) => {
+                                htmls_podcast += `<a href="<?echo  PAGEROOT?>/Home/podcast/`+v.PodcastID   +`">
+                                        <div class="card">
+                                            <div class="cardContainer">
+                                                <div class="cardThumbail">
+                                                    <div class="cardImage">
+                                                        <img src="data:image/png;base64,`+decodeURIComponent(v.PodcastImage)+`" alt="">
+                                                        <div class="cardPlay">
+                                                            <button>
+                                                                <span class="iconButtonCard">
+                                                                    <span class="innerButtonCard">
+                                                                        <svg role="img" height="24" width="24" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw">
+                                                                            <path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z">
+                                                                            </path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="cardSongs">
+                                                    <a href="<?echo  PAGEROOT?>/Home/podcast/`+v.PodcastID +`">`+v.PodcastName+`</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>`
+                            });
+                            document.querySelector('.podcast >.containerSearch').innerHTML = htmls_podcast;
+                        }
+                        else{
+                            document.querySelector('.podcast>.containerSearch').innerHTML = '';
+                        }
+                         // =====
+                         let htmls_playlist = '';
+                        htmls_playlist += '<h3 style="color:white; display: block; width: 100%; text-transform: uppercase ">playlist</h3>';
+                        if(playlist !== null){
+                            playlist.map((v) => {
+                                htmls_playlist += `<a href="<?echo  PAGEROOT?>/Home/playlist/`+v.PlaylistID    +`">
+                                        <div class="card">
+                                            <div class="cardContainer">
+                                                <div class="cardThumbail">
+                                                    <div class="cardImage">
+                                                        <img src="data:image/png;base64,`+decodeURIComponent(v.PlaylistImage)+`" alt="">
+                                                        <div class="cardPlay">
+                                                            <button>
+                                                                <span class="iconButtonCard">
+                                                                    <span class="innerButtonCard">
+                                                                        <svg role="img" height="24" width="24" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" class="Svg-sc-ytk21e-0 uPxdw">
+                                                                            <path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z">
+                                                                            </path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="cardSongs">
+                                                    <a href="<?echo  PAGEROOT?>/Home/playlist/`+v.PlaylistID  +`">`+v.PlaylistName+`</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>`
+                            });
+                            document.querySelector('.playlist >.containerSearch').innerHTML = htmls_playlist;
+                        }
+                        else{
+                            document.querySelector('.playlist>.containerSearch').innerHTML = '';
+                        }
+                    }else{
+                        document.querySelector('.containerSearch').innerHTML = `<a style="color: white">data not found</a>`;
+                    }
+                }
+            })
+        }
+    const search = debounce((__this) => saveInput(__this));
+</script>

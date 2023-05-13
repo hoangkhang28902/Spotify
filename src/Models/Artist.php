@@ -53,8 +53,11 @@ class ArtistModel
         $ArtistDescription = $data['ArtistDescription'];
         $ArtistDob = $data['ArtistDob'];
         $ArtistImage = $data['ArtistImage'];
-
-        $sql = "UPDATE `artist` SET `ArtistName`='$ArtistName',`ArtistDescription`='$ArtistDescription',`ArtistDob`='$ArtistDob',`ArtistImage`='$ArtistImage' WHERE ArtistID=$id";
+        if ($data['ArtistImage'] != 'None'){
+            $sql = "UPDATE `artist` SET `ArtistName`='$ArtistName',`ArtistDescription`='$ArtistDescription',`ArtistDob`='$ArtistDob',`ArtistImage`='$ArtistImage' WHERE ArtistID=$id";
+        } else {
+            $sql = "UPDATE `artist` SET `ArtistName`='$ArtistName',`ArtistDescription`='$ArtistDescription',`ArtistDob`='$ArtistDob' WHERE ArtistID=$id";
+        }
 
         $result = false;
         if (mysqli_query($this->db->conn, $sql)) {
@@ -84,5 +87,38 @@ class ArtistModel
         $sql = "SELECT COUNT(*) AS total FROM artist";
         $result = $this->db->select($sql);
         return $result[0]['total'];
+    }
+    public function search($name)
+    {
+        $sql = "SELECT * FROM artist where ArtistName LIKE '%".$name."%' ";
+        $result = $this->db->select($sql);
+        if ($result) {
+            foreach($result as $key => $val) {
+                $result[$key]['ArtistImage'] = base64_encode($val['ArtistImage']);
+            }
+        }
+        return $result;
+    }
+    public function getAll()
+    {
+        $sql = "SELECT * FROM artist";
+        $result = $this->db->select($sql);
+        if ($result) {
+            foreach($result as $key => $val) {
+                $result[$key]['ArtistImage'] = base64_encode($val['ArtistImage']);
+            }
+        }
+        return $result;
+    }
+    function getAlbum($id){
+        $sql = "SELECT * FROM albumartist where AlbumID = $id";
+        $result = $this->db->select($sql);
+        return $result;
+    }
+    function listIdSong($albumartist){
+        $listId = count($albumartist) > 0 ? implode(",", $albumartist) : '';
+        $sql = "SELECT * FROM songartist where  ArtistID IN($listId)";
+        $result = $this->db->select($sql);
+        return $result;
     }
 }

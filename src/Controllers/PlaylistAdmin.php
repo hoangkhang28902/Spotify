@@ -57,7 +57,7 @@ class PlaylistAdmin extends Controller {
     public function update($id){
         $result_mess = false;
         if (isset($_POST["submit"])){
-             
+            $image = !empty($_FILES["PlaylistImage"]["tmp_name"]) ? addslashes(file_get_contents($_FILES["PlaylistImage"]["tmp_name"])) : 'None';
             $data = [
                 'PlaylistName' => $_POST["PlaylistName"],
                 'PlaylistDescription' => $_POST["PlaylistDescription"],
@@ -65,7 +65,7 @@ class PlaylistAdmin extends Controller {
                 'AmountSong' => $_POST["AmountSong"],
                 'PlaylistLength' => $_POST["PlaylistLength"],
                 'CreateDate' => $_POST["CreateDate"],
-                'PlaylistImage' => addslashes(file_get_contents($_FILES["PlaylistImage"]["tmp_name"])), 
+                'PlaylistImage' => $image, 
             ];
 
                 $kq = $this->PlaylistModel->update($id, $data);

@@ -9,8 +9,8 @@
 <body>
 	<div class="container mt-5">
 		<div class="row">
-			<div class="col-md-6">
-			<a href="index" class="btn btn-warning" style="margin-bottom:20px;">Quay về </a>
+			<div class="col-md-6" style="margin-left: 300px;">
+			<a href="index" class="btn btn-warning" style="margin-bottom:20px; margin-left:200px; position:absolute; margin-top:925px; left: -4%;">Quay về </a>
 
 			<form action="create" method="post" enctype="multipart/form-data">
 					<div class="form-group">
@@ -63,20 +63,23 @@
 					</div>
 				</form>
 				<?php
-					if(isset($data["result"])){
-						if($data["result"] == "true") { ?>
-							<h3 class="alert alert-success">
-								<?php echo "Thêm thành công"?>
-							</h3>
-						<?php
-						}
-						else{?>
-							<h3 class="alert alert-warning">
-								<?php echo "Thêm thất bại"?>
-							</h3>
-						<?php
-						}
+				if (isset($data["result"])) {
+					if ($data["result"] == "true") {
+				?>
+						<script>
+							alert("Thêm thành công");
+							window.location.replace("http://localhost:81/Spotify-main/UserAdmin");
+						</script>
+					<?php
+					} else {
+					?>
+						<script>
+							alert("Thêm thất bại");
+							window.location.replace("http://localhost:81/Spotify-main/UserAdmin");
+						</script>
+				<?php
 					}
+				}
 				?>
 
 			</div>

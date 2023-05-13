@@ -67,6 +67,9 @@ class UserModel
     }
 
 
+
+
+
     public function update(int $id, array $data)
     {
         $Username = $data['Username'];
@@ -80,8 +83,8 @@ class UserModel
         $State = $data['State'];
         $ZipCode = $data['ZipCode'];
         $UserImage = $data['UserImage'];
-
-        $sql = "UPDATE `user` 
+        if ($data['UserImage'] != 'None') {
+            $sql = "UPDATE `user` 
         SET 
             `Username`='$Username',
             `UserFname`='$UserFname',
@@ -95,6 +98,21 @@ class UserModel
             `ZipCode`='$ZipCode',
             `UserImage`='$UserImage'
         WHERE UserID=$id";
+        } else {
+            $sql = "UPDATE `user` 
+        SET 
+            `Username`='$Username',
+            `UserFname`='$UserFname',
+            `UserLname`='$UserLname',
+            `Password`='$Password',
+            `Email`='$Email',
+            `Birthday`='$Birthday',
+            `Address`='$Address',
+            `City`='$City',
+            `State`='$State',
+            `ZipCode`='$ZipCode'
+        WHERE UserID=$id";
+        }
         $result = false;
         if (mysqli_query($this->db->conn, $sql)) {
             $result = true;
@@ -105,15 +123,17 @@ class UserModel
 
 
     public function delete(int $id)
-    { {
-            $sql = "DELETE FROM `user` WHERE UserID = $id";
-            $result = false;
-            if (mysqli_query($this->db->conn, $sql)) {
-                $result = true;
-            }
-            return json_encode($result);
+    {
+        $sql = "DELETE FROM `user` WHERE UserID = $id";
+        $result = false;
+        if (mysqli_query($this->db->conn, $sql)) {
+            $result = true;
         }
+        return json_encode($result);
     }
+
+
+
     // Update Username
     public function updateUsername($userId, $newUsername)
     {

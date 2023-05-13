@@ -62,7 +62,7 @@ class UserAdmin extends Controller {
     public function update($id){
         $result_mess = false;
         if (isset($_POST["submit"])){
-             
+            $image = !empty($_FILES["UserImage"]["tmp_name"]) ? addslashes(file_get_contents($_FILES["UserImage"]["tmp_name"])) : 'None';
             $data = [
                 'Username' => $_POST["Username"],
                 'UserFname' => $_POST["UserFname"],
@@ -74,7 +74,7 @@ class UserAdmin extends Controller {
                 'City' => $_POST["City"], 
                 'State' => $_POST["State"], 
                 'ZipCode' => $_POST["ZipCode"], 
-                'UserImage' => addslashes(file_get_contents($_FILES["UserImage"]["tmp_name"])), 
+                'UserImage' => $image, 
             ];
 
                 $kq = $this->UserModel->update($id, $data);
