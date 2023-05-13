@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 <body> -->
-    <?php if (empty($_GET['page'])) { ?>
+<?php if (empty($_GET['page'])) { ?>
     <nav class="navbarLayout">
         <div>
             <header class="navbarHeader">
@@ -29,23 +29,33 @@
                 </div>
                 <div class="buttonNavbarContainer">
                     <ul>
-                        <li><button class="buttonNavbar">Premium</button></li>
-                        <li><button class="buttonNavbar">Support</button></li>
+                        <li><button class="buttonNavbar">Upgrade</button></li>
                         <li><button class="buttonNavbar">Download</button></li>
-                        <li><div class="lineNavbar"></div></li>
+                        <li>
+                            <div class="lineNavbar"></div>
+                        </li>
                     </ul>
                     <ul>
                         <div class="login">
-                            <button class="buttonNavbar buttonLogup">Log up</button>
+                            <button class="buttonNavbar buttonLogup"><a href="/Spotify/user/logout">Logout</a></button>
                         </div>
                         <div>
-                            <button class="buttonLogin"><span>Login</span></button>
+                            <button class="buttonLogin">
+                                <?php
+                                // session_start();
+                                if (isset($_SESSION['user'])) {
+                                    $username = $_SESSION['user'][0]['Username'];
+                                    echo $username;
+                                } else {
+                                    echo '<a href="src/Views/pages/Login.php">Login</a>';
+                                } ?>
+                            </button>
                         </div>
                     </ul>
                 </div>
             </header>
         </div>
     </nav>
-    <?php } ?>
+<?php } ?>
 <!-- </body>
 </html> -->
