@@ -195,6 +195,10 @@ input[type="checkbox"]:checked + label #checkStop {
     position: relative;
 }
 
+.shuffle_active svg path {
+    fill: #2d5; 
+}
+
 #loopSong svg path {
     /* fill: #2d5; */
 }

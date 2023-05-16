@@ -98,7 +98,6 @@ endif;
                     $song['SongAudio'], 
                     $song['SongLyric'],
                     $data['like'],
-                    $data['reactLike']
                 );
             endforeach;
         endif;

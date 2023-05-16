@@ -40,6 +40,7 @@ class PlaylistModel
         return $result;
     }
 
+
     public function unLike($userId, $songId)
     {
         $sql = "DELETE FROM `likesong` WHERE userID = '$userId' and SongID = '$songId'";
@@ -49,6 +50,13 @@ class PlaylistModel
         }
         return json_encode($result);
     
+    }
+
+    public function countOfSong($songId)
+    {
+        $sql = "INSERT INTO playsong(SongID, CountOfSong) VALUES('$songId', 1) ON DUPLICATE KEY UPDATE CountOfSong = CountOfSong + 1";
+        $result = $this->db->execute($sql);
+        return $result;
     }
 
     public function getPlaylistById($id)

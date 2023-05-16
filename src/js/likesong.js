@@ -1,31 +1,44 @@
-const likeBtns = document.querySelectorAll('.btn_like');
-const likedBtns = document.querySelectorAll('.btn_liked');
+const likeBtns = document.querySelectorAll(".btn_like");
+const likedBtns = document.querySelectorAll(".btn_liked");
 
 likeBtns.forEach((likeBtn, index) => {
-  likeBtn.addEventListener('click', function() {
-    likeBtn.style.display = 'none';
-    likedBtns[index].style.display = 'inline-block';
-  });
-});
+    likeBtn.addEventListener("click", function () {
+        // NOTE UnLike
+        likeBtn.style.display = "none";
+        likedBtns[index].style.display = "inline-block";
 
-likedBtns.forEach((likedBtn, index) => {
-  likedBtn.addEventListener('click', function() {
-    likedBtn.style.display = 'none';
-    likeBtns[index].style.display = 'inline-block';
-  });
-});
-
-function handleReactLike(reactLiked) {
-  console.log('handle');
-  likeBtns.forEach((likeBtn, index) => {
-    likeBtn.addEventListener('click', function() {
-        console.log('Likebtn ', likeBtn.dataset.id);
-        // Checked like
-        if (typeof(likeBtn) != 'undefined' && likeBtn != null) {
+        // Checked Like
+        if (typeof likeBtn != "undefined" && likeBtn != null) {
             // TODO
-        } else {
-          reactLiked()
+            // const elementClicked = document.getElementById('btn_like_' + likeBtn.dataset.id);
+            console.log('%cヾ(・ω・)メ(・ω・)ノ Like ヾ(・ω・)メ(・ω・)ノ', "color: #f84464; font-size:20px");
+            $.ajax({
+                url: "http://localhost:8080/Spotify/Playlist/like",
+                type: "POST",
+                data: {
+                    songId: likeBtn.dataset.id,
+                },
+            });
         }
     });
 });
-}
+
+likedBtns.forEach((likedBtn, index) => {
+    likedBtn.addEventListener("click", function () {
+        likedBtn.style.display = "none";
+        likeBtns[index].style.display = "inline-block";
+
+        // Checked UnLike
+        if (typeof likedBtn != "undefined" && likedBtn != null) {
+            // TODO
+            console.log('%cヾ(・ω・)メ(・ω・)ノ Unlike ヾ(・ω・)メ(・ω・)ノ', "color: #f84464; font-size:20px");
+            $.ajax({
+                url: "http://localhost:8080/Spotify/Playlist/unLike",
+                type: "POST",
+                data: {
+                    songId: likedBtn.dataset.id,
+                },
+            });
+        }
+    });
+});

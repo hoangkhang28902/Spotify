@@ -12,13 +12,33 @@ class Playlist extends Controller
     {
         $arrPlaylist = $this->playlistModel->getPlaylist($id);
         $likeForUser = $this->playlistModel->getLike(2);
-        $reactLikePl = $this->playlistModel;
+
         $this->view('Listener/index', [
             'listsong' => $arrPlaylist,
             'like' => $likeForUser,
-            'reactLike' => $reactLikePl,
             'Page' => 'SongList',
             'type' => 'Playlist'
         ]);
+    }
+
+    function like() {
+        if (isset($_POST['songId'])) {
+            $songId = $_POST['songId'];
+            $likeSong = $this->playlistModel->reactLike(2, $songId, date('Y-m-d'));
+        }
+    }
+
+    function unLike() {
+        if (isset($_POST['songId'])) {
+            $songId = $_POST['songId'];
+            $unLikeSong = $this->playlistModel->unLike(2, $songId);
+        }      
+    }
+
+    function playSong() {
+        if (isset($_POST['songId'])) {
+            $songId = $_POST['songId'];
+            $playSong = $this->playlistModel->countOfSong($songId);
+        }
     }
 }

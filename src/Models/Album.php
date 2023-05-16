@@ -34,6 +34,39 @@ class AlbumModel
         return $result;
     }
 
+    public function getLike($userId)    
+    {
+        $sql = "SELECT * from likesong WHERE likesong.UserID = '$userId'";
+        $result = $this->db->select($sql);
+        return $result;
+    }
+
+    public function reactLike($userId, $songId, $Date)
+    {
+        $sql = "INSERT INTO likesong (UserId, SongId, LikeDate) VALUES ('$userId', '$songId', '$Date')";
+        $result = $this->db->execute($sql);
+        return $result;
+    }
+
+
+    public function unLike($userId, $songId)
+    {
+        $sql = "DELETE FROM `likesong` WHERE userID = '$userId' and SongID = '$songId'";
+        $result = false;
+        if(mysqli_query($this->db->conn, $sql)){
+            $result = true;
+        }
+        return json_encode($result);
+    
+    }
+
+    public function countOfSong($songId)
+    {
+        $sql = "INSERT INTO playsong(SongID, CountOfSong) VALUES('$songId', 1) ON DUPLICATE KEY UPDATE CountOfSong = CountOfSong + 1";
+        $result = $this->db->execute($sql);
+        return $result;
+    }
+
     // Get Song By Id
     public function getAlbumById($id)
     {
