@@ -11,15 +11,15 @@
 	<div class="container mt-5">
 		<h1 class="mb-4">Artist Management</h1>
 		<table class="table">
-			<a href="view_insert" class="btn btn-warning" style="margin-bottom:20px;">Thêm mới </a>
+			<a href="view_insert" class="btn btn-warning" style="margin-bottom:20px;">Insert </a>
 
 			<thead>
 				<tr>
 					<th>ArtistID</th>
+					<th>ArtistImage</th>
 					<th>ArtistName</th>
 					<th>ArtistDescription</th>
 					<th>ArtistDob</th>
-					<th>ArtistImage</th>
 				</tr>
 			</thead>
 			<a href="" class="icon-insertAlbum"></a>
@@ -43,7 +43,7 @@
 	<script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
 		<script>
 		function confirmDelete(artistId) {
-			if (confirm("Bạn có chắc chắn muốn xóa artist này?")) {
+			if (confirm("Are you sure you want to delete this artist ?")) {
 				window.location.href = "delete/" + artistId;
 			}
 		}

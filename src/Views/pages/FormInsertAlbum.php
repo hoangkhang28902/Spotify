@@ -9,7 +9,7 @@
 	<div class="container mt-5">
 		<div class="row">
 			<div class="col-md-6" style="margin-left: 300px;">
-				<a href="index" class="btn btn-warning" style="margin-bottom:20px; margin-left:200px; position:absolute; margin-top:421px; left: -4%;">TO BACK </a>
+				<a href="index" class="btn btn-warning" style="margin-bottom:20px; margin-left:200px; position:absolute; margin-top:421px; left: -4%;">To Back </a>
 
 				<form action="create" method="post" enctype="multipart/form-data">
 					<div class="form-group">
@@ -41,14 +41,14 @@
 					if ($data["result"] == "true") {
 				?>
 						<script>
-							alert("Thêm thành công");
+							alert("Insert Successfuly");
 							window.location.replace("<?php echo PAGEROOT ?>/AlbumAdmin");
 						</script>
 					<?php
 					} else {
 					?>
 						<script>
-							alert("Thêm thất bại");
+							alert("Insert failed");
 							window.location.replace("<?php echo PAGEROOT ?>/AlbumAdmin");
 						</script>
 				<?php

@@ -12,7 +12,7 @@
 	<div class="container mt-5">
 		<h1 class="mb-4">Playlist Management</h1>
 		<table class="table">
-			<a href="view_insert" class="btn btn-warning" style="margin-bottom:20px;">Thêm mới </a>
+			<a href="view_insert" class="btn btn-warning" style="margin-bottom:20px;">Insert </a>
 			<thead>
 				<tr>
 					<th>PlaylistID</th>
@@ -50,7 +50,7 @@
 	<script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
 	<script>
 		function confirmDelete(playlistId) {
-			if (confirm("Bạn có chắc chắn muốn xóa Playlist này?")) {
+			if (confirm("Are you sure you want to delete this Playlist?")) {
 				window.location.href = "delete/" + playlistId;
 			}
 		}

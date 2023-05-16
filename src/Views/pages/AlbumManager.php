@@ -48,7 +48,7 @@
 	<script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
 	<script>
 		function confirmDelete(albumId) {
-			if (confirm("Bạn có chắc chắn muốn xóa album này?")) {
+			if (confirm("Are you sure you want to delete this Album?")) {
 				window.location.href = "delete/" + albumId;
 			}
 		}

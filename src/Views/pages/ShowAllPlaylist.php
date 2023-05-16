@@ -1,8 +1,8 @@
 <base href="<?php echo PAGEROOT ?>/Home">
-    <h1><a href="">Playlist</a></h1>
+    <h1 style="margin-top: 72px;"><a href="">Playlist</a></h1>
     <div class="bangxephangnoibat">
         <?php include_once "./src/Views/components/Card.php";
-        $arrayArt2 = array('JVKE');
+        $arrayArt2 = array('');
         ?>
         <?php if (!empty($data['playlist'])) :
             foreach ($data['playlist'] as $playlist) : ?>

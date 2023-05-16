@@ -1,7 +1,7 @@
 <div class="containerSearch">
     <?php if($data['results'] && $data['results'] != NULL){?>
         <?php foreach($data['results'] as $key => $val){?>
-            <a href="<?=  PAGEROOT?>/Home/song/<?= $val['SongID'] ?>">
+            <a href="<?=  PAGEROOT?>/song/show/<?= $val['SongID'] ?>">
                 <div class="card">
                     <div class="cardContainer">
                         <div class="cardThumbail">
@@ -22,7 +22,7 @@
                             </div>
                         </div>
                         <div class="cardSongs">
-                            <a href="<?=  PAGEROOT?>/Home/song/<?= $val['SongID'] ?>"><?= $val['SongName']?></a>
+                            <a href="<?=  PAGEROOT?>/song/show/<?= $val['SongID'] ?>"><?= $val['SongName']?></a>
                         </div>
                     </div>
                 </div>

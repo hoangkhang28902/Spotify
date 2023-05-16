@@ -15,35 +15,39 @@
 <div class="container">
     <h1>Song</h1>
     <!-- Phần Song -->
-    <a class="showAll" href="Home/ShowAllSong">Show all</a> 
+    <a class="showAll" href="Home/ShowAllSong">Show all</a>
     <div class="card-newplay">
         <?php include_once "./src/Views/components/Card.php";
-        $arrayArt2 = array('JVKE');
         ?>
         <?php if (!empty($data['arrSong'])) :
             foreach ($data['arrSong'] as $song) : ?>
+                <?php $arrayArt2 = array($song['ArtistName']); ?>
                 <?php echo Card($song['SongID'], $song['SongName'], $arrayArt2, 'data:image/png;base64,' . base64_encode($song['SongImage']), $song['SongAudio'], 'Song'); ?>
         <?php endforeach;
         endif; ?>
 
-
-        <?php
-        // $arrayArt1 = array('Relax and indulge with beautiful piano pieces');
+    </div>
+    <h1>Recently Played</h1>
+    <!-- Phần Song -->
+    <a class="showAll" href="Home/ShowAllHistory">Show all</a>
+    <div class="card-newplay">
+        <?php include_once "./src/Views/components/Card.php";
         // $arrayArt2 = array('JVKE');
-        // $arrayArt3 = array('Your daily update of the most played tracks right now - Vietnam.');
-        // include_once "../components/Card.php";
-        // echo Card('Peaceful Piano', $arrayArt1, 'https://www.pianoramix.com/assets/media/298-peaceful-piano-spotify-300x300r.jpeg');
-        // echo Card('This is what losing someone feels like', $arrayArt2, 'https://i.scdn.co/image/ab67616d00001e029a087af6a3bf8fa7d5db50e2');
-        // echo Card('Top 50 - VietNam', $arrayArt3, 'https://charts-images.scdn.co/assets/locale_en/regional/daily/region_vn_default.jpg');
         ?>
+        <?php if (!empty($data['dataHistory'])) :
+            foreach ($data['dataHistory'] as $song) : ?>
+                   <?php $arrayArt2 = array($song['ArtistName']); ?>
+                <?php echo Card($song['SongID'], $song['SongName'], $arrayArt2, 'data:image/png;base64,' . base64_encode($song['SongImage']), $song['SongAudio'], 'Song'); ?>
+        <?php endforeach;
+        endif; ?>
     </div>
 
     <h1><a href="">Artist</a></h1>
-    <a class="showAll" href="Home/ShowAllArtist">Show all</a>       
+    <a class="showAll" href="Home/ShowAllArtist">Show all</a>
     <div class="card-showtest">
 
         <?php include_once "./src/Views/components/Card.php";
-        $arrayArt2 = array('JVKE');
+        $arrayArt2 = array('');
         ?>
         <?php if (!empty($data['arrArtist'])) :
             foreach ($data['arrArtist'] as $artist) : ?>
@@ -79,7 +83,7 @@
     <a class="showAll" href="Home/ShowAllAlbum">Show all</a>
     <div class="haythucachkhac">
         <?php include_once "./src/Views/components/Card.php";
-        $arrayArt2 = array('JVKE');
+        $arrayArt2 = array('');
         ?>
         <?php if (!empty($data['arrAlbum'])) :
             foreach ($data['arrAlbum'] as $album) : ?>
@@ -117,7 +121,7 @@
     <a class="showAll" href="Home/ShowAllPlaylist">Show all</a>
     <div class="bangxephangnoibat">
         <?php include_once "./src/Views/components/Card.php";
-        $arrayArt2 = array('JVKE');
+        $arrayArt2 = array('');
         ?>
         <?php if (!empty($data['arrPlaylist'])) :
             foreach ($data['arrPlaylist'] as $playlist) : ?>
@@ -145,7 +149,7 @@
     <a class="showAll" href="Home/ShowAllPodcast">Show all</a>
     <div class="bangxephangnoibat">
         <?php include_once "./src/Views/components/Card.php";
-        $arrayArt2 = array('JVKE');
+        $arrayArt2 = array('');
         ?>
         <?php if (!empty($data['arrPodcast'])) :
             foreach ($data['arrPodcast'] as $podcast) : ?>

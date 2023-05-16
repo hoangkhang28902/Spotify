@@ -10,7 +10,7 @@
 	<div class="container mt-5">
 		<div class="row">
 			<div class="col-md-6" style="margin-left: 300px;">
-			<a href="index" class="btn btn-success" style="margin-bottom:20px; margin-left:200px; position:absolute; margin-top:336px; left: -4%;" >Quay về</a>
+			<a href="index" class="btn btn-success" style="margin-bottom:20px; margin-left:200px; position:absolute; margin-top:336px; left: -4%;" >To Back</a>
 			<?php 
 				while($artist = mysqli_fetch_array($data["edit"])){ ?>
 						<form action="update/<?php echo $artist["ArtistID"];?>" method="post"  enctype="multipart/form-data">
@@ -20,11 +20,11 @@
 									</div>
 									<div class="form-group">
 										<label for="ArtistDescription">Artist Description</label>
-										<input type="date" name="ArtistDescription" class="form-control"value="<?php echo $artist["ArtistDescription"]?>" >
+										<input type="text" name="ArtistDescription" class="form-control"value="<?php echo $artist["ArtistDescription"]?>" >
 									</div>
 									<div class="form-group">
 										<label for="ArtistDob">Artist Dob</label>
-										<input type="text" name="ArtistDob" class="form-control"value="<?php echo $artist["ArtistDob"]?>" >
+										<input type="date" name="ArtistDob" class="form-control"value="<?php echo $artist["ArtistDob"]?>" >
 									</div>
 									<div class="form-group">
 										<label for="ArtistImage">Artist Image</label>
@@ -32,7 +32,7 @@
 
 									</div>
 									<div class="form-group">
-										<input type="submit" name="submit" class="btn btn-primary" value="Sửa">
+										<input type="submit" name="submit" class="btn btn-primary" value="Update">
 									</div>
 								</form>
 				<?php
@@ -44,14 +44,14 @@
 					if ($data["result"] == "true") {
 				?>
 						<script>
-							alert("Sửa thành công");
+							alert("Edit Successfuly");
 							window.location.replace("<?php echo PAGEROOT ?>/ArtistAdmin");
 						</script>
 					<?php
 					} else {
 					?>
 						<script>
-							alert("Sửa thất bại");
+							alert("Edit Failed");
 							window.location.replace("<?php echo PAGEROOT ?>/ArtistAdmin");
 						</script>
 				<?php

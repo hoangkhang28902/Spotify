@@ -27,7 +27,7 @@
                         </svg>
                     </button>
                 </div>
-
+                <input type="search" name="search" placeholder="Search" onkeyup = "search(this)">
                 <div class="buttonNavbarContainer">
                     <ul>
                         <li><button class="buttonNavbar">Upgrade</button></li>

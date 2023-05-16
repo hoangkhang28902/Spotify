@@ -9,7 +9,7 @@ class Search extends Controller {
     public function index()
     {
         $arrCate = $this->Category->getCate();
-        $this->view('Listener/index', [
+        $this->view('Listener/IndexSearch', [
             'Page'  => 'Search',
             'data'  => $arrCate
         ]);

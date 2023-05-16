@@ -12,7 +12,7 @@
 	<div class="container mt-5">
 		<h1 class="mb-4">Podcast Management</h1>
 		<table class="table">
-			<a href="view_insert" class="btn btn-warning" style="margin-bottom:20px;">Thêm mới </a>
+			<a href="view_insert" class="btn btn-warning" style="margin-bottom:20px;">Insert </a>
 			<thead>
 				<tr>
 					<th>PodcastID</th>
@@ -45,7 +45,7 @@
 	<script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
 	<script>
 		function confirmDelete(podcastId) {
-			if (confirm("Bạn có chắc chắn muốn xóa Podcast này?")) {
+			if (confirm("Are you sure you want to delete this Podcast?")) {
 				window.location.href = "delete/" + podcastId;
 			}
 		}
