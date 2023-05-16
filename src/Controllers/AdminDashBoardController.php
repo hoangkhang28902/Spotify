@@ -28,7 +28,7 @@ class AdminDashBoardController extends Controller {
     {   
        
 
-        $this->view('Listener/indexAdmin', [
+        $this->view('Listener/indexAdmin_dashboard', [
           
             'Page' => 'AdminDashBoard'
         ]);

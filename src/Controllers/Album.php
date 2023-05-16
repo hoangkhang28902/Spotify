@@ -12,6 +12,7 @@ class Album extends Controller
     {
         $arrAlbum = $this->albumModel->getAlbum($id);
         $arrArtist = $this->albumModel->getArtist($id);
+        $likeForUser = $this->albumModel->getLike(2);
         $fullArtist = '';
 
         // foreach ($arrArtist as $artist) {
@@ -30,8 +31,30 @@ class Album extends Controller
             'listsong' => $arrAlbum,
             'listartist' => $arrArtist,
             'artist' => $fullArtist,
+            'like' => $likeForUser,
             'Page' => 'SongList',
             'type' => 'Album'
         ]);
+    }
+
+    function like() {
+        if (isset($_POST['songId'])) {
+            $songId = $_POST['songId'];
+            $likeSong = $this->albumModel->reactLike(2, $songId, date('Y-m-d'));
+        }
+    }
+
+    function unLike() {
+        if (isset($_POST['songId'])) {
+            $songId = $_POST['songId'];
+            $unLikeSong = $this->albumModel->unLike(2, $songId);
+        }      
+    }
+
+    function playSong() {
+        if (isset($_POST['songId'])) {
+            $songId = $_POST['songId'];
+            $playSong = $this->albumModel->countOfSong($songId);
+        }
     }
 }

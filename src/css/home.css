@@ -20,8 +20,9 @@ h1 {
 .showAll {
   display: inline-block;
   padding: 10px 15px;
+  height: fit-content;
   background-color: #124bad;
-  margin-left: 1003px;
+  margin-right: 10px;
   color: #fff;
   text-transform: uppercase;
   font-size: 10px;
@@ -35,7 +36,13 @@ h1 {
   background-color: #169e3d;
 }
 
-/* car newplay */
+.h1TitleHome {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+/* card newplay */
 .card-newplay {
     display: flex;
     justify-content: flex-start; 

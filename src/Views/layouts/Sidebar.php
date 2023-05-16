@@ -49,7 +49,8 @@
                     </a>
                 </li>
             </ul>
-            <div class="navList">
+            <!-- Fix KhangProPlayer -->
+            <!-- <div class="navList">
                 <div class="navListContainer">
                     <div>
                         <button>
@@ -75,18 +76,52 @@
                         <hr />
                     </div>
                 </div>
-            </div>
-            <!-- <div class="navCookie">
-                <a href="/">Cookie</a>
-            </div>
-            <div class="navBottom">
-                <div class="navLanguage">
-                    <button>
-                        <img src="../../../assets/icons/icons8-dashboard-layout-40.png" alt="">
-                        <span>English</span>
-                    </button>
-                </div>
             </div> -->
+
+            <div class="navList">
+                <div class="navListContainer">
+                    <div>
+                        <button id="btn_createPlaylist">
+                            <div class="containerNavListIcon">
+                                <div>
+                                    <svg role="img" height="12" width="12" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 gQUQL"><path fill="black" d="M15.25 8a.75.75 0 0 1-.75.75H8.75v5.75a.75.75 0 0 1-1.5 0V8.75H1.5a.75.75 0 0 1 0-1.5h5.75V1.5a.75.75 0 0 1 1.5 0v5.75h5.75a.75.75 0 0 1 .75.75z"></path></svg>
+                                </div>
+                            </div>
+                            <span>Playlist</span>
+                        </button>
+                    </div>
+                    <div>
+                    <?php
+                      require_once './src/Controllers/Home.php';
+                      require_once './src/Models/Playlist.php';
+                      $homeModel = new Home();
+                      $playlistModel = new PlaylistModel();
+                      $userID = 1; 
+                      $html1 = $homeModel->showUserLikesong($userID);
+                      echo $html1;
+                    ?>
+                    </div>
+                   
+                    <div class="lineSideBar">
+                        <hr />
+                    </div>
+
+                    <!-- Container_userplaylist -->
+                    <div class="Container_userplaylist">
+                    <?php
+                      require_once './src/Controllers/Home.php';
+                      require_once './src/Models/Playlist.php';
+                      $homeModel = new Home();
+                      $playlistModel = new PlaylistModel();
+                      $userID = 1; 
+                      $html = $homeModel->showUserPlaylist($userID);
+                      echo $html;
+                    ?>
+                    </div>
+
+                </div>
+            </div>
+          
         </div>
     </nav>
     <?php } ?>
