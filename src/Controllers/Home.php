@@ -13,11 +13,11 @@ class Home extends Controller
 
     public function index()
     {
-        $arrSong = $this->SongModel->getSongsLimit(0, 5);
-        $arrArtist = $this->ArtistsModel->getArtistsLimit(0, 5);
-        $arrAlbum = $this->AlbumModel->getAlbumsLimit(0, 5);
-        $arrPlaylist = $this->PlaylistModel->getPlaylistsLimit(0, 5);
-        $arrPodcast = $this->PodcastModel->getPodcastsLimit(0, 5);
+        $arrSong = $this->SongModel->getSongsLimit(0, 6);
+        $arrArtist = $this->ArtistsModel->getArtistsLimit(0, 6);
+        $arrAlbum = $this->AlbumModel->getAlbumsLimit(0, 6);
+        $arrPlaylist = $this->PlaylistModel->getPlaylistsLimit(0, 6);
+        $arrPodcast = $this->PodcastModel->getPodcastsLimit(0, 6);
 
         $song = $this->SongModel->getSongs();
         $artist = $this->ArtistsModel->getArtists();
@@ -193,5 +193,97 @@ class Home extends Controller
             'results' => $results,
             'Page' => 'category',
         ]);
+    }
+
+    // Fix KhangProPlayer
+    public function showUserPlaylist($userID) {
+        require_once './src/Models/Playlist.php';
+        $playlistModel = new PlaylistModel();
+        $playlistIDs = $playlistModel->getUserIDPlaylist($userID);
+        $totalPlaylist = count($playlistIDs);
+    
+        $html = '';
+        for ($i = 0; $i < $totalPlaylist; $i++) {
+            // $html .= '<a href="http://localhost:8080/Spotify/Playlist/show/' . $playlistIDs[$i] . '"><button>
+            //               <div class="containerNavListIcon ">
+            //                   <div>
+            //                   <svg style="
+            //                   background-color: black;
+            //               " role="img" height="24" width="24" aria-hidden="true" data-testid="playlist" class="Svg-sc-ytk21e-0 ldgdZj" viewBox="0 0 24 24" data-encore-id="icon"><path d="M6 3h15v15.167a3.5 3.5 0 1 1-3.5-3.5H19V5H8v13.167a3.5 3.5 0 1 1-3.5-3.5H6V3zm0 13.667H4.5a1.5 1.5 0 1 0 1.5 1.5v-1.5zm13 0h-1.5a1.5 1.5 0 1 0 1.5 1.5v-1.5z"></path></svg>
+            //                   </div>
+            //               </div>
+            //               <span>My Playlist #</span>
+            //               <span class="number_userplaylist">' . ($i+1) . '</span>
+            //               </button></a>';
+            $html .= '<div class="playlist-item">
+            <a href="http://localhost:8080/Spotify/Playlist/show/' . $playlistIDs[$i] . '">
+              <button>
+                <div class="containerNavListIcon">
+                  <div>
+                    <svg
+                    style="background-color: black;"
+                               
+                           
+                    role="img" height="24" width="24" aria-hidden="true" data-testid="playlist" class="Svg-sc-ytk21e-0 ldgdZj" viewBox="0 0 24 24" data-encore-id="icon">
+                      <path d="M6 3h15v15.167a3.5 3.5 0 1 1-3.5-3.5H19V5H8v13.167a3.5 3.5 0 1 1-3.5-3.5H6V3zm0 13.667H4.5a1.5 1.5 0 1 0 1.5 1.5v-1.5zm13 0h-1.5a1.5 1.5 0 1 0 1.5 1.5v-1.5z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span>My Playlist #</span>
+                <span class="number_userplaylist">' . ($i+1) . '</span>
+              </button>
+            </a>
+            <button class="delButton"
+            style="
+  
+    color: #e9e9e9;
+    padding: 0 16px;
+    border-radius: 10px;
+    height: 20px;
+    border: 1px solid white;
+  
+"
+            
+            >Del</button>
+          </div>';
+
+        }
+    
+        return $html;
+    }
+    public function showUserLikesong($userID) {
+        require_once './src/Models/Playlist.php';
+        $playlistModel = new PlaylistModel();     
+        $html = ''; 
+        $html .= '<a href="http://localhost:8080/Spotify/LikeSong/show/' . $userID . '"><button>
+        <div class="containerNavListIcon iconLikeSongs">
+            <div>
+                <svg role="img" height="12" width="12" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 gQUQL"><path fill="white" d="M15.724 4.22A4.313 4.313 0 0 0 12.192.814a4.269 4.269 0 0 0-3.622 1.13.837.837 0 0 1-1.14 0 4.272 4.272 0 0 0-6.21 5.855l5.916 7.05a1.128 1.128 0 0 0 1.727 0l5.916-7.05a4.228 4.228 0 0 0 .945-3.577z"></path></svg>
+            </div>
+        </div>
+        <span>Like Songs</span>
+        </button></a>';
+
+        
+    
+        return $html;
+    }
+
+    // Đang set cứng sau này đổi lại thì để biến là $userID
+
+    public function createPlaylist()
+    {
+    $userID = 1;    
+    $this->PlaylistModel->CreatePlaylist();
+    $playlistIDs = $this->PlaylistModel->getAllPlaylistIDs();
+    $playlistID = end($playlistIDs);
+    // 
+    $this->PlaylistModel->createUserPlaylist($userID, $playlistID);
+
+    if ($result) {
+        echo 'Playlist created successfully!';
+    } else {
+        echo 'Failed to create playlist!';
+    }
     }
 }

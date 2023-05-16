@@ -26,7 +26,7 @@ class AdminController extends Controller {
 
     public function index()
     {
-        $this->view('Listener/indexAdmin', [
+        $this->view('Listener/indexAdmin_dashboard', [
             'Page' => 'Statistical'
         ]);
         $this->change_num_postcad(); 

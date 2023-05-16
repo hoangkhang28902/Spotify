@@ -1,35 +1,3 @@
-<?php
-include_once "./src/Views/components/Header.php";
-if (!empty($data['listsong'])) :
-    switch ($data['type']) {
-        case 'Playlist':
-            echo Headers($data['type'], 'data:image/png;base64,' . base64_encode($data['listsong'][0]['PlaylistImage']), $data['listsong'][0]['PlaylistName'], 'data:image/png;base64,' . base64_encode($data['listsong'][0]['ArtistImage']), $data['listsong'][0]['PlaylistName'], $data['listsong'][0]['CreateDate'], $data['listsong'][0]['AmountSong'], $data['listsong'][0]['PlaylistLength']);
-            break;
-        case 'Album':
-            echo Headers($data['type'], 'data:image/png;base64,' . base64_encode($data['listsong'][0]['AlbumImage']), $data['listsong'][0]['AlbumName'], 'data:image/png;base64,' . base64_encode($data['listartist'][0]['ArtistImage']), $data['artist'], $data['listsong'][0]['ReleaseDate'], $data['listsong'][0]['AmountSong'], $data['listsong'][0]['AlbumLength']);
-            break;
-        case 'Artist':
-            echo Headers($data['type'], 'data:image/png;base64,' . base64_encode($data['listsong'][0]['ArtistImage']), $data['listsong'][0]['ArtistName'], 'data:image/png;base64,' . base64_encode($data['listsong'][0]['ArtistImage']), $data['listsong'][0]['ArtistName'], '', '', '');
-            break;
-        case 'Song':
-            echo Headers($data['type'], 'data:image/png;base64,' . base64_encode($data['listsong'][0]['SongImage']), $data['listsong'][0]['SongName'], 'data:image/png;base64,' . base64_encode($data['listsong'][0]['ArtistImage']), $data['listsong'][0]['SongName'], $data['listsong'][0]['SongDate'], $data['listsong'][0]['AmountSong'], $data['listsong'][0]['SongLength']);
-            break;
-        case 'Liked Song':
-            echo Headers($data['type'], 'https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png', 'Liked Songs', 'data:image/png;base64,' . base64_encode($data['listsong'][0]['UserImage']), $data['listsong'][0]['UserFname'], '', '', '');
-            break;
-        default:
-            echo Headers($data['type'], 'data:image/png;base64,' . base64_encode($data['listsong'][0]['PlaylistImage']), $data['listsong'][0]['PlaylistName'], 'data:image/png;base64,' . base64_encode($data['listsong'][0]['ArtistImage']), $data['listsong'][0]['PlaylistName'], $data['listsong'][0]['CreateDate'], $data['listsong'][0]['AmountSong'], $data['listsong'][0]['PlaylistLength']);
-            break;
-    }
-endif;
-
-if (empty($data['listsong'])) :
-    echo Headers('khads','khads','khads','khads','khads','khads','khads','khads');
-endif;
-
-?>
-
-
 
 <?php include_once "./src/Views/Listener/Lyrics.php" ?> 
 
@@ -39,14 +7,20 @@ endif;
             <button type="button" class="btn rounded-pill me-4 p-3 shadow" style="background-color: rgb(31, 183, 67)">
                 <img width="28px" height="28px" onclick="PlayingMusic()" id="playingLargeIcon" src="<?php echo URLROOT ?>/assets/icons/play_small.svg" >
             </button>
+               
+            <!-- // Like Song  -->
+
             <button type="button" class="bg-transparent border-0 me-4">
                 <span data-bs-toggle="tooltip" data-bs-placement="top" title="Save to Your Library">
-                    <svg role="img" height="32" width="32" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" fill="white">
+                    <svg  role="img" height="32" width="32" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" fill="white">
                         <path d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z">
                         </path>
                     </svg>
+                   
                 </span>
             </button>
+
+
             <div class="dropdown open d-inline-block">
                 <button type="button" class="bg-transparent border-0 me-4" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span data-bs-toggle="tooltip" data-bs-placement="top" title="More options">
@@ -86,36 +60,17 @@ endif;
             </div>
         </div>
     </div>
-
+    
     <div class="px-5 py-2 list">
-        <?php
-        include_once "./src/Views/components/SongItem.php";
-        if (!empty($data['listsong'])) :
-            $num = 1;
-            foreach ($data['listsong'] as $song) :
-                echo SongItem(
-                    $song['SongID'], 
-                    $num++, 
-                    'data:image/png;base64,' . base64_encode($song['SongImage']), 
-                    $song['SongName'], 
-                    $song['ArtistName'], 
-                    $song['AlbumName'], 
-                    $song['SongDate'], 
-                    $song['SongLength'], 
-                    $song['SongAudio'], 
-                    $song['SongLyric'],
-                    $data['like'],
-                );
-            endforeach;
-        endif;
 
-        if(empty($data['listsong'])) :
-            echo SongItem('','','http://localhost:8080/Spotify/src/assets/images/songadd.png','','','','','','','', '');
-        endif;
-
-        ?>
     </div>
+
+   
+<!-- // Chưa xong  -->
 </div>
+<div></div>
+<div></div>
+<div></div>
 
 <div class="container_seachplaylist">
 <h1 style="
@@ -150,8 +105,3 @@ endif;
     <div id="song-list" style="height=200px;width: 100%;height: 100px;"></div>
 </div>
 
-
-<div id="notification" class="alert alert-success text-center">
-  <p id="notification-message"></p>
-  <button id="notification-btn" class="btn btn-primary">OK</button>
-</div>
