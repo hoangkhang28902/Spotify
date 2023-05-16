@@ -147,6 +147,7 @@ class AlbumModel
         }
         return $result;
     }
+    
     function getAll()
     {
         $sql = "SELECT * FROM album";

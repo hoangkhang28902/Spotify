@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 <body> -->
-    <?php if (empty($_GET['page'])) { ?>
+<?php if (empty($_GET['page'])) { ?>
     <audio id="audio" >
         <source src="" type="audio/ogg" />
     </audio>

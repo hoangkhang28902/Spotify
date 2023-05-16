@@ -2,6 +2,13 @@
 
 class Home extends Controller
 {
+    private $SongModel;
+    private $ArtistsModel;
+    private $AlbumModel;
+    private $PlaylistModel;
+    private $PodcastModel;
+    private $HistorySong;
+
     public function __construct()
     {
         $this->SongModel = $this->model('Song');
@@ -9,6 +16,7 @@ class Home extends Controller
         $this->AlbumModel = $this->model('Album');
         $this->PlaylistModel = $this->model('Playlist');
         $this->PodcastModel = $this->model('Podcast');
+        $this->HistorySong = $this->model('HistorySong');
     }
 
     public function index()
@@ -25,6 +33,7 @@ class Home extends Controller
         $playlist = $this->PlaylistModel->getPlaylists();
         $podcast = $this->PodcastModel->getPodcast();
 
+        $historySong = $this->HistorySong->getSong(5); /// 1 => userId
         $this->view('Listener/index', [
 
             'song' => $song,
@@ -38,6 +47,7 @@ class Home extends Controller
             'arrAlbum' => $arrAlbum,
             'arrPlaylist' => $arrPlaylist,
             'arrPodcast' => $arrPodcast,
+            'dataHistory'   => $historySong,
             'Page' => 'ContentHome'
         ]);
     }
@@ -45,6 +55,7 @@ class Home extends Controller
     public function ShowAllSong()
     {
         $song = $this->SongModel->getSongs();
+
         $this->view('Listener/index', [
             'Page' => 'ShowAllSong',
             'song' => $song,
@@ -99,11 +110,12 @@ class Home extends Controller
     }
 
     // Phần Search
-    function searchSong(){
-        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    function searchSong()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = $_POST['name'];
             $arrays = [];
-            if(trim($name) != ''){
+            if (trim($name) != '') {
                 // artist
                 $artist = $this->ArtistsModel->search($name);
                 $arrays['artist']  = $artist;
@@ -116,52 +128,49 @@ class Home extends Controller
                 // album
                 $album = $this->AlbumModel->search($name);
                 $arrays['album']  = $album;
-
-
-            }
-            else{
+            } else {
                 // artist
                 $artist = $this->ArtistsModel->getAll();
                 $arrays['artist']  = $artist;
                 // podcast
                 $podcast = $this->PodcastModel->getAll();
                 $arrays['podcast']  = $podcast;
-                 // playlist
+                // playlist
                 $playlist = $this->PlaylistModel->getAll();
                 $arrays['playlist']  = $playlist;
-                 // album
-                 $album = $this->AlbumModel->getAll();
-                 $arrays['album']  = $album;
+                // album
+                $album = $this->AlbumModel->getAll();
+                $arrays['album']  = $album;
             }
             $song = $this->SongModel->search($name);
             $arrays['song']  = $song;
-            if($arrays != null &&  count($arrays) > 0){
+            if ($arrays != null &&  count($arrays) > 0) {
                 echo json_encode([
                     "status"    => 200,
                     "data"      => $arrays,
                 ]);
-            }else{
+            } else {
                 echo json_encode([
                     "status"    => 203,
                 ]);
             }
-        }
-        else{
+        } else {
             echo json_encode([
                 "status"    => 401,
             ]);
         }
-        
     }
-    function album($id){
+
+    function album($id)
+    {
         $albumartist = $this->ArtistsModel->getAlbum($id);
         $rowsId = [];
-        foreach($albumartist as $val){
+        foreach ($albumartist as $val) {
             $rowsId[] = $val['ArtistID'];
         }
         $songartist = $this->ArtistsModel->listIdSong($rowsId);
         $songId = [];
-        foreach($songartist as $val){
+        foreach ($songartist as $val) {
             $songId[] = $val['SongID'];
         }
         $results = $this->SongModel->getList($songId);
@@ -170,10 +179,12 @@ class Home extends Controller
             'Page' => 'category',
         ]);
     }
-    function artist($id){
+
+    function artist($id)
+    {
         $songartist = $this->ArtistsModel->listIdSong([$id]);
         $songId = [];
-        foreach($songartist as $val){
+        foreach ($songartist as $val) {
             $songId[] = $val['SongID'];
         }
         $results = $this->SongModel->getList($songId);
@@ -182,10 +193,11 @@ class Home extends Controller
             'Page' => 'category',
         ]);
     }
-    function playlist($id){
+    function playlist($id)
+    {
         $songPlaylist = $this->PlaylistModel->listIdSong([$id]);
         $songId = [];
-        foreach($songPlaylist as $val){
+        foreach ($songPlaylist as $val) {
             $songId[] = $val['SongID'];
         }
         $results = $this->SongModel->getList($songId);
@@ -196,12 +208,13 @@ class Home extends Controller
     }
 
     // Fix KhangProPlayer
-    public function showUserPlaylist($userID) {
+    public function showUserPlaylist($userID)
+    {
         require_once './src/Models/Playlist.php';
         $playlistModel = new PlaylistModel();
         $playlistIDs = $playlistModel->getUserIDPlaylist($userID);
         $totalPlaylist = count($playlistIDs);
-    
+
         $html = '';
         for ($i = 0; $i < $totalPlaylist; $i++) {
             // $html .= '<a href="http://localhost:8080/Spotify/Playlist/show/' . $playlistIDs[$i] . '"><button>
@@ -230,7 +243,7 @@ class Home extends Controller
                   </div>
                 </div>
                 <span>My Playlist #</span>
-                <span class="number_userplaylist">' . ($i+1) . '</span>
+                <span class="number_userplaylist">' . ($i + 1) . '</span>
               </button>
             </a>
             <button class="delButton"
@@ -246,15 +259,15 @@ class Home extends Controller
             
             >Del</button>
           </div>';
-
         }
-    
+
         return $html;
     }
-    public function showUserLikesong($userID) {
+    public function showUserLikesong($userID)
+    {
         require_once './src/Models/Playlist.php';
-        $playlistModel = new PlaylistModel();     
-        $html = ''; 
+        $playlistModel = new PlaylistModel();
+        $html = '';
         $html .= '<a href="http://localhost:8080/Spotify/LikeSong/show/' . $userID . '"><button>
         <div class="containerNavListIcon iconLikeSongs">
             <div>
@@ -264,8 +277,8 @@ class Home extends Controller
         <span>Like Songs</span>
         </button></a>';
 
-        
-    
+
+
         return $html;
     }
 
@@ -273,17 +286,32 @@ class Home extends Controller
 
     public function createPlaylist()
     {
-    $userID = 1;    
-    $this->PlaylistModel->CreatePlaylist();
-    $playlistIDs = $this->PlaylistModel->getAllPlaylistIDs();
-    $playlistID = end($playlistIDs);
-    // 
-    $this->PlaylistModel->createUserPlaylist($userID, $playlistID);
+        $userID = 1;
+        $this->PlaylistModel->CreatePlaylist();
+        $playlistIDs = $this->PlaylistModel->getAllPlaylistIDs();
+        $playlistID = end($playlistIDs);
+        // 
+        $this->PlaylistModel->createUserPlaylist($userID, $playlistID);
 
-    if ($result) {
-        echo 'Playlist created successfully!';
-    } else {
-        echo 'Failed to create playlist!';
+        if ($result) {
+            echo 'Playlist created successfully!';
+        } else {
+            echo 'Failed to create playlist!';
+        }
     }
+    
+    function ShowAllHistory()
+    {
+        $song = $this->HistorySong->showAll(5); /// 1 => userId
+        $this->view('Listener/index', [
+            'Page' => 'ShowAllRecend',
+            'song' => $song,
+        ]);
+    }
+    // Clear All:
+    function ClearAllHistory()
+    {
+        $this->HistorySong->clearAll(5); /// 1 => userId
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 }

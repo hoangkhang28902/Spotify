@@ -17,6 +17,13 @@ class PodcastModel{
         $result = mysqli_query($this->db->conn, $sql);
         return $result;
     }
+    function getPodcasts($id)
+    {
+        $sql = "SELECT * FROM Podcast WHERE PodcastID = $id";
+        $result = $this->db->select($sql);
+        return $result;
+    }
+    
 
     // Get Song By Id
     public function getPodcastById($id)
