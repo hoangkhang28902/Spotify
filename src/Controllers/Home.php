@@ -8,20 +8,24 @@ class Home extends Controller
     private $PlaylistModel;
     private $PodcastModel;
     private $HistorySong;
+    private $userID;
 
     public function __construct()
     {
+        // session_start();
         $this->SongModel = $this->model('Song');
         $this->ArtistsModel = $this->model('Artist');
         $this->AlbumModel = $this->model('Album');
         $this->PlaylistModel = $this->model('Playlist');
         $this->PodcastModel = $this->model('Podcast');
         $this->HistorySong = $this->model('HistorySong');
+        // $this->userID = $_SESSION['user'][0]['Username'];
+
     }
 
     public function index()
     {
-        $arrSong = $this->SongModel->getSongsLimit(0, 6);
+        $arrSong = $this->SongModel->getSongsLimit(0,6);
         $arrArtist = $this->ArtistsModel->getArtistsLimit(0, 6);
         $arrAlbum = $this->AlbumModel->getAlbumsLimit(0, 6);
         $arrPlaylist = $this->PlaylistModel->getPlaylistsLimit(0, 6);

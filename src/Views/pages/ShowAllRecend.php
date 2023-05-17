@@ -1,4 +1,4 @@
-<a class="showAll" href="Home/ClearAllHistory" style="position:absolute; left:24%; bottom:86%; text-decoration: underline;">Clear All</a>
+<a class="showAll" href="Home/ClearAllHistory" style="position:absolute; left:16%; bottom:86%; text-decoration: underline;">Clear All</a>
 <base href="<?php echo PAGEROOT ?>/Home">
 <h1 style="margin-top: 72px;">Recently Played</h1>
 <div class="card-newplay">
