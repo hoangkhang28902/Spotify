@@ -24,6 +24,14 @@ class ArtistModel
         $result = $this->db->select($sql);
         return $result;
     }
+
+    public function getLike($userId)    
+    {
+        $sql = "SELECT * from likesong WHERE likesong.UserID = '$userId'";
+        $result = $this->db->select($sql);
+        return $result;
+    }
+
     // CRUD
 
     public function create(array $data)

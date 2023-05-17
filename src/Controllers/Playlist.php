@@ -11,7 +11,7 @@ class Playlist extends Controller
     function show($id)
     {
         $arrPlaylist = $this->playlistModel->getPlaylist($id);
-        $likeForUser = $this->playlistModel->getLike(2);
+        $likeForUser = $this->playlistModel;
 
         $this->view('Listener/index', [
             'listsong' => $arrPlaylist,
@@ -20,6 +20,16 @@ class Playlist extends Controller
             'type' => 'Playlist'
         ]);
     }
+
+    // function getLikeSong() {
+    //     if (isset($_POST['userId'])) {
+    //         $userId = $_POST['userId'];
+    //         $getLikeSong = $this->playlistModel->getLike($userId);
+
+    //         echo json_encode($getLikeSong);
+
+    //     }        
+    // }
 
     function like() {
         if (isset($_POST['songId'])) {

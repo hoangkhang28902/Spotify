@@ -16,11 +16,11 @@ class User extends Controller
             $password = $_POST['password'];
 
             $user = $this->userModel->getUserByUsername($username);
-
+            
             if ($user && ($password == $user[0]['Password'])) {
                 // session_start();
                 $_SESSION['user'] = $user;
-
+                $_SESSION['userId'] = $user[0]['UserID'];
                 $this->setCookie($username);
                 
                 header('Location: /Spotify');

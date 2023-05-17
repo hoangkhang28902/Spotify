@@ -14,7 +14,7 @@ class Song extends Controller
     function show($id)
     {
         $arrSong = $this->songModel->getSong($id);
-        $likeForUser = $this->songModel->getLike(2);
+        $likeForUser = $this->songModel;
 
         $this->view('Listener/index', [
             'listsong' => $arrSong,

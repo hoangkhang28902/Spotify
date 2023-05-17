@@ -11,10 +11,12 @@ class LikeSong extends Controller
     function show($id)
     {
         $arrSong = $this->songModel->getLikeSong($id);
+        $likeForUser = $this->songModel;
 
         $this->view('Listener/index', [
             'listsong' => $arrSong,
             'Page' => 'SongList',
+            'like' => $likeForUser,
             'type' => 'Liked Song'
         ]);
     }

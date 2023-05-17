@@ -71,8 +71,25 @@ let playItemButton;
 let index = songIndex.textContent;
 
 playingSong.addEventListener("click", function (event) {
-	PlayButton(playItemButton);
+	if (!audio.src) {
+		firstSong();
+	} else {
+		PlayButton(playItemButton);
+	}
 });
+
+playLagreButton.addEventListener("click", function (event) {
+	if (!audio.src) {
+		firstSong();
+	} else {
+		PlayButton(playItemButton);
+	}
+})
+
+function firstSong() {
+	// TODO
+	playButton[0].click();
+}
 
 function PlayButton(playItemButton) {
 	if (audio.paused) {
@@ -124,19 +141,20 @@ function Lyrics() {
 }
 
 function PlayingMusic(event, audioSongMusic, lyric, nameSong, nameArtist, imagePlaying) {
-  playItemButton = event.target;
-  const xml = new XMLHttpRequest();
-  const formdata = new FormData();
-  formdata.append('name', nameSong);
-  xml.onload = function(response) {
-    if (this.readyState == 4 && this.status == 200) {
-       // Typical action to be performed when the document is ready:
-      
-      }
-  };
-  xml.open('POST','../../song/songHistory');
-  xml.send(formdata)
-  let mouseDownOnSlider = false;
+	playItemButton = event.target;
+
+	const xml = new XMLHttpRequest();
+	const formdata = new FormData();
+	formdata.append('name', nameSong);
+	xml.onload = function (response) {
+		if (this.readyState == 4 && this.status == 200) {
+			// Typical action to be performed when the document is ready:
+
+		}
+	};
+	xml.open('POST', '../../song/songHistory');
+	xml.send(formdata)
+	let mouseDownOnSlider = false;
 
 	if (audio.src != audioSongMusic) {
 		audio.src = audioSongMusic;

@@ -11,10 +11,12 @@ class Artist extends Controller
     function show($id)
     {
         $arrArtist = $this->artistModel->getArtist($id);
+        $likeForUser = $this->artistModel;
 
         $this->view('Listener/index', [
             'listsong' => $arrArtist,
             'Page' => 'SongList',
+            'like' => $likeForUser,
             'type' => 'Artist'
         ]);
     }

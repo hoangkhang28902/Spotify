@@ -37,7 +37,7 @@ endif;
     <div class="sticky-top bg-custom">
         <div class="p-4">
             <button type="button" class="btn rounded-pill me-4 p-3 shadow" style="background-color: rgb(31, 183, 67)">
-                <img width="28px" height="28px" onclick="PlayingMusic()" id="playingLargeIcon" src="<?php echo URLROOT ?>/assets/icons/play_small.svg" >
+                <img width="28px" height="28px" id="playingLargeIcon" src="<?php echo URLROOT ?>/assets/icons/play_small.svg" >
             </button>
             <button type="button" class="bg-transparent border-0 me-4">
                 <span data-bs-toggle="tooltip" data-bs-placement="top" title="Save to Your Library">
@@ -89,6 +89,11 @@ endif;
 
     <div class="px-5 py-2 list">
         <?php
+             if (isset($_SESSION['userId'])) {
+                echo $_SESSION['userId'];
+            }
+        ?>
+        <?php
         include_once "./src/Views/components/SongItem.php";
         if (!empty($data['listsong'])) :
             $num = 1;
@@ -104,7 +109,7 @@ endif;
                     $song['SongLength'], 
                     $song['SongAudio'], 
                     $song['SongLyric'],
-                    $data['like'],
+                    $data['like']->getLike(isset($_SESSION['userId']) ? $_SESSION['userId'] : '1'),
                 );
             endforeach;
         endif;

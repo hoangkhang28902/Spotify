@@ -95,7 +95,7 @@
                       require_once './src/Models/Playlist.php';
                       $homeModel = new Home();
                       $playlistModel = new PlaylistModel();
-                      $userID = 1; 
+                      $userID = isset($_SESSION['userId']) ? $_SESSION['userId'] : '1'; 
                       $html1 = $homeModel->showUserLikesong($userID);
                       echo $html1;
                     ?>

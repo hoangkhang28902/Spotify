@@ -12,7 +12,7 @@ class Album extends Controller
     {
         $arrAlbum = $this->albumModel->getAlbum($id);
         $arrArtist = $this->albumModel->getArtist($id);
-        $likeForUser = $this->albumModel->getLike(2);
+        $likeForUser = $this->albumModel;
         $fullArtist = '';
 
         // foreach ($arrArtist as $artist) {
