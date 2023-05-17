@@ -18,6 +18,7 @@
     <a class="showAll" href="Home/ShowAllSong">Show all</a>
     <div class="card-newplay">
         <?php include_once "./src/Views/components/Card.php";
+      
         ?>
         <?php if (!empty($data['arrSong'])) :
             foreach ($data['arrSong'] as $song) : ?>
@@ -27,8 +28,8 @@
         endif; ?>
 
     </div>
+        <!-- Phần Rencently Played -->
     <h1>Recently Played</h1>
-    <!-- Phần Song -->
     <a class="showAll" href="Home/ShowAllHistory">Show all</a>
     <div class="card-newplay">
         <?php include_once "./src/Views/components/Card.php";
@@ -42,6 +43,7 @@
         endif; ?>
     </div>
 
+        <!-- Phần Artist -->
     <h1><a href="">Artist</a></h1>
     <a class="showAll" href="Home/ShowAllArtist">Show all</a>
     <div class="card-showtest">
@@ -56,10 +58,9 @@
         endif; ?>
     </div>
 
-    <div class="h1TitleHome">
+        <!-- Phần Album -->
         <h1><a href="">Album</a></h1>
         <a class="showAll" href="Home/ShowAllAlbum">Show all</a>
-    </div>
     <div class="haythucachkhac">
         <?php include_once "./src/Views/components/Card.php";
         $arrayArt2 = array('');
@@ -72,10 +73,10 @@
       
     </div>
 
-    <div class="h1TitleHome">
+        <!-- Phần playlist -->
         <h1><a href="">Playlist</a></h1>
         <a class="showAll" href="Home/ShowAllPlaylist">Show all</a>
-    </div>
+
     <div class="bangxephangnoibat">
         <?php include_once "./src/Views/components/Card.php";
         $arrayArt2 = array('');
@@ -86,11 +87,9 @@
         <?php endforeach;
         endif; ?>
     </div>
-
-    <div class="h1TitleHome">
+        <!-- Phần playlist -->
         <h1><a href="">Podcast</a></h1>
         <a class="showAll" href="Home/ShowAllPodcast">Show all</a>
-    </div>
     <div class="bangxephangnoibat">
         <?php include_once "./src/Views/components/Card.php";
         $arrayArt2 = array('');

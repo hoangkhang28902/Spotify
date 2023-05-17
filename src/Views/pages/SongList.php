@@ -115,7 +115,7 @@ endif;
         endif;
 
         if(empty($data['listsong'])) :
-            echo SongItem('','','http://localhost:8080/Spotify/src/assets/images/songadd.png','','','','','','','', '');
+            echo SongItem('','','http://localhost/Spotify/src/assets/images/songadd.png','','','','','','','', '');
         endif;
 
         ?>
@@ -152,11 +152,19 @@ endif;
     </form>   
     </div>
 
-    <div id="song-list" style="height=200px;width: 100%;height: 100px;"></div>
+    <div id="song-list" style="height:200px;width: 100%;height: 100px;"></div>
 </div>
 
 
 <div id="notification" class="alert alert-success text-center">
   <p id="notification-message"></p>
   <button id="notification-btn" class="btn btn-primary">OK</button>
+</div>
+
+<!-- Đã thêm  -->
+
+<div id="notificationDel" class="alert alert-success text-center">
+  <p id="notificationDel-message">Do you want delete Your Playlist ?</p>
+  <button id="notificationDel-btnYes" class="btn btn-primary">Yes</button>
+  <button id="notificationDel-btnNo" class="btn btn-primary">No</button>
 </div>

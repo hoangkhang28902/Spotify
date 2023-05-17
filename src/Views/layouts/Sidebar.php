@@ -106,7 +106,7 @@
                     </div>
 
                     <!-- Container_userplaylist -->
-                    <div class="Container_userplaylist">
+                    <div id="Container_userplaylist">
                     <?php
                       require_once './src/Controllers/Home.php';
                       require_once './src/Models/Playlist.php';

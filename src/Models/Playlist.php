@@ -269,5 +269,14 @@ class PlaylistModel
     $result = mysqli_query($this->db->conn, $sql);
     return $result;
     }
+
+    // Hàm xóa userplaylist
+
+    public function deleteUserPlaylist($userID, $playlistID)
+    {
+    $sql = "DELETE FROM userplaylist WHERE `userplaylist`.`UserID` = '$userID' AND `userplaylist`.`PlaylistID` = '$playlistID'";
+    $result = mysqli_query($this->db->conn, $sql);
+    return $result;
+    }
     
 }

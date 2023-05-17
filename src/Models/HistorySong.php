@@ -45,7 +45,7 @@ function getSong($id)
             JOIN Artist ON SongArtist.ArtistID = Artist.ArtistID
             WHERE userId = $id
             ORDER BY Song.SongID DESC
-            LIMIT 0, 5";
+            LIMIT 0, 6";
     $result = $this->db->select($sql);
     return $result;
 }

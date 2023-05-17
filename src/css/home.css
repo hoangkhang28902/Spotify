@@ -23,7 +23,7 @@ h1 {
   font-size: 19px;
   border-radius: 5px;
   text-decoration: none;
-  margin-left: 1003px;
+  margin-left: 1175px;
   font-weight: bold;
 }
 
@@ -39,7 +39,7 @@ h1 {
     display: flex;
     justify-content: flex-start; 
     align-items: center;
-    margin-left: 20px; 
+    margin-left: 15px; 
     flex-wrap: wrap;
     max-width: 1500px;
     }
@@ -56,7 +56,7 @@ h1 {
     flex-wrap: wrap;
     justify-content: flex-start; 
     align-items: center;
-    margin-left: 20px; 
+    margin-left: 15px; 
     max-width: 1500px;
     }
     .card-showtest > *{
@@ -68,7 +68,7 @@ h1 {
     flex-wrap: wrap;
     justify-content: flex-start; 
     align-items: center;
-    margin-left: 20px; 
+    margin-left: 15px; 
     max-width: 1500px;
     }
     .haythucachkhac > *{
@@ -80,7 +80,7 @@ h1 {
     flex-wrap: wrap;
     justify-content: flex-start; 
     align-items: center;
-    margin-left: 20px; 
+    margin-left: 15px; 
     max-width: 1500px;
     }    
     .bangxephangnoibat > *{
