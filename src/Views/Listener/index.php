@@ -40,20 +40,49 @@
             text-align: center;
             display: none;
         }
+
         #notification-message {
-        color: black;
-        font-size: 15px;
-        font-family: 'Roboto', sans-serif;
-        font-weight: 600;
+            color: black;
+            font-size: 15px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 600;
         }
+
         #notification.active {
             display: block;
         }
+
         .playlist-item {
-        display: flex;
-        align-items: center;
+            display: flex;
+            align-items: center;
         }
 
+        #notificationDel {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        #notificationDel-message {
+            color: black;
+            font-size: 15px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 600;
+        }
+
+        #notificationDel.active {
+            display: block;
+        }
+
+        #notificationDel-btnYes {
+            margin-right: 20px;
+        }
     </style>
 </head>
 
@@ -86,7 +115,7 @@
     <script src="<?php echo URLROOT ?>/utils/ColorIdentify.js"></script>
     <script src="<?php echo URLROOT ?>/js/Playing.js"></script>
     <script src="<?php echo URLROOT ?>/js/likesong.js"></script>
-    
+
 </body>
 
 </html>

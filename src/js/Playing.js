@@ -80,7 +80,7 @@ function PlayButton(playItemButton) {
 		audio.play();
 
 		$.ajax({
-			url: "http://localhost:8080/Spotify/Playlist/playSong",
+			url: "http://localhost:81/Spotify/Playlist/playSong",
 			type: "POST",
 			data: {
 				songId: playItemButton.dataset.id,
@@ -88,15 +88,15 @@ function PlayButton(playItemButton) {
 		});
 
 		playingSong.src =
-			"http://localhost:8080/Spotify/src/assets/icons/pause_black.svg";
+			"http://localhost:81/Spotify/src/assets/icons/pause_black.svg";
 		playLagreButton.src =
-			"http://localhost:8080/Spotify/src/assets/icons/pause_small.svg";
+			"http://localhost:81/Spotify/src/assets/icons/pause_small.svg";
 		playItemButton.src =
 			"https://open.spotifycdn.com/cdn/images/equaliser-animated-green.f5eb96f2.gif";
 
 		playItemButton.onmouseover = function () {
 			playItemButton.src =
-				"http://localhost:8080/Spotify/src/assets/icons/pause_small.svg";
+				"http://localhost:81/Spotify/src/assets/icons/pause_small.svg";
 		};
 		// playItemButton.onmousedown = function() {
 		//   playItemButton.src = "https://open.spotifycdn.com/cdn/images/equaliser-animated-green.f5eb96f2.gif";
@@ -105,16 +105,16 @@ function PlayButton(playItemButton) {
 		audio.pause();
 
 		playingSong.src =
-			"http://localhost:8080/Spotify/src/assets/icons/play_black.svg";
+			"http://localhost:81/Spotify/src/assets/icons/play_black.svg";
 		playLagreButton.src =
-			"http://localhost:8080/Spotify/src/assets/icons/play_small.svg";
+			"http://localhost:81/Spotify/src/assets/icons/play_small.svg";
 		// itemSong.classList.remove("selected");
 		playItemButton.src =
-			"http://localhost:8080/Spotify/src/assets/icons/play_small.svg";
+			"http://localhost:81/Spotify/src/assets/icons/play_small.svg";
 
 		playItemButton.onmouseover = function () {
 			playItemButton.src =
-				"http://localhost:8080/Spotify/src/assets/icons/play_small.svg";
+				"http://localhost:81/Spotify/src/assets/icons/play_small.svg";
 		};
 	}
 }
@@ -163,7 +163,7 @@ function PlayingMusic(event, audioSongMusic, lyric, nameSong, nameArtist, imageP
 
 	audio.addEventListener("ended", () => {
 		playItemButton.src =
-			"http://localhost:8080/Spotify/src/assets/icons/play_small.svg";
+			"http://localhost:81/Spotify/src/assets/icons/play_small.svg";
 		if (shuffleButton.classList.contains("shuffle_active")) {
 			shuffle();
 		} else {

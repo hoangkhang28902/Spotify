@@ -13,7 +13,7 @@ likeBtns.forEach((likeBtn, index) => {
             // const elementClicked = document.getElementById('btn_like_' + likeBtn.dataset.id);
             console.log('%cヾ(・ω・)メ(・ω・)ノ Like ヾ(・ω・)メ(・ω・)ノ', "color: #f84464; font-size:20px");
             $.ajax({
-                url: "http://localhost:8080/Spotify/Playlist/like",
+                url: "http://localhost:81/Spotify/Playlist/like",
                 type: "POST",
                 data: {
                     songId: likeBtn.dataset.id,
@@ -33,7 +33,7 @@ likedBtns.forEach((likedBtn, index) => {
             // TODO
             console.log('%cヾ(・ω・)メ(・ω・)ノ Unlike ヾ(・ω・)メ(・ω・)ノ', "color: #f84464; font-size:20px");
             $.ajax({
-                url: "http://localhost:8080/Spotify/Playlist/unLike",
+                url: "http://localhost:81/Spotify/Playlist/unLike",
                 type: "POST",
                 data: {
                     songId: likedBtn.dataset.id,
@@ -53,7 +53,7 @@ function searchSong() {
   
     console.log('term ', term);
     let xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost:8080/Spotify/SeachListSong/show');
+    xhr.open('POST', 'http://localhost:81/Spotify/SeachListSong/show');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4) { 
@@ -83,7 +83,7 @@ function searchSong() {
         const pattern = /\/(\d+)$/;
         const matches = currentUrl.match(pattern);
         const lastValue = matches ? matches[1] : null;
-        xhr.open('POST', 'http://localhost:8080/Spotify/SeachListSong/show');
+        xhr.open('POST', 'http://localhost:81/Spotify/SeachListSong/show');
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   
         //
@@ -154,7 +154,7 @@ function searchSong() {
   // Hàm tạo một userplaylist mới
   
   // function createPlaylist() {
-  //   fetch('http://localhost:8080/Spotify/Home/createPlaylist', {
+  //   fetch('http://localhost:81/Spotify/Home/createPlaylist', {
   //     method: 'POST',
   //     headers: {
   //       'Content-Type': 'application/json'
@@ -175,7 +175,7 @@ function searchSong() {
   // }
   
   function createPlaylist() {
-    fetch('http://localhost:8080/Spotify/Home/createPlaylist', {
+    fetch('http://localhost:81/Spotify/Home/createPlaylist', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -213,3 +213,63 @@ function searchSong() {
   let createPlaylistBtn = document.getElementById('btn_createPlaylist');
   createPlaylistBtn.addEventListener('click', createPlaylist);
   
+
+// Hàm show thông báo 
+function showNotification() {
+  var notification = document.getElementById("notificationDel");
+  notification.style.display = "block";
+
+  var message = document.getElementById("notificationDel-message");
+  message.textContent = "Do you want delete Your Playlist ?";
+  console.log('Song ID: Khang');
+}
+
+// Định nghĩa hàm ẩn thông báo
+function hideNotification() {
+  var notification = document.getElementById("notificationDel");
+  notification.style.display = "none";
+}
+
+// Gán sự kiện click cho phần tử cha chung
+var playlistContainer = document.getElementById("Container_userplaylist");
+playlistContainer.addEventListener('click', function(event) {
+  if (event.target.classList.contains('delButton')) {
+    showNotification();
+  }
+});
+
+// Hàm xóa userplaylist
+function deletePlaylist() {
+  var currentURL = window.location.href;
+  var playlistID = currentURL.substring(currentURL.lastIndexOf('/') + 1);
+
+  var formData = new FormData();
+  formData.append('action', 'deletePlaylist');
+  formData.append('playlistID', playlistID);
+
+  fetch('http://localhost:81/Spotify/Home/deletePlaylist', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => {
+    if (response.ok) {
+      console.log('Playlist deleted successfully!');
+      location.reload();
+    } else {
+      console.error('Failed to delete playlist!');
+    }
+  })
+  .catch(error => {
+    console.error('An error occurred:', error);
+  });
+}
+
+
+let notificationDelBtnYes = document.getElementById('notificationDel-btnYes');
+notificationDelBtnYes.addEventListener('click', deletePlaylist);
+
+let notificationDelBtnNo = document.getElementById('notificationDel-btnNo');
+notificationDelBtnNo.addEventListener('click', function() {
+  location.reload();
+});
+
