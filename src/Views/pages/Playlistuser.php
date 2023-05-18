@@ -102,6 +102,6 @@
     </form>   
     </div>
 
-    <div id="song-list" style="height=200px;width: 100%;height: 100px;"></div>
+    <div id="song-list" style="height:200px;width: 100%;height: 100px;"></div>
 </div>
 

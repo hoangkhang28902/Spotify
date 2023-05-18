@@ -1,8 +1,11 @@
 <?php 
 class Profile extends Controller {
+    private $UserModel;
+
     public function __construct() {
         $this->UserModel = $this->model('User');
     }
+    
     public function index($id) {
         // Lấy danh sách người dùng từ CSDL
         $user = $this->UserModel->getUserById($id);
@@ -23,4 +26,3 @@ class Profile extends Controller {
         ]);
     }
 }
-?>

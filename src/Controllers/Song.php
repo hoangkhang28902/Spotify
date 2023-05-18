@@ -11,17 +11,45 @@ class Song extends Controller
         $this->HistorySong = $this->model('HistorySong');
     }
 
+    // function show($id)
+    // {
+    //     $arrSong = $this->songModel->getSong($id);
+    //     $likeForUser = $this->songModel;
+
+    //     $this->view('Listener/index', [
+    //         'listsong' => $arrSong,
+    //         'Page' => 'SongList',
+    //         'like' => $likeForUser,
+    //         'type' => 'Song'
+    //     ]);
+    // }
+
     function show($id)
     {
-        $arrSong = $this->songModel->getSong($id);
-        $likeForUser = $this->songModel;
+        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+            // Request AJAX
+            $arrSong = $this->songModel->getSong($id);
+            $likeForUser = $this->songModel;
 
-        $this->view('Listener/index', [
-            'listsong' => $arrSong,
-            'Page' => 'SongList',
-            'like' => $likeForUser,
-            'type' => 'Song'
-        ]);
+            $html = $this->view('pages/SongList', [
+                'listsong' => $arrSong,
+                'Page' => 'SongList',
+                'like' => $likeForUser,
+                'type' => 'Song'
+            ], true);
+            echo json_encode(['html' => $html]);
+        } else {
+            // Request normal
+            $arrSong = $this->songModel->getSong($id);
+            $likeForUser = $this->songModel;
+
+            $this->view('Listener/index', [
+                'listsong' => $arrSong,
+                'Page' => 'SongList',
+                'like' => $likeForUser,
+                'type' => 'Song'
+            ]);
+        }
     }
 
     function like()

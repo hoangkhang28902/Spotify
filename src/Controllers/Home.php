@@ -23,37 +23,105 @@ class Home extends Controller
 
     }
 
-    public function index()
+    // public function index()
+    // {
+    //     $arrSong = $this->SongModel->getSongsLimit(0, 6);
+    //     $arrArtist = $this->ArtistsModel->getArtistsLimit(0, 6);
+    //     $arrAlbum = $this->AlbumModel->getAlbumsLimit(0, 6);
+    //     $arrPlaylist = $this->PlaylistModel->getPlaylistsLimit(0, 6);
+    //     $arrPodcast = $this->PodcastModel->getPodcastsLimit(0, 6);
+
+    //     $song = $this->SongModel->getSongs();
+    //     $artist = $this->ArtistsModel->getArtists();
+    //     $album = $this->AlbumModel->getAlbums();
+    //     $playlist = $this->PlaylistModel->getPlaylists();
+    //     $podcast = $this->PodcastModel->getPodcast();
+
+    //     $historySong = $this->HistorySong->getSong(5); /// 1 => userId
+    //     $this->view('Listener/index', [
+
+    //         'song' => $song,
+    //         'artist' => $artist,
+    //         'album' => $album,
+    //         'playlist' => $playlist,
+    //         'podcast' => $podcast,
+
+    //         'arrSong' => $arrSong,
+    //         'arrArtist' => $arrArtist,
+    //         'arrAlbum' => $arrAlbum,
+    //         'arrPlaylist' => $arrPlaylist,
+    //         'arrPodcast' => $arrPodcast,
+    //         'dataHistory'   => $historySong,
+    //         'Page' => 'ContentHome'
+    //     ]);
+    // }
+
+    function index()
     {
-        $arrSong = $this->SongModel->getSongsLimit(0, 6);
-        $arrArtist = $this->ArtistsModel->getArtistsLimit(0, 6);
-        $arrAlbum = $this->AlbumModel->getAlbumsLimit(0, 6);
-        $arrPlaylist = $this->PlaylistModel->getPlaylistsLimit(0, 6);
-        $arrPodcast = $this->PodcastModel->getPodcastsLimit(0, 6);
+        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+            // Request AJAX
+            $arrSong = $this->SongModel->getSongsLimit(0, 6);
+            $arrArtist = $this->ArtistsModel->getArtistsLimit(0, 6);
+            $arrAlbum = $this->AlbumModel->getAlbumsLimit(0, 6);
+            $arrPlaylist = $this->PlaylistModel->getPlaylistsLimit(0, 6);
+            $arrPodcast = $this->PodcastModel->getPodcastsLimit(0, 6);
 
-        $song = $this->SongModel->getSongs();
-        $artist = $this->ArtistsModel->getArtists();
-        $album = $this->AlbumModel->getAlbums();
-        $playlist = $this->PlaylistModel->getPlaylists();
-        $podcast = $this->PodcastModel->getPodcast();
+            $song = $this->SongModel->getSongs();
+            $artist = $this->ArtistsModel->getArtists();
+            $album = $this->AlbumModel->getAlbums();
+            $playlist = $this->PlaylistModel->getPlaylists();
+            $podcast = $this->PodcastModel->getPodcast();
 
-        $historySong = $this->HistorySong->getSong(5); /// 1 => userId
-        $this->view('Listener/index', [
+            $historySong = $this->HistorySong->getSong(5); /// 1 => userId
+            $html = $this->view('pages/ContentHome', [
 
-            'song' => $song,
-            'artist' => $artist,
-            'album' => $album,
-            'playlist' => $playlist,
-            'podcast' => $podcast,
+                'song' => $song,
+                'artist' => $artist,
+                'album' => $album,
+                'playlist' => $playlist,
+                'podcast' => $podcast,
 
-            'arrSong' => $arrSong,
-            'arrArtist' => $arrArtist,
-            'arrAlbum' => $arrAlbum,
-            'arrPlaylist' => $arrPlaylist,
-            'arrPodcast' => $arrPodcast,
-            'dataHistory'   => $historySong,
-            'Page' => 'ContentHome'
-        ]);
+                'arrSong' => $arrSong,
+                'arrArtist' => $arrArtist,
+                'arrAlbum' => $arrAlbum,
+                'arrPlaylist' => $arrPlaylist,
+                'arrPodcast' => $arrPodcast,
+                'dataHistory'   => $historySong,
+                'Page' => 'ContentHome'
+            ], true);
+            echo json_encode(['html' => $html]);
+        } else {
+            // Request normal
+            $arrSong = $this->SongModel->getSongsLimit(0, 6);
+            $arrArtist = $this->ArtistsModel->getArtistsLimit(0, 6);
+            $arrAlbum = $this->AlbumModel->getAlbumsLimit(0, 6);
+            $arrPlaylist = $this->PlaylistModel->getPlaylistsLimit(0, 6);
+            $arrPodcast = $this->PodcastModel->getPodcastsLimit(0, 6);
+
+            $song = $this->SongModel->getSongs();
+            $artist = $this->ArtistsModel->getArtists();
+            $album = $this->AlbumModel->getAlbums();
+            $playlist = $this->PlaylistModel->getPlaylists();
+            $podcast = $this->PodcastModel->getPodcast();
+
+            $historySong = $this->HistorySong->getSong(5); /// 1 => userId
+            $this->view('Listener/index', [
+
+                'song' => $song,
+                'artist' => $artist,
+                'album' => $album,
+                'playlist' => $playlist,
+                'podcast' => $podcast,
+
+                'arrSong' => $arrSong,
+                'arrArtist' => $arrArtist,
+                'arrAlbum' => $arrAlbum,
+                'arrPlaylist' => $arrPlaylist,
+                'arrPodcast' => $arrPodcast,
+                'dataHistory'   => $historySong,
+                'Page' => 'ContentHome'
+            ]);
+        }
     }
 
     public function ShowAllSong()

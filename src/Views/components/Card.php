@@ -1,6 +1,7 @@
 <?php 
     function Card($ID, $NameOfArtist, $Artist = array(), $Thumbail, $Music, $Page) { ?>
-        <div class="card" onclick="NavPage('<?php echo $ID ?>', '<?php echo $Page ?>')">
+         <!-- <div class="card" onclick="NavPage('<?php echo $ID ?>', '<?php echo $Page ?>')"> -->
+         <div class="card" onclick="navigateTo('<?php echo PAGEROOT ?>/<?php echo $Page ?>/show/<?php echo $ID ?>')">
             <div class="cardContainer">
                 <div class="cardThumbail">
                     <div class="cardImage">

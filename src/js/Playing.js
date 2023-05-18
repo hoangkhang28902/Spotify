@@ -141,7 +141,7 @@ function Lyrics() {
 }
 
 function PlayingMusic(event, audioSongMusic, lyric, nameSong, nameArtist, imagePlaying) {
-	playItemButton = event.target;
+	let playItemButton = event.target;
 
 	const xml = new XMLHttpRequest();
 	const formdata = new FormData();

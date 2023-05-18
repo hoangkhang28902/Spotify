@@ -9,18 +9,44 @@ class Podcast extends Controller
         $this->episodeModel = $this->model('Episode');
     }
 
+    // function show($id)
+    // {
+    //     $arrPodcast = $this->podcastModel->getPodcasts($id);
+    //     $arrEpisode = $this->episodeModel->getEpisodes($id);
+
+    //     $this->view('Listener/index', [
+    //         'listsong' => $arrPodcast,
+    //         'listsongepisode' => $arrEpisode,
+    //         'Page' => 'DetailPodcast',
+    //         'type' => 'Podcast',
+    //     ]);
+    // }
+
     function show($id)
     {
-        $arrPodcast = $this->podcastModel->getPodcasts($id);
-        $arrEpisode = $this->episodeModel->getEpisodes($id);
-        
-        $this->view('Listener/index', [
-            'listsong' => $arrPodcast,
-            'listsongepisode' => $arrEpisode,
-            'Page' => 'DetailPodcast',
-            'type' => 'Podcast',
-        ]);
+        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+            // Request AJAX
+            $arrPodcast = $this->podcastModel->getPodcasts($id);
+            $arrEpisode = $this->episodeModel->getEpisodes($id);
+
+            $html = $this->view('pages/DetailPodcast', [
+                'listsong' => $arrPodcast,
+                'listsongepisode' => $arrEpisode,
+                'Page' => 'DetailPodcast',
+                'type' => 'Podcast',
+            ], true);
+            echo json_encode(['html' => $html]);
+        } else {
+            // Request normal
+            $arrPodcast = $this->podcastModel->getPodcasts($id);
+            $arrEpisode = $this->episodeModel->getEpisodes($id);
+
+            $this->view('Listener/index', [
+                'listsong' => $arrPodcast,
+                'listsongepisode' => $arrEpisode,
+                'Page' => 'DetailPodcast',
+                'type' => 'Podcast',
+            ]);
+        }
     }
-    
-    
 }

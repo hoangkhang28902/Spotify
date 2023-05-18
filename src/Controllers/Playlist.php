@@ -8,17 +8,45 @@ class Playlist extends Controller
         $this->playlistModel = $this->model('Playlist');
     }
 
+    // function show($id)
+    // {
+    //     $arrPlaylist = $this->playlistModel->getPlaylist($id);
+    //     $likeForUser = $this->playlistModel;
+
+    //     $this->view('Listener/index', [
+    //         'listsong' => $arrPlaylist,
+    //         'like' => $likeForUser,
+    //         'Page' => 'SongList',
+    //         'type' => 'Playlist'
+    //     ]);
+    // }
+
     function show($id)
     {
-        $arrPlaylist = $this->playlistModel->getPlaylist($id);
-        $likeForUser = $this->playlistModel;
+        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+            // Request AJAX
+            $arrPlaylist = $this->playlistModel->getPlaylist($id);
+            $likeForUser = $this->playlistModel;
 
-        $this->view('Listener/index', [
-            'listsong' => $arrPlaylist,
-            'like' => $likeForUser,
-            'Page' => 'SongList',
-            'type' => 'Playlist'
-        ]);
+            $html = $this->view('pages/SongList', [
+                'listsong' => $arrPlaylist,
+                'like' => $likeForUser,
+                'Page' => 'SongList',
+                'type' => 'Playlist'
+            ], true);
+            echo json_encode(['html' => $html]);
+        } else {
+            // Request normal
+            $arrPlaylist = $this->playlistModel->getPlaylist($id);
+            $likeForUser = $this->playlistModel;
+
+            $this->view('Listener/index', [
+                'listsong' => $arrPlaylist,
+                'like' => $likeForUser,
+                'Page' => 'SongList',
+                'type' => 'Playlist'
+            ]);
+        }
     }
 
     // function getLikeSong() {
@@ -31,21 +59,24 @@ class Playlist extends Controller
     //     }        
     // }
 
-    function like() {
+    function like()
+    {
         if (isset($_POST['songId'])) {
             $songId = $_POST['songId'];
             $likeSong = $this->playlistModel->reactLike(2, $songId, date('Y-m-d'));
         }
     }
 
-    function unLike() {
+    function unLike()
+    {
         if (isset($_POST['songId'])) {
             $songId = $_POST['songId'];
             $unLikeSong = $this->playlistModel->unLike(2, $songId);
-        }      
+        }
     }
 
-    function playSong() {
+    function playSong()
+    {
         if (isset($_POST['songId'])) {
             $songId = $_POST['songId'];
             $playSong = $this->playlistModel->countOfSong($songId);

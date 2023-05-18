@@ -23,8 +23,12 @@ if (!empty($data['listsong'])) :
     }
 endif;
 
+// if (empty($data['listsong'])) :
+//     echo Headers('khads', 'khads', 'khads', 'khads', 'khads', 'khads', 'khads', 'khads');
+// endif;
+
 if (empty($data['listsong'])) :
-    echo Headers('khads', 'khads', 'khads', 'khads', 'khads', 'khads', 'khads', 'khads');
+    echo Headers('My Playlist','http://localhost/Spotify/src/assets/images/Star_userPlaylist.jpg','My Playlist','','','','','','');
 endif;
 
 ?>
