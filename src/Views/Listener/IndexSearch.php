@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,7 +58,7 @@
     <script src="<?php echo URLROOT ?>/utils/ColorIdentify.js"></script>
     <script src="<?php echo URLROOT ?>/js/Playing.js"></script>
     <script src="<?php echo URLROOT ?>/js/likesong.js"></script>
-    
+
 </body>
 
 </html>

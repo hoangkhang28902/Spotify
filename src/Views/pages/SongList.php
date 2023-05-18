@@ -24,20 +24,20 @@ if (!empty($data['listsong'])) :
 endif;
 
 if (empty($data['listsong'])) :
-    echo Headers('khads','khads','khads','khads','khads','khads','khads','khads');
+    echo Headers('khads', 'khads', 'khads', 'khads', 'khads', 'khads', 'khads', 'khads');
 endif;
 
 ?>
 
 
 
-<?php include_once "./src/Views/Listener/Lyrics.php" ?> 
+<?php include_once "./src/Views/Listener/Lyrics.php" ?>
 
 <div id="containerSong" class="container-fluid p-0 lead playlist-custom">
     <div class="sticky-top bg-custom">
         <div class="p-4">
             <button type="button" class="btn rounded-pill me-4 p-3 shadow" style="background-color: rgb(31, 183, 67)">
-                <img width="28px" height="28px" id="playingLargeIcon" src="<?php echo URLROOT ?>/assets/icons/play_small.svg" >
+                <img width="28px" height="28px" id="playingLargeIcon" src="<?php echo URLROOT ?>/assets/icons/play_small.svg">
             </button>
             <button type="button" class="bg-transparent border-0 me-4">
                 <span data-bs-toggle="tooltip" data-bs-placement="top" title="Save to Your Library">
@@ -89,9 +89,9 @@ endif;
 
     <div class="px-5 py-2 list">
         <?php
-             if (isset($_SESSION['userId'])) {
-                echo $_SESSION['userId'];
-            }
+        //  if (isset($_SESSION['userId'])) {
+        //     echo $_SESSION['userId'];
+        // }
         ?>
         <?php
         include_once "./src/Views/components/SongItem.php";
@@ -99,23 +99,23 @@ endif;
             $num = 1;
             foreach ($data['listsong'] as $song) :
                 echo SongItem(
-                    $song['SongID'], 
-                    $num++, 
-                    'data:image/png;base64,' . base64_encode($song['SongImage']), 
-                    $song['SongName'], 
-                    $song['ArtistName'], 
-                    $song['AlbumName'], 
-                    $song['SongDate'], 
-                    $song['SongLength'], 
-                    $song['SongAudio'], 
+                    $song['SongID'],
+                    $num++,
+                    'data:image/png;base64,' . base64_encode($song['SongImage']),
+                    $song['SongName'],
+                    $song['ArtistName'],
+                    $song['AlbumName'],
+                    $song['SongDate'],
+                    $song['SongLength'],
+                    $song['SongAudio'],
                     $song['SongLyric'],
                     $data['like']->getLike(isset($_SESSION['userId']) ? $_SESSION['userId'] : '1'),
                 );
             endforeach;
         endif;
 
-        if(empty($data['listsong'])) :
-            echo SongItem('','','http://localhost/Spotify/src/assets/images/songadd.png','','','','','','','', '');
+        if (empty($data['listsong'])) :
+            echo SongItem('', '', 'http://localhost/Spotify/src/assets/images/songadd.png', '', '', '', '', '', '', '', '');
         endif;
 
         ?>
@@ -123,12 +123,12 @@ endif;
 </div>
 
 <div class="container_seachplaylist">
-<h1 style="
+    <h1 style="
     margin-top: 20px;
     margin-right: 30px;
     ">Recommended</h1>
-<form id="searchForm">
-<input type="text" id="searchTermValue" name="searchTerm"  style="
+    <form id="searchForm">
+        <input type="text" id="searchTermValue" name="searchTerm" style="
     margin-top: 10px;
     margin-right: 10px;
     margin-left: 30px;
@@ -137,34 +137,30 @@ endif;
     border-radius: 4px;
     width: 300px;
 ">
-  <button type="button" id="btn_seach"
-  style="
+        <button type="button" id="btn_seach" style="
     padding: 4px 8px;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  "
-  
-  
-  >Search</button>
-    </form>   
-    </div>
+  ">Search</button>
+    </form>
+</div>
 
-    <div id="song-list" style="height:200px;width: 100%;height: 100px;"></div>
+<div id="song-list" style="height:200px;width: 100%;height: 100px;"></div>
 </div>
 
 
 <div id="notification" class="alert alert-success text-center">
-  <p id="notification-message"></p>
-  <button id="notification-btn" class="btn btn-primary">OK</button>
+    <p id="notification-message"></p>
+    <button id="notification-btn" class="btn btn-primary">OK</button>
 </div>
 
 <!-- Đã thêm  -->
 
 <div id="notificationDel" class="alert alert-success text-center">
-  <p id="notificationDel-message">Do you want delete Your Playlist ?</p>
-  <button id="notificationDel-btnYes" class="btn btn-primary">Yes</button>
-  <button id="notificationDel-btnNo" class="btn btn-primary">No</button>
+    <p id="notificationDel-message">Do you want delete Your Playlist ?</p>
+    <button id="notificationDel-btnYes" class="btn btn-primary">Yes</button>
+    <button id="notificationDel-btnNo" class="btn btn-primary">No</button>
 </div>
