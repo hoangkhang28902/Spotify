@@ -19,7 +19,7 @@
             <div class="playlist_option" style="background-color: #121212;">
                 <!-- ******************************       Phần Btn Back_Next của spotify  *****************************************-->
                 <div class="btn_back_next" style="z-index: 1;">
-                    <a href="http://localhost/spotify/HomePodCast"><button class="playlist_option__btn_back"><svg role="img" height="16"
+                    <a href="http://localhost:8080/Spotify/HomePodCast"><button class="playlist_option__btn_back"><svg role="img" height="16"
                                 width="16" aria-hidden="true" class="" viewBox="0 0 16 16" data-encore-id="icon">
                                 <path
                                     d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z">

@@ -97,7 +97,7 @@ function PlayButton(playItemButton) {
 		audio.play();
 
 		$.ajax({
-			url: "http://localhost/Spotify/Playlist/playSong",
+			url: "http://localhost:8080/Spotify/Playlist/playSong",
 			type: "POST",
 			data: {
 				songId: playItemButton.dataset.id,
@@ -105,33 +105,30 @@ function PlayButton(playItemButton) {
 		});
 
 		playingSong.src =
-			"http://localhost/Spotify/src/assets/icons/pause_black.svg";
+			"http://localhost:8080/Spotify/src/assets/icons/pause_black.svg";
 		playLagreButton.src =
-			"http://localhost/Spotify/src/assets/icons/pause_small.svg";
+			"http://localhost:8080/Spotify/src/assets/icons/pause_small.svg";
 		playItemButton.src =
 			"https://open.spotifycdn.com/cdn/images/equaliser-animated-green.f5eb96f2.gif";
 
 		playItemButton.onmouseover = function () {
 			playItemButton.src =
-				"http://localhost/Spotify/src/assets/icons/pause_small.svg";
+				"http://localhost:8080/Spotify/src/assets/icons/pause_small.svg";
 		};
-		// playItemButton.onmousedown = function() {
-		//   playItemButton.src = "https://open.spotifycdn.com/cdn/images/equaliser-animated-green.f5eb96f2.gif";
-		// }
+
 	} else {
 		audio.pause();
 
 		playingSong.src =
-			"http://localhost/Spotify/src/assets/icons/play_black.svg";
+			"http://localhost:8080/Spotify/src/assets/icons/play_black.svg";
 		playLagreButton.src =
-			"http://localhost/Spotify/src/assets/icons/play_small.svg";
-		// itemSong.classList.remove("selected");
+			"http://localhost:8080/Spotify/src/assets/icons/play_small.svg";
 		playItemButton.src =
-			"http://localhost/Spotify/src/assets/icons/play_small.svg";
+			"http://localhost:8080/Spotify/src/assets/icons/play_small.svg";
 
 		playItemButton.onmouseover = function () {
 			playItemButton.src =
-				"http://localhost/Spotify/src/assets/icons/play_small.svg";
+				"http://localhost:8080/Spotify/src/assets/icons/play_small.svg";
 		};
 	}
 }
@@ -141,7 +138,8 @@ function Lyrics() {
 }
 
 function PlayingMusic(event, audioSongMusic, lyric, nameSong, nameArtist, imagePlaying) {
-	let playItemButton = event.target;
+
+	playItemButton = event.target;
 
 	const xml = new XMLHttpRequest();
 	const formdata = new FormData();
@@ -167,7 +165,9 @@ function PlayingMusic(event, audioSongMusic, lyric, nameSong, nameArtist, imageP
 
 	setInterval(setUpdate, 1000);
 
-	PlayButton(playItemButton);
+	setTimeout(() => {
+		PlayButton(playItemButton);
+	}, 1000);
 
 	audio.addEventListener("loadeddata", () => {
 		progressEl.value = 0;
@@ -176,16 +176,6 @@ function PlayingMusic(event, audioSongMusic, lyric, nameSong, nameArtist, imageP
 	audio.addEventListener("timeupdate", () => {
 		if (!mouseDownOnSlider) {
 			progressEl.value = (audio.currentTime / audio.duration) * 100;
-		}
-	});
-
-	audio.addEventListener("ended", () => {
-		playItemButton.src =
-			"http://localhost/Spotify/src/assets/icons/play_small.svg";
-		if (shuffleButton.classList.contains("shuffle_active")) {
-			shuffle();
-		} else {
-			nextSong();
 		}
 	});
 
@@ -201,14 +191,24 @@ function PlayingMusic(event, audioSongMusic, lyric, nameSong, nameArtist, imageP
 	});
 }
 
+audio.addEventListener("ended", () => {
+	playItemButton.src =
+		"http://localhost:8080/Spotify/src/assets/icons/play_small.svg";
+
+	if (shuffleButton.classList.contains("shuffle_active")) {
+		shuffleSong();
+	} else {
+		nextSong();
+	}
+});
+
 // NOTE --> Set Volume
 function setVolume() {
 	audio.volume = volumeSlider.value / 100;
 }
 
 function upAndDownVolume() {
-	console.log(enableVolumn);
-	console.log(disableVolumn);
+
 	if (audio.volume != 0) {
 		audio.volume = 0;
 		volumeSlider.value = 0;
@@ -226,17 +226,40 @@ function upAndDownVolume() {
 function nextSong() {
 	let next;
 
+	console.log('prev ->', playItemButton.dataset.id);
+
 	for (let i = 0; i < playButton.length; i++) {
 
-		if (playButton[i] == playItemButton && i < playButton.length - 1) {
+		if (playButton[i] == playItemButton) {
 			next = playButton[i + 1];
 			break;
 		}
 	}
 
+	console.log('next --> ', next.dataset.id);
+
 	next.click();
 
 	console.log('%cヾ(・ω・)メ(・ω・)ノ Next Song ヾ(・ω・)メ(・ω・)ノ', "color: #f84464; font-size:20px");
+}
+
+function shuffleSong() {
+	let shuffle;
+
+	if (shuffleButton.classList.contains("shuffle_active")) {
+
+		console.log('%cヾ(・ω・)メ(・ω・)ノ Shuffle Song Enable ヾ(・ω・)メ(・ω・)ノ', "color: #f84464; font-size:20px");
+
+		for (let i = 0; i < playButton.length; i++) {
+
+			if (playButton[i] == playItemButton) {
+				shuffle = playButton[Math.floor(Math.random() * (playButton.length + 1))];
+				break;
+			}
+		}
+
+		shuffle.click();
+	}	
 }
 
 function shuffle() {
@@ -250,7 +273,7 @@ function shuffle() {
 
 		for (let i = 0; i < playButton.length; i++) {
 
-			if (playButton[i] == playItemButton && i < playButton.length - 1) {
+			if (playButton[i] == playItemButton) {
 				shuffle = playButton[Math.floor(Math.random() * (playButton.length + 1))];
 				break;
 			}
@@ -262,10 +285,12 @@ function shuffle() {
 }
 
 function previousSong() {
+
 	let previous;
 
+
 	for (let i = 0; i < playButton.length; i++) {
-		if (playButton[i] == playItemButton && i < playButton.length - 1) {
+		if (playButton[i] == playItemButton) {
 			previous = playButton[i - 1];
 			break;
 		}
@@ -276,20 +301,55 @@ function previousSong() {
 	console.log('%cヾ(・ω・)メ(・ω・)ノ Previous Song ヾ(・ω・)メ(・ω・)ノ', "color: #f84464; font-size:20px");
 }
 
-function loopSong() {
+// -------------- Loop Song ---------------- //
+	let state = 1;
+	let loopButton = document.querySelector('#loopSong img');
 
-	if (audio.loop) {
-		audio.loop = false;
-		$("#loopSong").find("svg path").css("fill", "")
+	$('#loopSong').bind('click', function() {
+		if (state == 1) {
+			console.log('%cヾ(・ω・)メ(・ω・)ノ Loop All Song ヾ(・ω・)メ(・ω・)ノ', "color: #f84464; font-size:20px");
 
-		console.log('Function Loop Song is DISABLE');
-	} else {
-		audio.loop = true;
-		$("#loopSong").find("svg path").css("fill", "#2d5")
+			if (audio.loop) {
+				audio.loop = false;
+			}
 
-		console.log('%cヾ(・ω・)メ(・ω・)ノ Loop Song ヾ(・ω・)メ(・ω・)ノ', "color: #f84464; font-size:20px");
-	}
-}
+			audio.addEventListener("ended", () => {
+				if (playButton[playButton.length - 1] == playItemButton && audio.ended) {
+					playButton[0].click();
+				}
+			});
+
+			loopButton.src = "http://localhost:8080/Spotify/src/assets/icons/loopAllSong.svg";
+			state = 2;
+		} else if (state == 2) {
+			console.log('%cヾ(・ω・)メ(・ω・)ノ Loop One Song ヾ(・ω・)メ(・ω・)ノ', "color: #f84464; font-size:20px");
+
+			audio.loop = true;
+			loopButton.src = "http://localhost:8080/Spotify/src/assets/icons/loopOneSong.svg";
+			state = 3;
+		} else if (state == 3) {
+			console.log('%cヾ(・ω・)メ(・ω・)ノ Disable Loop Song ヾ(・ω・)メ(・ω・)ノ', "color: #f84464; font-size:20px");
+
+			if (audio.loop) {
+				audio.loop = false;
+			}
+
+			loopButton.src = "http://localhost:8080/Spotify/src/assets/icons/loopSong.svg";
+			state = 1;
+		}
+	})
+
+	// if (audio.loop) {
+	// 	audio.loop = false;
+	// 	$("#loopSong").find("svg path").css("fill", "")
+
+	// 	console.log('Function Loop Song is DISABLE');
+	// } else {
+	// 	audio.loop = true;
+	// 	$("#loopSong").find("svg path").css("fill", "#2d5")
+
+	// 	console.log('%cヾ(・ω・)メ(・ω・)ノ Loop Song ヾ(・ω・)メ(・ω・)ノ', "color: #f84464; font-size:20px");
+	// }
 
 function setUpdate() {
 	let seekPosition = 0;

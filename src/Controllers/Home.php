@@ -289,7 +289,7 @@ class Home extends Controller
 
         $html = '';
         for ($i = 0; $i < $totalPlaylist; $i++) {
-            // $html .= '<a href="http://localhost/Spotify/Playlist/show/' . $playlistIDs[$i] . '"><button>
+            // $html .= '<a href="http://localhost:8080/Spotify/Playlist/show/' . $playlistIDs[$i] . '"><button>
             //               <div class="containerNavListIcon ">
             //                   <div>
             //                   <svg style="
@@ -301,7 +301,7 @@ class Home extends Controller
             //               <span class="number_userplaylist">' . ($i+1) . '</span>
             //               </button></a>';
             $html .= '<div class="playlist-item">
-            <a href="http://localhost/Spotify/Playlist/show/' . $playlistIDs[$i] . '">
+            <a href="http://localhost:8080/Spotify/Playlist/show/' . $playlistIDs[$i] . '">
               <button>
                 <div class="containerNavListIcon">
                   <div>
@@ -340,7 +340,7 @@ class Home extends Controller
         require_once './src/Models/Playlist.php';
         $playlistModel = new PlaylistModel();
         $html = '';
-        $html .= '<a href="http://localhost/Spotify/LikeSong/show/' . $userID . '"><button>
+        $html .= '<a href="http://localhost:8080/Spotify/LikeSong/show/' . $userID . '"><button>
         <div class="containerNavListIcon iconLikeSongs">
             <div>
                 <svg role="img" height="12" width="12" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon" class="Svg-sc-ytk21e-0 gQUQL"><path fill="white" d="M15.724 4.22A4.313 4.313 0 0 0 12.192.814a4.269 4.269 0 0 0-3.622 1.13.837.837 0 0 1-1.14 0 4.272 4.272 0 0 0-6.21 5.855l5.916 7.05a1.128 1.128 0 0 0 1.727 0l5.916-7.05a4.228 4.228 0 0 0 .945-3.577z"></path></svg>

@@ -2,10 +2,18 @@
 class Playlist extends Controller
 {
     private $playlistModel;
+    private $userId;
 
     function __construct()
     {
         $this->playlistModel = $this->model('Playlist');
+
+        if (isset($_SESSION['user'])) {
+            $this->userId = $_SESSION['user'][0]['UserID'];
+        } else {
+            $this->userId = 1;
+        }
+
     }
 
     // function show($id)
@@ -63,7 +71,7 @@ class Playlist extends Controller
     {
         if (isset($_POST['songId'])) {
             $songId = $_POST['songId'];
-            $likeSong = $this->playlistModel->reactLike(2, $songId, date('Y-m-d'));
+            $likeSong = $this->playlistModel->reactLike($this->userId, $songId, date('Y-m-d'));
         }
     }
 
@@ -71,7 +79,7 @@ class Playlist extends Controller
     {
         if (isset($_POST['songId'])) {
             $songId = $_POST['songId'];
-            $unLikeSong = $this->playlistModel->unLike(2, $songId);
+            $unLikeSong = $this->playlistModel->unLike($this->userId, $songId);
         }
     }
 

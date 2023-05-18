@@ -14,7 +14,7 @@ likeBtns.forEach((likeBtn, index) => {
 			// const elementClicked = document.getElementById('btn_like_' + likeBtn.dataset.id);
 			console.log('%cヾ(・ω・)メ(・ω・)ノ Like ヾ(・ω・)メ(・ω・)ノ', "color: #f84464; font-size:20px");
 			$.ajax({
-				url: "http://localhost/Spotify/Playlist/like",
+				url: "http://localhost:8080/Spotify/Playlist/like",
 				type: "POST",
 				data: {
 					songId: likeBtn.dataset.id,
@@ -34,7 +34,7 @@ likedBtns.forEach((likedBtn, index) => {
 			// TODO
 			console.log('%cヾ(・ω・)メ(・ω・)ノ Unlike ヾ(・ω・)メ(・ω・)ノ', "color: #f84464; font-size:20px");
 			$.ajax({
-				url: "http://localhost/Spotify/Playlist/unLike",
+				url: "http://localhost:8080/Spotify/Playlist/unLike",
 				type: "POST",
 				data: {
 					songId: likedBtn.dataset.id,
@@ -49,7 +49,7 @@ likedBtns.forEach((likedBtn, index) => {
 // 	const dataId = userIdItem.dataset.id.split(', ');
 
 // 	$.ajax({
-// 		url: "http://localhost/Spotify/Playlist/getLikeSong",
+// 		url: "http://localhost:8080/Spotify/Playlist/getLikeSong",
 // 		type: "POST",
 // 		data: {
 // 			userId: dataId[0]
@@ -82,7 +82,7 @@ function searchSong() {
   
     console.log('term ', term);
     let xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost/Spotify/SeachListSong/show');
+    xhr.open('POST', 'http://localhost:8080/Spotify/SeachListSong/show');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4) { 
@@ -112,7 +112,7 @@ function searchSong() {
         const pattern = /\/(\d+)$/;
         const matches = currentUrl.match(pattern);
         const lastValue = matches ? matches[1] : null;
-        xhr.open('POST', 'http://localhost/Spotify/SeachListSong/show');
+        xhr.open('POST', 'http://localhost:8080/Spotify/SeachListSong/show');
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   
         //
@@ -183,7 +183,7 @@ function searchSong() {
   // Hàm tạo một userplaylist mới
   
   // function createPlaylist() {
-  //   fetch('http://localhost/Spotify/Home/createPlaylist', {
+  //   fetch('http://localhost:8080/Spotify/Home/createPlaylist', {
   //     method: 'POST',
   //     headers: {
   //       'Content-Type': 'application/json'
@@ -204,7 +204,7 @@ function searchSong() {
   // }
   
   function createPlaylist() {
-    fetch('http://localhost/Spotify/Home/createPlaylist', {
+    fetch('http://localhost:8080/Spotify/Home/createPlaylist', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -278,7 +278,7 @@ function deletePlaylist() {
   formData.append('action', 'deletePlaylist');
   formData.append('playlistID', playlistID);
 
-  fetch('http://localhost/Spotify/Home/deletePlaylist', {
+  fetch('http://localhost:8080/Spotify/Home/deletePlaylist', {
     method: 'POST',
     body: formData
   })

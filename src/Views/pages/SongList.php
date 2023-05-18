@@ -28,7 +28,7 @@ endif;
 // endif;
 
 if (empty($data['listsong'])) :
-    echo Headers('My Playlist','http://localhost/Spotify/src/assets/images/Star_userPlaylist.jpg','My Playlist','','','','','','');
+    echo Headers('My Playlist','http://localhost:8080/Spotify/src/assets/images/Star_userPlaylist.jpg','My Playlist','','','','','','');
 endif;
 
 ?>
@@ -119,7 +119,7 @@ endif;
         endif;
 
         if (empty($data['listsong'])) :
-            echo SongItem('', '', 'http://localhost/Spotify/src/assets/images/songadd.png', '', '', '', '', '', '', '', '');
+            echo SongItem('', '', 'http://localhost:8080/Spotify/src/assets/images/songadd.png', '', '', '', '', '', '', '', '');
         endif;
 
         ?>
